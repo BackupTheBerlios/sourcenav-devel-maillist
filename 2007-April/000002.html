@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [PATCH] Forward and Back Button Behaviour in Grep Pane
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20Forward%20and%20Back%20Button%20Behaviour%20in%20Grep%20Pane&In-Reply-To=%3C5d445ea0704160652l7af58a4bm5e4b3430fc2bc49b%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [PATCH] Forward and Back Button Behaviour in Grep Pane</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20Forward%20and%20Back%20Button%20Behaviour%20in%20Grep%20Pane&In-Reply-To=%3C5d445ea0704160652l7af58a4bm5e4b3430fc2bc49b%40mail.gmail.com%3E"
+       TITLE="[SN-devel] [PATCH] Forward and Back Button Behaviour in Grep Pane">mark.thornber at gmail.com
+       </A><BR>
+    <I>Mon Apr 16 15:52:06 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[SN-devel] [PATCH] Better Integration of Clearcase with Version	Control API
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[SN-devel] [PATCH] Diff window Prev and Next button behaviour
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The &lt; and &gt; buttons do not work as expected immediately after Search
+button is pressed.
+
+The &gt; button takes highlight to the last entry in list, not first.
+Next press takes to first in list and then behaviour is as expected.
+
+The &lt; button takes highlight to the first entry in list, not last.
+Further presses do nothing.  Subsequent &gt; button presses also do
+nothing until the number of presses of &gt; match the number of presses
+of &lt; and then both buttons work as expected.
+
+(It's always possible to get out of the 'funny' state by selecting an
+entry in the list explicitly with the mouse).
+
+Attached patch fixes problem.
+Search &gt; highlights first entry in list
+Search &lt; highlights last entry in list
+
+-- 
+Mark Thornber
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sn-greppane.tgz
+Type: application/x-gzip
+Size: 882 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20070416/2a17bd5e/attachment.bin">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20070416/2a17bd5e/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[SN-devel] [PATCH] Better Integration of Clearcase with Version	Control API
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[SN-devel] [PATCH] Diff window Prev and Next button behaviour
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

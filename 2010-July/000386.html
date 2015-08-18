@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Patch fixing TK bug (missing maximize buttons)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Patch%20fixing%20TK%20bug%20%28missing%20maximize%20buttons%29&In-Reply-To=%3C4C33D05F.7010508%40scheibli.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000387.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Patch fixing TK bug (missing maximize buttons)</H1>
+    <B>Daniel Scheibli</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Patch%20fixing%20TK%20bug%20%28missing%20maximize%20buttons%29&In-Reply-To=%3C4C33D05F.7010508%40scheibli.com%3E"
+       TITLE="[SN-devel] Patch fixing TK bug (missing maximize buttons)">daniel at scheibli.com
+       </A><BR>
+    <I>Wed Jul  7 02:54:55 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000387.html">[SN-devel] Patch fixing TK bug (missing maximize buttons)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#386">[ date ]</a>
+              <a href="thread.html#386">[ thread ]</a>
+              <a href="subject.html#386">[ subject ]</a>
+              <a href="author.html#386">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Freek,
+Hi Mark,
+
+please find attached a patch for fixing a bug in our TK version
+which causes the maximize button to be missing in KDE/KWin based
+environments. It applies to NG4.2.
+
+- Problem -
+Running Source Navigator NG4.2 (and older for that matter) on a
+recent KDE/Kwin based system (in my case an up to date Debian Lenny
+on a i386 box), all Source Navigator NG windows have no &quot;maximize&quot;
+title bar button; only &quot;minimize&quot; and &quot;close&quot; are available.
+
+According to [1][2] the issue was fixed with TK 8.4.6, but given
+Source Navigator NG brings it's own TK version (based on TK 8.3.2),
+changes have to be applied accordingly.
+
+- Solution -
+The patch provided in the TK bug tracker [3] has been back-ported
+in order to apply to the older TK version shipped and used by
+Source Navigator NG.
+
+Best Regards,
+Daniel
+
+
+[1] <A HREF="http://bugs.kde.org/show_bug.cgi?id=67577">http://bugs.kde.org/show_bug.cgi?id=67577</A>
+[2] <A HREF="http://bugs.gentoo.org/show_bug.cgi?id=56229">http://bugs.gentoo.org/show_bug.cgi?id=56229</A>
+[2] <A HREF="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=915350&amp;group_id=12997&amp;atid=112997">http://sourceforge.net/tracker/index.php?func=detail&amp;aid=915350&amp;group_id=12997&amp;atid=112997</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sourcenavigator-NG4.2-TkMaximizeBug.patch
+Type: text/x-patch
+Size: 861 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100707/60cf8e0f/attachment.bin">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100707/60cf8e0f/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000387.html">[SN-devel] Patch fixing TK bug (missing maximize buttons)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#386">[ date ]</a>
+              <a href="thread.html#386">[ thread ]</a>
+              <a href="subject.html#386">[ subject ]</a>
+              <a href="author.html#386">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

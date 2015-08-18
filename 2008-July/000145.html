@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Routine references are not cross referenced
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Routine%20references%20are%20not%20cross%20referenced&In-Reply-To=%3CB095CECB368F0946BF407966E809C3540FF47429%40MAEXCEVS2.ets.enterasys.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000144.html">
+   <LINK REL="Next"  HREF="000146.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Routine references are not cross referenced</H1>
+    <B>Garrod, David</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Routine%20references%20are%20not%20cross%20referenced&In-Reply-To=%3CB095CECB368F0946BF407966E809C3540FF47429%40MAEXCEVS2.ets.enterasys.com%3E"
+       TITLE="[SN-devel] Routine references are not cross referenced">dgarrod at enterasys.com
+       </A><BR>
+    <I>Thu Jul 24 21:00:11 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000144.html">[SN-devel] derived from inner class
+</A></li>
+        <LI>Next message: <A HREF="000146.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Re:
+
+&gt;<i> If you're talking about function pointers and the like, then - yes.
+</I>&gt;<i>
+</I>&gt;<i> Can you maybe provide a small .c program which we can parse in SN and
+</I>&gt;<i> check for the exact problem you have? That would be most helpful!
+</I>
+Yes it is function pointers I'm talking about. At the end of this reply is an example.
+If I go into XREF for b1() it shows it is called from a(). But it does not show that
+b2() is called from a. Instead it invents thing UD thing called b2 in the context of a()
+Going to the XREF of b2() says that b2(fu) has NO referred by references.
+
+Interesting enough if I look at the call graph of a() I get:
+
+a(fu) &lt;-- r main(fu)
+        --&gt; r b0(fu)
+        --&gt; r b1(fu)
+        --&gt; r b2(ud)
+        --&gt; rw b2P(gv)
+
+Why can't SN work out that the b2 referenced in a() is the function b2() defined
+in b.c?
+
+If it did then b2(fu) would have a &quot;referred by&quot; reference. Instead there is this
+Undefined b2(ud) in a() that is an orphan.
+
+sting:~/tmp% cat a.c
+#include &quot;b.h&quot;
+
+static void a(int p);
+
+void (*b2P)(int p);
+
+int main(int argc, char *argv[])
+{
+    a(42);
+}
+
+void a(int p)
+{
+    b2P = b2;
+    b0(0);
+    b1(1);
+    b2P(2);
+}
+sting:~/tmp% cat b.h
+void b0(int p);
+void b1(int p);
+void b2(int p);
+sting:~/tmp% cat b.c
+#include &quot;b.h&quot;
+
+static void b11(int p);
+static void b22(int p);
+
+void b0(int p)
+{
+    return;
+}
+
+void b1(int p)
+{
+    b11(5);
+}
+
+void b2(int p)
+{
+    b22(7);
+    return;
+}
+
+static void b11(int p)
+{
+    return;
+}
+
+static void b22(int p)
+{
+    return;
+}
+sting:~/tmp% gcc -g -c -o a.o a.c ; gcc -g -c -o b.o b.c ; gcc -g -o a a.o b.o
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000144.html">[SN-devel] derived from inner class
+</A></li>
+	<LI>Next message: <A HREF="000146.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

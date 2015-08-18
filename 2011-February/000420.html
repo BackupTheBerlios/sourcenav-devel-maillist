@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Source Navigator NG4.3 has been released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG4.3%20has%20been%20released&In-Reply-To=%3CAANLkTik%3Dc%2Bqf0p9FGv1ROa1TLaYJx7yGwzLTUazJ%3D3Zb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000419.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Source Navigator NG4.3 has been released</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG4.3%20has%20been%20released&In-Reply-To=%3CAANLkTik%3Dc%2Bqf0p9FGv1ROa1TLaYJx7yGwzLTUazJ%3D3Zb%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Source Navigator NG4.3 has been released">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Feb 17 21:31:13 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000419.html">[SN-devel] skip list vs include list
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+Source Navigator NG4.3 has been released. It is the continuation of
+the very stable NG4 series and took just about 11 months of
+development.
+
+
+Fixes:
+
+- Fix greppane to edit jump, when line contains multiple &quot;:&quot;
+The grep output line was split in a very wrong way (bad regexps),
+which confused SN's jump to line feature. The regexp has been
+rewritten, and now at least &quot;:&quot; won't confuse SN anymore.
+Thanks to Markus Magnusson for reporting and testing.
+- Fix snpdbg startup on win32 (the SN Parser DeBuGger)
+- Fix missing maximize buttons, which seems to only manifest in KDE &gt;
+3.1.x or similar desktop environments
+
+
+Enhancements:
+
+- Sort startup project selection list alphanumerically, instead of
+recently used.
+- DB4 was updated from 4.6.x to 4.8.30, which is the latest version
+before Oracle renamed it in their weird 11x style. This should help
+performance a little bit as well as certain non-optimal behaviour in
+certain corner cases.
+- DB4 's version is now displayed on startup.
+- Include &quot;dbcompact&quot;, a database optimization (&quot;compaction&quot;) utility
+for db4 databases.
+It will call db4's db-&gt;compact() function which moves database pages,
+optimizes the btree, and reorganizes free space so that free
+pages/space can be returned to the file system.
+Here's a short example on SN's trunk source:
+
+#&gt; du -sk SNDB4/
+223576  total
+
+#&gt; dbcompact SNDB4/*
+
+#&gt; du -sk SNDB4/
+138932  total
+
+dbcompact can speed up long-used SN db files which have been rewritten
+again and again through file saves or refreshes, where performance can
+decline over time due to a highly fragmented tree.
+dbcompact can be found in the $SN/libexec/snavigator directory.
+
+Regressions:
+
+- The Java parser seemingly has an acute case of bitrot; it will no
+longer function properly.
+Esp. recent (1.5, 1.6) Java source code seems to trigger these bugs hard.
+- On OS X, SN will crash on project creation (well known
+malloc()/free() problem):
+hyper(89427) malloc: *** error for object 0x7fff5fbff958: pointer
+being freed was not allocated
+
+Up until now we were unable to even fix the worst problems here.
+
+
+Obtaining SN NG:
+
+SVN people can switch to (or checkout) the following URL:
+<A HREF="https://svn.berlios.de/svnroot/repos/sourcenav/tags/SN-NG4.3">https://svn.berlios.de/svnroot/repos/sourcenav/tags/SN-NG4.3</A>
+
+Tarballs and binary builds may follow in the next couple of days here:
+<A HREF="http://developer.berlios.de/project/showfiles.php?group_id=8334">http://developer.berlios.de/project/showfiles.php?group_id=8334</A>
+
+As always - we're still looking for help and volunteers. I'm
+desperately looking for a win32 guy who can help me build and test
+under win32.
+Mark also reported a few problems under  win7, so if you can help out
+there please drop a mail.
+
+Cheers,
+Freek
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000419.html">[SN-devel] skip list vs include list
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Bugs in NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C5d445ea0804300808x3262fe3du609891ca1ab31aa5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000107.html">
+   <LINK REL="Next"  HREF="000109.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Bugs in NG3</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C5d445ea0804300808x3262fe3du609891ca1ab31aa5%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Bugs in NG3">mark.thornber at gmail.com
+       </A><BR>
+    <I>Wed Apr 30 17:08:06 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000107.html">[SN-devel] Bugs in NG3
+</A></li>
+        <LI>Next message: <A HREF="000109.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2008/4/30 Peter Dons Tychsen &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">donpedro at tdcadsl.dk</A>&gt;:
+&gt;<i> Hi John.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  &gt; &gt;From the message you describe, you might be on a windows box? The stuff I worked on knows nothing about checking for ownership on windows. It would be pretty easy to change the popup into a question asking if you want to override the lock.
+</I>&gt;<i>  No. Even after a complete reboot the lock was still held.
+</I>&gt;<i>  So i am guessing it is not an fs lock which is blocking it, but a custom
+</I>&gt;<i>  locking scheme for SN. Maybe a value in the project file?
+</I>&gt;<i>  I would have preferred a normal lock, as it would then be resolved by
+</I>&gt;<i>  just killing the process holding it.
+</I>&gt;<i>
+</I>&gt;<i>  Maybe the solution is to just use normal file locking and drop any
+</I>&gt;<i>  custom locks?
+</I>This sounds like the 'standard' project lock problem.  I'll have to
+dig into my notes but there is a sn-specific file that indicates the
+project is open somewhere.  That file just needs `rm`ing.
+
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000107.html">[SN-devel] Bugs in NG3
+</A></li>
+	<LI>Next message: <A HREF="000109.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

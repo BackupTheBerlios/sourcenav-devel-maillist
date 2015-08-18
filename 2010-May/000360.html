@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Problems running sourcenav 6.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Problems%20running%20sourcenav%206.0&In-Reply-To=%3Cw2i5c623cd31005040215t4e4ee77drb1b4310a5c7c96e4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000365.html">
+   <LINK REL="Next"  HREF="000361.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Problems running sourcenav 6.0</H1>
+    <B>Gheorghe Marinca</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Problems%20running%20sourcenav%206.0&In-Reply-To=%3Cw2i5c623cd31005040215t4e4ee77drb1b4310a5c7c96e4%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Problems running sourcenav 6.0">gheorghe.marinca at googlemail.com
+       </A><BR>
+    <I>Tue May  4 11:15:44 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000365.html">[SN-devel] Debugging...
+</A></li>
+        <LI>Next message: <A HREF="000361.html">[SN-devel] Problems running sourcenav 6.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#360">[ date ]</a>
+              <a href="thread.html#360">[ thread ]</a>
+              <a href="subject.html#360">[ subject ]</a>
+              <a href="author.html#360">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've been tryng to launch sourcenav-6.0 but get these error at launch:
+
+&quot;~$ Can't find a usable tk.tcl in the following directories:
+    /opt/sourcenav/share/tk8.3
+
+/opt/sourcenav/share/tk8.3/tk.tcl: no event type or button # or keysym
+no event type or button # or keysym
+    while executing
+&quot;bind Listbox &lt;MouseWheel&gt; {
+    %W yview scroll [expr {- (%D / 120) * 4}] units
+}&quot;
+    (file &quot;/opt/sourcenav/share/tk8.3/listbox.tcl&quot; line 182)
+    invoked from within
+&quot;source [file join $tk_library listbox.tcl]&quot;
+    invoked from within
+&quot;if {[string compare $tcl_platform(platform) &quot;macintosh&quot;] &amp;&amp; \
+    [string compare {} $tk_library]} {
+    source [file join $tk_library button.tcl]
+    so...&quot;
+    (file &quot;/opt/sourcenav/share/tk8.3/tk.tcl&quot; line 308)
+    invoked from within
+&quot;source /opt/sourcenav/share/tk8.3/tk.tcl&quot;
+    (&quot;uplevel&quot; body line 1)
+    invoked from within
+&quot;uplevel \#0 [list source $file]&quot;
+
+
+This probably means that tk wasn't installed properly.
+
+^C
+[1]+  Exit 2                  /opt/sourcenav/bin/snavigator&quot;
+
+
+I have installed as it was suggesting the following packages: tk8.3,8.4,8.6
+(on my ubuntu machine)
+Also is there any chance to see a deb package for 6.0 (as it was before for
+4x) ?
+Thanks,
+-Ghita
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100504/cb5bc5f7/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100504/cb5bc5f7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000365.html">[SN-devel] Debugging...
+</A></li>
+	<LI>Next message: <A HREF="000361.html">[SN-devel] Problems running sourcenav 6.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#360">[ date ]</a>
+              <a href="thread.html#360">[ thread ]</a>
+              <a href="subject.html#360">[ subject ]</a>
+              <a href="author.html#360">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

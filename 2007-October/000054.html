@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024123333.3e746876.Peeter.Vois%40proekspert.ee%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000055.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Peeter Vois</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024123333.3e746876.Peeter.Vois%40proekspert.ee%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">Peeter.Vois at proekspert.ee
+       </A><BR>
+    <I>Wed Oct 24 11:33:33 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000055.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I was able to build this package with FC7.
+
+I was trying to compile it for HPUX with my snmake.sh script. I had to modify it a little ofcourse, but I was not successful. The first problem was that db4/dist/configure was using cc command instead of gcc. I changed it with environment variable CC=&quot;gcc&quot;. This cured the issue. Then I get such messages:
+
+configure:3594: gcc -qlanglvl=ansi -c -g -D_REENTRANT conftest.c &gt;&amp;5
+gcc: unrecognized option '-langlvl=ansi'
+In file included from /usr/local/hplx/include/stdio.h:31
+	from configure:3552:
+/usr/local/hplx/include/hp_include/stdio.h:593: parse error before &quot;__size_t&quot;
+
+but there appears nothing to be wrong... The gcc -v tells that the gcc version is 3.2. Might this be a problem?
+
+Best Regards
+/Peeter
+
+On Wed, 26 Sep 2007 19:44:43 +0000
+Aurelian Melinte &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">ame01 at gmx.net</A>&gt; wrote:
+
+&gt;<i> At 04:16 PM 9/26/2007 +0200, you wrote:
+</I>&gt;<i> &gt;Phew. I did take me a lot of additional manual hacking to get your
+</I>&gt;<i> &gt;hacked sources to compile on my RHEL/4.5 box.
+</I>&gt;<i> &gt;Anyhow, I also tracked down the SEGVs.
+</I>&gt;<i> &gt;...
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt;Mark &amp; me now have to see whether and how we can integrate your work.
+</I>&gt;<i> &gt;Benchmarks have also to be performed.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks :) Take a look at <A HREF="http://www.freeshells.ch/~amelinte/sn.html">http://www.freeshells.ch/~amelinte/sn.html</A>
+</I>&gt;<i> I have uploaded there sources that should compile out of the box Linux &amp; Windows.  There is a directory with patches in there - might help you asses the modifications in case you decide to go with db4. Performance speaking - I perceive it as being slower but I have enabled some db4 runtime checks. Even so, in the end I would expect it to be slower as there is additional complexity in db4. 
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i> e.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000055.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

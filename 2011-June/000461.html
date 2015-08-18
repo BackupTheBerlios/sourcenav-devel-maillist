@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20New%20feature%3A%20Xref%20pane%2C%20Remove%20Subnode%2C%0A%09Refers%20To/By%20only&In-Reply-To=%3CBANLkTikf4S%2BtX5iccp_xs5daRbZiqv8_Pw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000460.html">
+   <LINK REL="Next"  HREF="000462.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20New%20feature%3A%20Xref%20pane%2C%20Remove%20Subnode%2C%0A%09Refers%20To/By%20only&In-Reply-To=%3CBANLkTikf4S%2BtX5iccp_xs5daRbZiqv8_Pw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only">montaseri at gmail.com
+       </A><BR>
+    <I>Wed Jun  1 09:11:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000460.html">[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only
+</A></li>
+        <LI>Next message: <A HREF="000462.html">[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#461">[ date ]</a>
+              <a href="thread.html#461">[ thread ]</a>
+              <a href="subject.html#461">[ subject ]</a>
+              <a href="author.html#461">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Freek,
+
+I think I have something...
+
+- I figured out that the light blue bgcolor of include.xpm is '#7aa0d0'
+- I figured out  that the green bgcolor of tilda_left.xpm is '#71BF70'
+- I used convert(1) to replace green with blue as in
+
+convert  -fill '#7aa0d0' -opaque '#71bf70'  tilda_left.xpm
+new_tilda_left.xpm
+
+convert(1) is part of ImageMagick RPM.
+
+The ImageMagic package  has a command called display(1). You can use this or
+gimp(1) to figure out the color RGB code...the rest is done by above
+convert(1).
+
+1- bash $&gt;  display include.xpm
+2- A tiny icon is displayed, click on it, a menu is displayed
+3- Navigate to  Image Edit &gt; Color ...
+4- Click on Pixel Color , a color selection pane is displayed
+5- Click on Grab, click on a region of an image, the color code is displayed
+
+Cheers
+Medi
+
+
+On Tue, May 31, 2011 at 3:05 PM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> &gt; What are the name of the icon files...maybe I can help...I have the SVN
+</I>&gt;<i> source tree
+</I>&gt;<i>
+</I>&gt;<i> sn-trunk/snavigator/bitmaps/ -&gt; tilda_left.xpm and tilda_right.xpm
+</I>&gt;<i>
+</I>&gt;<i> Something along the lines of &quot;include.xpm&quot; style-wise would be nice, I
+</I>&gt;<i> think. Our colours are blue + orange for the &quot;highlighted items&quot;.
+</I>&gt;<i> If you have something just send it over, Medi, and we'll decide.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110601/a7247229/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110601/a7247229/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000460.html">[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only
+</A></li>
+	<LI>Next message: <A HREF="000462.html">[SN-devel] New feature: Xref pane, Remove Subnode,	Refers To/By only
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#461">[ date ]</a>
+              <a href="thread.html#461">[ thread ]</a>
+              <a href="subject.html#461">[ subject ]</a>
+              <a href="author.html#461">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Feature request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C1179750035.16601.34.camel%40jhereg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000032.html">
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Feature request</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C1179750035.16601.34.camel%40jhereg%3E"
+       TITLE="[SN-devel] Feature request">Reid.Thompson at ateb.com
+       </A><BR>
+    <I>Mon May 21 14:20:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000032.html">[SN-devel] Feature request
+</A></li>
+        <LI>Next message: <A HREF="000035.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 2007-05-19 at 21:34 +0200, Freek wrote:
+&gt;<i> &gt; &gt; Before I get to the request - thanks for the updates to SN.  It's a
+</I>&gt;<i> &gt; &gt; great tool and deserves a bright future.  It has proven to be for me,
+</I>&gt;<i> &gt; &gt; the best/quickest way to understand application code flow.
+</I>&gt;<i> 
+</I>&gt;<i> Thank you, your praise is highly regarded. Things like these keep us going.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; &gt;   Per the application's name, I use SN extensively to navigate through
+</I>&gt;<i> &gt; &gt; code.  However, I perform all of my editing in [g]vim.  I would like to
+</I>&gt;<i> &gt; &gt; request that someone who has a good understanding of the SN code
+</I>&gt;<i> &gt; &gt; implement a right click menu option for editorpane.tcl that would open
+</I>&gt;<i> &gt; &gt; the current file in 'an editor of choice' and that would recognize when
+</I>&gt;<i> &gt; &gt; the file has been changed and update it in editorpane.tcl.
+</I>&gt;<i> 
+</I>&gt;<i> Very good idea - I was thinking of the same thing years ago.
+</I>&gt;<i> To get it right, we might add some printf-style substitutions, as in
+</I>&gt;<i> 
+</I>&gt;<i> editor-args=&quot;-l %l,%c&quot;
+</I>&gt;<i> (%l = line, %c = col)
+</I>&gt;<i> 
+</I>&gt;<i> Also some integration into the preferences stuff is needed (text:
+</I>&gt;<i> avourite editor, text: editor args, checkbox: show &quot;edit in external
+</I>&gt;<i> editor&quot; in context menu). I might look into it on my lazy sunday
+</I>&gt;<i> afternoon.
+</I>&gt;<i> 
+</I>&gt;<i> If you have some code, could you please send the patch? We could use
+</I>&gt;<i> it as a basis.
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>Attached is what I've implemented.  For the most part, it's a yank and
+put of the EditFile function with trial and error mods to it.
+
+Currently the keyboard accelerator doesn't work ( haven't figured out
+why yet ) and it doesn't recognize when the external gvim has 'finished'
+with the file.  I had thought that this section of code:
+
+        +       #wait until the contents are readed,
+        +       #some times the executed program is so fast, that the
+        +       #following command failes.
+        +       catch {fileevent ${fd} readable &quot;wait_editor_end ${fd}&quot;}
+        +       after 500
+        +# FIXME : This will block the GUI for 0.5 sec, that is not
+        acceptable
+
+had SN wait on the file descriptor for the editor to finish,, but it
+doesn't seem to work that way, or I'm mis-reading it ( my money is my
+mis-reading it :) ).
+
+reid
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: editorpane.tcl.diff
+Type: text/x-patch
+Size: 7088 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20070521/24bec5f7/attachment.bin">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20070521/24bec5f7/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000032.html">[SN-devel] Feature request
+</A></li>
+	<LI>Next message: <A HREF="000035.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [emthornber at iee.org: [emthornber at iee.org: Re:	[sourcenav-devl]	Unable to open project]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bemthornber%40iee.org%3A%20%5Bemthornber%40iee.org%3A%20Re%3A%0A%09%5Bsourcenav-devl%5D%09Unable%20to%20open%20project%5D%5D&In-Reply-To=%3C20080430151648.GA4443%40albatross.esl.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000116.html">
+   <LINK REL="Next"  HREF="000110.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [emthornber at iee.org: [emthornber at iee.org: Re:	[sourcenav-devl]	Unable to open project]]</H1>
+    <B>E M Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bemthornber%40iee.org%3A%20%5Bemthornber%40iee.org%3A%20Re%3A%0A%09%5Bsourcenav-devl%5D%09Unable%20to%20open%20project%5D%5D&In-Reply-To=%3C20080430151648.GA4443%40albatross.esl.local%3E"
+       TITLE="[SN-devel] [emthornber at iee.org: [emthornber at iee.org: Re:	[sourcenav-devl]	Unable to open project]]">mark.thornber at mdcr.org
+       </A><BR>
+    <I>Wed Apr 30 17:16:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000116.html">[SN-devel] Bugs in NG3
+</A></li>
+        <LI>Next message: <A HREF="000110.html">[SN-devel] Fwd: [emthornber at iee.org: [emthornber at iee.org: Re:	[sourcenav-devl] Unable to open project]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#112">[ date ]</a>
+              <a href="thread.html#112">[ thread ]</a>
+              <a href="subject.html#112">[ subject ]</a>
+              <a href="author.html#112">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>----- Forwarded message from Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>&gt; -----
+
+Date: Fri, 22 Oct 2004 11:58:15 +0100
+From: Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">bobwirka at rtcworks.com</A>
+Subject: [<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>: Re: [sourcenav-devl] Unable to open project]
+Reply-To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>
+
+Bob,
+
+I sent this reply to the list some time back - hope it's of use
+
+-- 
+Mark Thornber
+
+=========================
+E M Thornber CEng MIEE
+Enchanted Systems Limited
+Software Toolsmiths
++44 (0) 1503 272097
+
+----- Forwarded message from Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>&gt; -----
+
+Date: Thu, 13 May 2004 10:05:19 +0100
+From: Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">emthornber at iee.org</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devl at lists.sourceforge.net</A>
+Subject: Re: [sourcenav-devl] Unable to open project
+Reply-To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devl at lists.sourceforge.net</A>
+
+On Thu, May 13, 2004 at 09:05:28AM +1000, Steven Johnson wrote:
+&gt;<i> Im using Snav 5.2b2 and ive gotten an error opening a project, telling 
+</I>&gt;<i> me that the project is in use by &quot;unknown&quot; and can not be opened.  Given 
+</I>&gt;<i> im the only user of my machine, this isnt true, the project isnt being 
+</I>&gt;<i> used by anyone.
+</I>&gt;<i> 
+</I>&gt;<i> How can I get rid of this message? The only way ive found is to delete 
+</I>&gt;<i> the project and re-generate it.  A less than optimal solution.
+</I>Mo DeJong (one of the developers) published a tcl script to do this.
+It's in the sourcenav-devl list archive &quot;Should a script to unlock a
+.proj file be included in SN?&quot; but I've included it here
+
+ There has been some talk of this before, but it seems folks are
+ still running into problems with a SN project file that is locked
+ by another machine. I was thinking of including this script in
+ SN that could be used to unlock a locked project file. What
+ say you?
+      
+ Mo
+ 
+ % cat snunlock.tcl
+ # This script will unlock a project file. A project
+ # could have crashed on another system and left the
+ # file locked.
+ 
+ if {[llength $argv] != 1} {
+ error &quot;must pass name of project file to unlock&quot;
+ }
+ set proj_file [lindex $argv 0]
+ 
+ # Check whether we can open it at all!
+ if {[catch {set busyfd [open $proj_file r]} msg]} {
+ error  &quot;$proj_file can&quot;t be opened&quot;
+ }
+ close ${busyfd}
+ 
+ if {[catch {dbopen proj ${proj_file} RDWR
+ [sn_db_perms] hash}]} {
+ error  &quot;$proj_file can&quot;t be opened as
+ hash table&quot;
+ }
+ 
+ set inf [proj get -key open_info]
+ 
+ if {$inf == &quot;&quot;} {
+ puts &quot;${proj_file} is not
+ locked&quot;
+ exit 0
+ }
+ 
+ proj put open_info &quot;&quot;
+ proj close
+ 
+ puts &quot;unlocked
+ $proj_file&quot;
+ exit 0
+ 
+&gt;<i> 
+</I>&gt;<i> Where is this information stored, that the project is open, i cant see a 
+</I>&gt;<i> lock file anywhere?
+</I>in the .proj file
+
+HTH
+-- 
+Mark Thornber
+
+=========================
+E M Thornber CEng MIEE
+Enchanted Systems Limited
+Software Toolsmiths
++44 (0) 1503 272097
+
+
+-------------------------------------------------------
+This SF.Net email is sponsored by: SourceForge.net Broadband
+Sign-up now for SourceForge Broadband and get the fastest
+6.0/768 connection for only $19.95/mo for the first 3 months!
+<A HREF="http://ads.osdn.com/?ad_id=2562&amp;alloc_id=6184&amp;op=click">http://ads.osdn.com/?ad_id=2562&amp;alloc_id=6184&amp;op=click</A>
+_______________________________________________
+sourcenav-devl mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devl at lists.sourceforge.net</A>
+<A HREF="https://lists.sourceforge.net/lists/listinfo/sourcenav-devl">https://lists.sourceforge.net/lists/listinfo/sourcenav-devl</A>
+
+----- End forwarded message -----
+
+----- End forwarded message -----
+
+-- 
+Mark Thornber
+
+=========================
+E M Thornber CEng MIET
+Enchanted Systems Limited
+Software Toolsmiths
++44 (0) 1503 272097
+
+Registered in England No: 3595651
+Registered Office:
+    Little Garth, Talland Hill,
+    Polperro, LOOE, Cornwall
+    PL13 2JL
+VAT No: GB 717 7967 83
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000116.html">[SN-devel] Bugs in NG3
+</A></li>
+	<LI>Next message: <A HREF="000110.html">[SN-devel] Fwd: [emthornber at iee.org: [emthornber at iee.org: Re:	[sourcenav-devl] Unable to open project]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#112">[ date ]</a>
+              <a href="thread.html#112">[ thread ]</a>
+              <a href="subject.html#112">[ subject ]</a>
+              <a href="author.html#112">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

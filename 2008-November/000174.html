@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure under windows Msys - NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C5d445ea0811150211x51d26adel1ef0574affafd664%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000173.html">
+   <LINK REL="Next"  HREF="000179.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure under windows Msys - NG3</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C5d445ea0811150211x51d26adel1ef0574affafd664%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Configure failure under windows Msys - NG3">mark.thornber at gmail.com
+       </A><BR>
+    <I>Sat Nov 15 11:11:19 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000173.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+        <LI>Next message: <A HREF="000179.html">[SN-devel] Configure failure under windows Msys - NG3 update 2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#174">[ date ]</a>
+              <a href="thread.html#174">[ thread ]</a>
+              <a href="subject.html#174">[ subject ]</a>
+              <a href="author.html#174">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2008/11/14 Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;:
+&gt;&gt;<i>  &gt; $ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys &gt;
+</I>&gt;&gt;<i>  &gt; out.txt
+</I>&gt;&gt;<i>  &gt; configure: error: Cannot find a type to use in place of socklen_t
+</I>&gt;&gt;<i>  &gt; configure: error: ./configure failed for db4/PORT
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  This is telling me that it isn't identifying the windows OS so that it
+</I>&gt;&gt;<i>  can use the windows socket layer instead of the UNIX ones.  I'm not
+</I>&gt;&gt;<i>  sure what an --enable-msys does.  Is there an --enable-mingw?
+</I>&gt;<i>
+</I>&gt;<i> DAMN, got catch Earnie.
+</I>&gt;<i> I'm so blind (working too much as Mark is ;). It's NOT --enable-msys,
+</I>&gt;<i> it's --enable-mingw !
+</I>&gt;<i>
+</I>&gt;<i> ./configure --help does also list that option.
+</I>&lt;background&gt;
+One of the changes made between the old and new versions of the
+autoconf tools used by SN is the flip of the default behavour re
+caching
+
+The old version had &quot;always use cache&quot; (or some such switch) defaulted
+to NO/FALSE
+The new version defaults to YES/TRUE
+
+This uncovered a couple of bugs in the input files to autoconf etc.  I
+sorted out what barfed on the Mac OS X and assumed that was all.
+Perhaps the mingw platform is subtly different and is uncovering more
+problems in this area.
+&lt;/background&gt;
+
+Having said that - I tried to configure and build NG3 on Solaris 8
+last night (there's a guy on the 'other' list reporting problems) and
+that didn't work.  Yet to get to the bottom of it.
+
+HTH
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000173.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+	<LI>Next message: <A HREF="000179.html">[SN-devel] Configure failure under windows Msys - NG3 update 2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#174">[ date ]</a>
+              <a href="thread.html#174">[ thread ]</a>
+              <a href="subject.html#174">[ subject ]</a>
+              <a href="author.html#174">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

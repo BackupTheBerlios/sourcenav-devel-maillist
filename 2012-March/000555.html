@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source-Navigator%20on%203.0.0-17-generic%20Ubuntu%20x86_64&In-Reply-To=%3CCAAjLwrm%3Dwv8aojovXHtxCdO22SN1k3BuOp0h-UDyhQ8rvWfDDw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000553.html">
+   <LINK REL="Next"  HREF="000556.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64</H1>
+    <B>Oleg V. Melnichuk</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source-Navigator%20on%203.0.0-17-generic%20Ubuntu%20x86_64&In-Reply-To=%3CCAAjLwrm%3Dwv8aojovXHtxCdO22SN1k3BuOp0h-UDyhQ8rvWfDDw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64">olem2k at gmail.com
+       </A><BR>
+    <I>Mon Mar 26 10:35:36 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000553.html">[SN-devel] use of the command line options in win32
+</A></li>
+        <LI>Next message: <A HREF="000556.html">[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#555">[ date ]</a>
+              <a href="thread.html#555">[ thread ]</a>
+              <a href="subject.html#555">[ subject ]</a>
+              <a href="author.html#555">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>When making Source-Navigator on &quot;3.0.0-17-generic #30-Ubuntu x86_64
+GNU/Linux&quot; terminal is wrote so that:
+------------------------------------------------------------------------
+...
+...
+...
+db4/PORT: make all
+make[1]: Entering directory `/home/olja/Downloads/sourcenav-6.0/db4/PORT'
+/bin/sh ./libtool --mode=compile gcc -c -I. -I./..  -D_GNU_SOURCE
+-D_REENTRANT -O3  ../db185/db185.c
+ gcc -c -I. -I./.. -D_GNU_SOURCE -D_REENTRANT -O3 ../db185/db185.c
+-fPIC -DPIC -o .libs/db185.o
+In file included from ./db_int.h:96:0,
+                 from ../db185/db185.c:11:
+./../dbinc/win_db.h:27:20: fatal error: direct.h: No such file or directory
+compilation terminated.
+make[1]: *** [db185.lo] Error 1
+make[1]: Leaving directory `/home/olja/Downloads/sourcenav-6.0/db4/PORT'
+make: *** [all] Error 1
+------------------------------------------------------------------------
+I've done this:
+~$ locate /direct.h
+and got this:
+~$
+ie no such file exists in the standard package
+------------------------------------------------------------------------
+I've done this on &quot;2.6.32-40-generic #87-Ubuntu x86_64 GNU/Linux&quot;:
+~$ locate /direct.h
+and got this:
+/usr/src/linux-headers-2.6.32-40-generic/include/config/pci/direct.h
+~$
+ie such file exists in the standard package
+------------------------------------------------------------------------
+What can I do to compile the Source-Navigator on the kernel 3.0.0-17-generic?
+
+Thanks in advance!
+
+-- 
+Oleg V. Melnichuk
+
+skype OleM2k, icq 160507521, +38(095)8693131, +38(097)3630563.
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000553.html">[SN-devel] use of the command line options in win32
+</A></li>
+	<LI>Next message: <A HREF="000556.html">[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#555">[ date ]</a>
+              <a href="thread.html#555">[ thread ]</a>
+              <a href="subject.html#555">[ subject ]</a>
+              <a href="author.html#555">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

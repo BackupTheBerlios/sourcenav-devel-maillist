@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Patch fixing TCL rand() bug for 64bit platforms (see	slash screen)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Patch%20fixing%20TCL%20rand%28%29%20bug%20for%2064bit%20platforms%20%28see%0A%09slash%20screen%29&In-Reply-To=%3C46E7ACD4.3020009%40scheibli.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Patch fixing TCL rand() bug for 64bit platforms (see	slash screen)</H1>
+    <B>Daniel Scheibli</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Patch%20fixing%20TCL%20rand%28%29%20bug%20for%2064bit%20platforms%20%28see%0A%09slash%20screen%29&In-Reply-To=%3C46E7ACD4.3020009%40scheibli.com%3E"
+       TITLE="[SN-devel] Patch fixing TCL rand() bug for 64bit platforms (see	slash screen)">daniel at scheibli.com
+       </A><BR>
+    <I>Wed Sep 12 11:09:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[SN-devel] sourcenav NG2 has been released
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[SN-devel] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Dear Source Navigator NG team,
+
+I just uploaded patch #2171 to the Berlios patch area
+for fixing a bug in the TCL rand() implementation on 64bit
+platforms. It applies to NG1 and NG2.
+
+- Problem -
+Compiling and running NG1 (or NG2) on a Linux/x86-64 box,
+one gets every so often (about ever second or third time
+one starts the application) the following error message:
+
+       <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">xca1019 at hal3</A>:~&gt; /opt/sourcenavigator-NG1/bin/snavigator &amp;
+       [2] 3259
+       [1]   Done                    /opt/sourcenavigator-NG1/bin/snavigator
+       <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">i810029 at hal3</A>:/opt/sourcenavigator-NG1/share/bitmaps&gt; Error in startup script: couldn't open &quot;/opt/sourcenavigator-NG1/share/bitmaps/splashsn6.gif&quot;: no such file or directory
+           while executing
+       &quot;image create photo cyg-sol -file [file join $sn_path(bitmapdir) $splash_img] -palette 0/0/8&quot;
+           (procedure &quot;sn_splash_dialog&quot; line 19)
+           invoked from within
+       &quot;sn_splash_dialog splash&quot;
+           (procedure &quot;sn_show_splash_screen&quot; line 9)
+           invoked from within
+       &quot;sn_show_splash_screen&quot;
+           (procedure &quot;sn_session&quot; line 17)
+           invoked from within
+       &quot;sn_session&quot;
+           invoked from within
+       &quot;$ip eval $cmds&quot;
+           (procedure &quot;create_interp&quot; line 63)
+           invoked from within
+       &quot;create_interp {
+         sn_session
+       }
+       &quot;
+           (file &quot;/opt/sourcenavigator-NG1/share/etc/snavigator&quot; line 5)
+
+       [2]+  Exit 1                  /opt/sourcenavigator-NG1/bin/snavigator
+       <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">xca1019 at hal3</A>:~&gt;
+
+The issue can be tracked down to the sn_splash_dialog
+function in &lt;INSTDIR&gt;/share/sourcenav/gui/misc.tcl:
+
+       ...
+       set splash_img splashsn
+       append splash_img [expr {int(rand() * 4)}]
+       append splash_img .gif
+       ...
+
+Telling from [1] it seems that older Tcl versions had
+a bug in the rand() implementation which caused the
+function to return &gt;1.0 values on 64bit environments.
+
+According to [1] the issue was fixed with Tcl 8.3.3,
+but Source Navigator is bringing it's own version of
+Tcl - based on Tcl 8.3.2.
+
+- Solution -
+Said page [1] points to the Tcl bug tracker [2] which
+says that patch 102701 solves the issue. Unfortunately
+I couldn't lookup that patch in the Tcl patch area, so
+I checked the &lt;BUILDROOT&gt;/tcl/generic/tclExecute.c file
+revisions and extracted the final changes from there.
+
+Best Regards
+Daniel
+
+
+[1] <A HREF="http://wiki.tcl.tk/1549">http://wiki.tcl.tk/1549</A>
+[2] <A HREF="http://sourceforge.net/tracker/?group_id=10894&amp;atid=110894&amp;func=detail&amp;aid=221072">http://sourceforge.net/tracker/?group_id=10894&amp;atid=110894&amp;func=detail&amp;aid=221072</A>
+[3] <A HREF="http://tcl.cvs.sourceforge.net/tcl/tcl/generic/tclExecute.c?r1=1.17&amp;r2=1.18">http://tcl.cvs.sourceforge.net/tcl/tcl/generic/tclExecute.c?r1=1.17&amp;r2=1.18</A>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[SN-devel] sourcenav NG2 has been released
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[SN-devel] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

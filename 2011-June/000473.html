@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] How to set size of new windows
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTi%3DA2i4XrLFUVvG5aiH_6o4UPbGp0w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000472.html">
+   <LINK REL="Next"  HREF="000474.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] How to set size of new windows</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTi%3DA2i4XrLFUVvG5aiH_6o4UPbGp0w%40mail.gmail.com%3E"
+       TITLE="[SN-devel] How to set size of new windows">mark.thornber at gmail.com
+       </A><BR>
+    <I>Thu Jun 16 23:58:32 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000472.html">[SN-devel] How to set size of new windows
+</A></li>
+        <LI>Next message: <A HREF="000474.html">[SN-devel] How to set size of new windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#473">[ date ]</a>
+              <a href="thread.html#473">[ thread ]</a>
+              <a href="subject.html#473">[ subject ]</a>
+              <a href="author.html#473">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I need notice of this question - I'm sure I knew once but there's been
+a lot of code since then.
+
+On 16 June 2011 20:57, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I was wondering if there is any front door or back door way of setting new
+</I>&gt;<i> window size?
+</I>&gt;<i>
+</I>&gt;<i> Currently (as of sn ver 4.4),&#160; Project Preference &gt; Project &gt; Window Size is
+</I>&gt;<i> [ %x ] of screen size , allows you to set the size of new windows as a
+</I>&gt;<i> percentage of the screen size.
+</I>&gt;<i>
+</I>&gt;<i> Unfortunately with new wider screens and multi-screen (panorama wide)
+</I>&gt;<i> arrangements, setting window width and height based on a percent of a
+</I>&gt;<i> screen results in a relatively wide rectangle windows where almost 50% of
+</I>&gt;<i> the window's width is blank, hence I have to resize all the time, etc
+</I>&gt;<i>
+</I>&gt;<i> Being novice with tcl/tk, I see that share/snavigator/gui/preferences.tcl
+</I>&gt;<i> has
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> itcl_class Preferences&amp; {
+</I>&gt;<i> &#160;&#160;&#160; inherit sourcenav::Window
+</I>&gt;<i>
+</I>&gt;<i> &#160;&#160;&#160; constructor {{config &quot;&quot;}} {
+</I>&gt;<i> &#160;&#160;&#160;&#160;&#160;&#160;&#160; global sn_options
+</I>&gt;<i>
+</I>&gt;<i> &#160;&#160;&#160;&#160;&#160;&#160;&#160; set width 780
+</I>&gt;<i> &#160;&#160;&#160;&#160;&#160;&#160;&#160; set height 580
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> and then later....we see
+</I>&gt;<i>
+</I>&gt;<i> ${this} configure -geometry ${width}x${height}
+</I>&gt;<i>
+</I>&gt;<i> I tried changing these two, but that didn't work....can someone show me a
+</I>&gt;<i> way...
+</I>&gt;<i>
+</I>&gt;<i> thanks
+</I>&gt;<i> Medi
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000472.html">[SN-devel] How to set size of new windows
+</A></li>
+	<LI>Next message: <A HREF="000474.html">[SN-devel] How to set size of new windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#473">[ date ]</a>
+              <a href="thread.html#473">[ thread ]</a>
+              <a href="subject.html#473">[ subject ]</a>
+              <a href="author.html#473">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

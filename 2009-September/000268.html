@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0909080612m4e0a1e18t6ca6a56fbb1904bb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000267.html">
+   <LINK REL="Next"  HREF="000269.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Daniel Carmo Olops</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0909080612m4e0a1e18t6ca6a56fbb1904bb%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">daniel at olops.eti.br
+       </A><BR>
+    <I>Tue Sep  8 15:12:08 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000267.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+        <LI>Next message: <A HREF="000269.html">[SN-devel] Fix &quot;no event type or button # or keysym&quot; (tk.tcl error)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#268">[ date ]</a>
+              <a href="thread.html#268">[ thread ]</a>
+              <a href="subject.html#268">[ subject ]</a>
+              <a href="author.html#268">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It's already set to 'o'. Attached is the Makefile as found in itcl/itk.
+
+Cheers,
+
+Daniel
+
+&gt;<i> &gt;          rm -f libitk3.2.a
+</I>&gt;<i> &gt; &gt;          ar cr libitk3.2.a itk_cmds.  itk_option.  itk_archetype.
+</I>&gt;<i> &gt; &gt;  itk_util.  itkStubInit.  itkStubLib.
+</I>&gt;<i> &gt; &gt;  ar: No such file or directory
+</I>&gt;<i>
+</I>&gt;<i> Can you please check the Makefile in SN/itcl/itk for the following entry:
+</I>&gt;<i>
+</I>&gt;<i> GENERIC_OBJECTS = itk_cmds.$(OBJEXT) \
+</I>&gt;<i>        itk_option.$(OBJEXT) \
+</I>&gt;<i>        itk_archetype.$(OBJEXT) \
+</I>&gt;<i>        itk_util.$(OBJEXT) \
+</I>&gt;<i>        itkStubInit.$(OBJEXT) \
+</I>&gt;<i>        itkStubLib.$(OBJEXT)
+</I>&gt;<i>
+</I>&gt;<i> and then search for OBJEXT and to what value it is set?
+</I>&gt;<i> I have
+</I>&gt;<i>
+</I>&gt;<i> OBJEXT = o
+</I>&gt;<i>
+</I>&gt;<i> If OBJEXT is not set to anything, can you set it like about and just
+</I>&gt;<i> retry the make?
+</I>&gt;<i>
+</I>&gt;<i> flex/yacc usually is not needed to build, only if you want to
+</I>&gt;<i> regenerate the parsers - a normal &quot;make&quot; cycle does not do that.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090908/825b7a02/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090908/825b7a02/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Makefile
+Type: application/octet-stream
+Size: 17838 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090908/825b7a02/attachment.obj">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090908/825b7a02/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000267.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+	<LI>Next message: <A HREF="000269.html">[SN-devel] Fix &quot;no event type or button # or keysym&quot; (tk.tcl error)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#268">[ date ]</a>
+              <a href="thread.html#268">[ thread ]</a>
+              <a href="subject.html#268">[ subject ]</a>
+              <a href="author.html#268">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] current svn configure failing for me
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C5d445ea0805051306s72f21144v4995c9bd3fe02de8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000128.html">
+   <LINK REL="Next"  HREF="000130.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] current svn configure failing for me</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C5d445ea0805051306s72f21144v4995c9bd3fe02de8%40mail.gmail.com%3E"
+       TITLE="[SN-devel] current svn configure failing for me">mark.thornber at gmail.com
+       </A><BR>
+    <I>Mon May  5 22:06:49 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000128.html">[SN-devel] current svn configure failing for me
+</A></li>
+        <LI>Next message: <A HREF="000130.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2008/5/5 Reid Thompson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Reid.Thompson at ateb.com</A>&gt;:
+&gt;<i> On Mon, 2008-05-05 at 14:35 +0200, Freek wrote:
+</I>&gt;<i>  &gt; &gt; configure is failing on current Gentoo.
+</I>&gt;<i>  &gt; &gt;  previous svn HEAD's have built without issue.
+</I>&gt;<i>  &gt; [...]
+</I>&gt;<i>  &gt; &gt;  checking for Tcl configuration script... configure: WARNING: Can't find Tcl configuration definitions
+</I>&gt;<i>  &gt; &gt;  ./configure: line 3928: .: filename argument required
+</I>&gt;<i>  &gt; &gt;  .: usage: . filename [arguments]
+</I>&gt;<i>  &gt; &gt;  configure: error: ./configure failed for parsers/assembly/ppc601-eabi
+</I>&gt;<i>  &gt; &gt;  configure: error: ./configure failed for snavigator
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Yes; quick workaround is to simply also specify
+</I>&gt;<i>  &gt; --cache-file=config.cache to the configure run.
+</I>&gt;<i>  &gt; Mark and me are currently discussing solutions, but it will take a
+</I>&gt;<i>  &gt; couple of days to get the final solution, for sure.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Cheers,
+</I>&gt;<i>  &gt; ~F
+</I>&gt;<i>  Thanks --
+</I>&gt;<i>  current head appears to compile OK on gentoo.
+</I>&gt;<i>
+</I>&gt;<i>  I did...
+</I>&gt;<i>
+</I>&gt;<i>  mkdir build
+</I>&gt;<i>  cd build
+</I>&gt;<i>  ../configure --prefix=/opt/snav  --cache-file=config.cache
+</I>&gt;<i>  make
+</I>&gt;<i>  ...
+</I>Mea Culpa
+
+I did the fix for finding Tk config items but didn't remember to go
+back and check the macros for Tcl.  The Mac has Tcl/Tk installed so
+/usr/lib/tclConfig.sh was found.
+
+All fixed now and commited to svn
+
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000128.html">[SN-devel] current svn configure failing for me
+</A></li>
+	<LI>Next message: <A HREF="000130.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] ubuntu 9.04 tk.tcl error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%209.04%20tk.tcl%20error&In-Reply-To=%3C20090801174059.GA8650%40ateb.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000256.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] ubuntu 9.04 tk.tcl error</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%209.04%20tk.tcl%20error&In-Reply-To=%3C20090801174059.GA8650%40ateb.com%3E"
+       TITLE="[SN-devel] ubuntu 9.04 tk.tcl error">reid.thompson at ateb.com
+       </A><BR>
+    <I>Sat Aug  1 19:40:59 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000256.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Building from svn head.  Build and install appear to complete fine.  But on startup get the following error.
+It looks like ubuntu 9.04 comes with tk8.[45] installed by default.  I installed tk8.3.  ( my understanding is that SN provides it's own tk, so the ubuntu installed versions should make no difference.  I just wanted to make sure )
+
+$ snavigator
+Can't find a usable tk.tcl in the following directories: 
+    /opt/snav/share/tk8.3
+
+/opt/snav/share/tk8.3/tk.tcl: no event type or button # or keysym
+no event type or button # or keysym
+    while executing
+&quot;bind Listbox &lt;MouseWheel&gt; {
+    %W yview scroll [expr {- (%D / 120) * 4}] units
+}&quot;
+    (file &quot;/opt/snav/share/tk8.3/listbox.tcl&quot; line 182)
+    invoked from within
+&quot;source [file join $tk_library listbox.tcl]&quot;
+    invoked from within
+&quot;if {[string compare $tcl_platform(platform) &quot;macintosh&quot;] &amp;&amp; \
+	[string compare {} $tk_library]} {
+    source [file join $tk_library button.tcl]
+    so...&quot;
+    (file &quot;/opt/snav/share/tk8.3/tk.tcl&quot; line 308)
+    invoked from within
+&quot;source /opt/snav/share/tk8.3/tk.tcl&quot;
+    (&quot;uplevel&quot; body line 1)
+    invoked from within
+&quot;uplevel \#0 [list source $file]&quot;
+
+
+This probably means that tk wasn't installed properly.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000256.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

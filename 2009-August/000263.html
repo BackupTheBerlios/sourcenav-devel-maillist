@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C8240f6260908251053n2756f697h57a8f870e1ae9b20%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000262.html">
+   <LINK REL="Next"  HREF="000264.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C8240f6260908251053n2756f697h57a8f870e1ae9b20%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Aug 25 19:53:24 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000262.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+        <LI>Next message: <A HREF="000264.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#263">[ date ]</a>
+              <a href="thread.html#263">[ thread ]</a>
+              <a href="subject.html#263">[ subject ]</a>
+              <a href="author.html#263">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>And there is your problem (configure):
+
+checking for X11 header files... couldn't find any!
+checking for X11 libraries... /usr/lib/X11R4
+
+... and make:
+
+/var/tmp/sourcenavigator-NG4/tk/unix/../generic/tk.h:83:23: error:
+X11/Xlib.h: No such file or directory
+
+Make sure you have the appropriate development-packages for your
+X11/XFree (whatever HP-UX is using) installed and rerun configure and
+watch for the output regarding X11.
+
+Then please retry and get back to us.
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000262.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+	<LI>Next message: <A HREF="000264.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#263">[ date ]</a>
+              <a href="thread.html#263">[ thread ]</a>
+              <a href="subject.html#263">[ subject ]</a>
+              <a href="author.html#263">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

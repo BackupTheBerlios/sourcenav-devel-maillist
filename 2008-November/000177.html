@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure under windows Msys - NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C8240f6260811150518h23862c21j33052573b6a6b83e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000176.html">
+   <LINK REL="Next"  HREF="000178.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure under windows Msys - NG3</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C8240f6260811150518h23862c21j33052573b6a6b83e%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Configure failure under windows Msys - NG3">freequaos at gmail.com
+       </A><BR>
+    <I>Sat Nov 15 14:18:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000176.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+        <LI>Next message: <A HREF="000178.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  but I had tried several different configure commands - so I'e just
+</I>&gt;<i>  checked it
+</I>&gt;<i>  with a clean tarball.(btw - there are a lot of symbolic links missing
+</I>&gt;<i>  for the db4 when you unpack
+</I>&gt;<i>  under windows with either the mingw tar or windows zip eg.
+</I>
+Yes, that problem has been fixed a while ago (and will be in NG4).
+We had wrongly assumed that win32 SVN would do the right thing, but it
+doesn't. Now those files are copies of their originals again.
+All my fault, I'm doing the win32 stuff (involutarily I might add :)
+
+Can you try 2 things (win32):
+
+1) Do you have the possibility to check out our trunk via Subversion?
+It's at <A HREF="http://svn.berlios.de/svnroot/repos/sourcenav/trunk">http://svn.berlios.de/svnroot/repos/sourcenav/trunk</A>
+Please try to build that one with just
+./configure --prefix=/opt/SN-trunk --enable-mingw --with-mingw -C
+
+2) If you can't do SVN:
+
+go to db4/PORT
+
+remove: aclocal_java, config.guess, config.sub install-sh
+copy those files/dirs over from db4/dist and retry with above configure line!
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000176.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+	<LI>Next message: <A HREF="000178.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

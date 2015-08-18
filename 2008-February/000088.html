@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Source Navigator NG3 has been released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG3%20has%20been%20released&In-Reply-To=%3C8240f6260802050214o3af86512m961f3b2c77c05e89%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000082.html">
+   <LINK REL="Next"  HREF="000090.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Source Navigator NG3 has been released</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG3%20has%20been%20released&In-Reply-To=%3C8240f6260802050214o3af86512m961f3b2c77c05e89%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Source Navigator NG3 has been released">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Feb  5 11:14:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000082.html">[SN-devel] Source Navigator NG3 has been released
+</A></li>
+        <LI>Next message: <A HREF="000090.html">[SN-devel] Source Navigator NG3 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> I hadn't tested Classes yet; thanks for reporting, now I don't have to
+</I>&gt;<i> do the work just to test it.  Yes, the parser is old but maybe older
+</I>&gt;<i> than PHP4; after all, PHP4 had some OO ability.
+</I>
+The &quot;class&quot; keyword is supported in the lexer, but I think it isn't
+used in any context - all db calls have NULL as an argument for the
+class.
+
+result = sn_insert_symbol(SN_INCLUDE_DEF,
+          /* classname */ NULL,
+          filename,
+          sn_current_file(),
+          line_start, column_start,
+          line_end, column_end,
+          /* attr */ 0,
+          /* ret */ NULL,
+          /* arg_types */ NULL,
+          /* arg_names */ NULL,
+          /* comment */ NULL,
+          line_start, column_start,
+          line_end, column_end);
+
+
+Who is parser-savvy enough to help (at least me - Mark can write parsers!) out?
+I nearly failed my (theoretical computer science) exam about languages
+and their classes back then ;-)
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000082.html">[SN-devel] Source Navigator NG3 has been released
+</A></li>
+	<LI>Next message: <A HREF="000090.html">[SN-devel] Source Navigator NG3 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

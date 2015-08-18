@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] win32 build problems and solution
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20win32%20build%20problems%20and%20solution&In-Reply-To=%3C8240f6260901140650q7c4b5bedw1ee9c2aea4b4f673%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000208.html">
+   <LINK REL="Next"  HREF="000214.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] win32 build problems and solution</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20win32%20build%20problems%20and%20solution&In-Reply-To=%3C8240f6260901140650q7c4b5bedw1ee9c2aea4b4f673%40mail.gmail.com%3E"
+       TITLE="[SN-devel] win32 build problems and solution">freequaos at gmail.com
+       </A><BR>
+    <I>Wed Jan 14 15:50:18 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000208.html">[SN-devel] Source Navigator NG on Mac OS 10.5.x available
+</A></li>
+        <LI>Next message: <A HREF="000214.html">[SN-devel] win32 build problems and solution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+just upgraded and installed the whole mingw/msys stuff:
+
+MINGW32_NT-5.1 MACHINA1 1.0.10(0.46/3/2) 2004-03-15 07:17 i686 unknown
+
+First things to fix - get a dummy socket.h with the following content
+for include/sys:
+
+#ifndef _SYS_SOCKET_H
+#define _SYS_SOCKET_H
+typedef int socklen_t;
+#endif
+
+
+Second, unfortunately there seem to be some unforeseen linker problems
+(and I don't know where they come from, maybe old libtool or
+somesuch?):
+
+make[2]: Entering directory `/sn-trunk/tix/win'
+gcc -shared -s -nostartfiles -o tix4183.dll tcl8.3/tixClass.o
+tcl8.3/tixCmds.o tcl8.3/tixCompat.o tcl8.3/tixDiImg.o
+tcl8.3/tixDiITxt.o tcl8.3/tixDiStyle.o tcl8.3/tixDItem.o
+tcl8.3/tixDiText.o tcl8.3/tixDiWin.o tcl8.3/tixError.o
+tcl8.3/tixForm.o tcl8.3/tixFormMisc.o tcl8.3/tixGeometry.o
+tcl8.3/tixHLCol.o tcl8.3/tixHLHdr.o tcl8.3/tixHLInd.o
+tcl8.3/tixImgCmp.o tcl8.3/tixHList.o tcl8.3/tixList.o
+tcl8.3/tixMethod.o tcl8.3/tixOption.o tcl8.3/tixSmpLs.o
+tcl8.3/tixWidget.o tcl8.3/tixInit.o tcl8.3/tixItcl.o tcl8.3/tixUtils.o
+tcl8.3/tixImgXpm.o tcl8.3/tixNBFrame.o tcl8.3/tixTList.o
+tcl8.3/tixGrid.o tcl8.3/tixGrData.o tcl8.3/tixGrRC.o tcl8.3/tixGrFmt.o
+tcl8.3/tixGrSel.o tcl8.3/tixGrUtl.o tcl8.3/tixScroll.o
+tcl8.3/tixWCmpt.o tcl8.3/tixWinDraw.o tcl8.3/tixWinXpm.o
+tcl8.3/tixWinWm.o \
+../../tk/win/librhtk83.a ../../tcl/win/librhtcl83.a -lgdi32 \
+-mwindows -e <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">_DllMain at 12</A> -Wl,--image-base,0x66600000 \
+-Wl,--out-implib,tcl8.3/libtix4183.a
+Info: resolving _atexit by linking to __imp__atexit (auto-import)
+Creating library file: tcl8.3/libtix4183.a
+fu000001.o:(.idata$2+0xc): undefined reference to `libmsvcrt_a_iname'
+nmth000000.o:(.idata$4+0x0): undefined reference to `_nm__atexit'
+collect2: ld returned 1 exit status
+
+This is fixed by taking out the &quot;-nostartfiles&quot; for the  $(TIXDLL):
+$(TIXOBJS) target (I think Earnie sent a patch in about that, but I'm
+so busy I cannot keep up).
+The 2nd issue has just been commited to trunk and will be in NG4.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000208.html">[SN-devel] Source Navigator NG on Mac OS 10.5.x available
+</A></li>
+	<LI>Next message: <A HREF="000214.html">[SN-devel] win32 build problems and solution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

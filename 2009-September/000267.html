@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C8240f6260909040802u12f60f3ch71932d5a42720539%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000268.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C8240f6260909040802u12f60f3ch71932d5a42720539%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Sep  4 17:02:44 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000268.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> &gt;          rm -f libitk3.2.a
+</I>&gt;<i> &gt;          ar cr libitk3.2.a itk_cmds.  itk_option.  itk_archetype.
+</I>&gt;<i> &gt;  itk_util.  itkStubInit.  itkStubLib.
+</I>&gt;<i> &gt;  ar: No such file or directory
+</I>
+Can you please check the Makefile in SN/itcl/itk for the following entry:
+
+GENERIC_OBJECTS = itk_cmds.$(OBJEXT) \
+        itk_option.$(OBJEXT) \
+        itk_archetype.$(OBJEXT) \
+        itk_util.$(OBJEXT) \
+        itkStubInit.$(OBJEXT) \
+        itkStubLib.$(OBJEXT)
+
+and then search for OBJEXT and to what value it is set?
+I have
+
+OBJEXT = o
+
+If OBJEXT is not set to anything, can you set it like about and just
+retry the make?
+
+flex/yacc usually is not needed to build, only if you want to
+regenerate the parsers - a normal &quot;make&quot; cycle does not do that.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000268.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTimdkLU4a5GypfYQw1ZXWu0PmHveGb7gwat6m2Zi%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000432.html">
+   <LINK REL="Next"  HREF="000434.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTimdkLU4a5GypfYQw1ZXWu0PmHveGb7gwat6m2Zi%40mail.gmail.com%3E"
+       TITLE="[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable">montaseri at gmail.com
+       </A><BR>
+    <I>Thu Mar 10 23:26:51 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000432.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+        <LI>Next message: <A HREF="000434.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Right....so what I was saying is that  before Tk_main() is called we set the
+DISPLAY env for the user. However we do this only if --batchmode is
+provided.
+
+Something like this....
+
+hyper/sninit.c
+      - main()
+            - run_application( argc, argv )
+              {
+                     ......
+590               else if ( strcmp(argv[1], &quot;--batchmode&quot;) == 0 ||
+                     {
+                                batchmode = 1;
+                                setenv(&quot;DISPLAY&quot;, &quot;:0.0&quot;, 0); // do not
+overwrite
+                     }
+                     ....
+691               Tk_Main(new_argc, application_argv, Sn_setup_Init);
+                      ...
+                }
+
+Medi
+
+On Thu, Mar 10, 2011 at 2:06 PM, Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;wrote:
+
+&gt;<i> On 10 March 2011 21:52, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Yes, workaround accepted...
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; As for the fix, what if either the shell script snavigator or sninit.c
+</I>&gt;<i> &gt; setenv() the var in presence of --batchmode to keep tcl happy.
+</I>&gt;<i> hyper calls Tk_Main() which, almost by definition, means a DISPLAY is
+</I>&gt;<i> required.
+</I>&gt;<i>
+</I>&gt;<i> A re-factor is required to delay creating windows until it is certain
+</I>&gt;<i> batch mode is NOT called for.  Given the other complaint re ignoring
+</I>&gt;<i> directories in batch mode ...
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110310/6657a596/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110310/6657a596/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000432.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+	<LI>Next message: <A HREF="000434.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] How debug
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20debug&In-Reply-To=%3Cu2y8240f6261004231401j4652c448gdd60f6d6d63564e2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000346.html">
+   <LINK REL="Next"  HREF="000349.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] How debug</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20debug&In-Reply-To=%3Cu2y8240f6261004231401j4652c448gdd60f6d6d63564e2%40mail.gmail.com%3E"
+       TITLE="[SN-devel] How debug">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Apr 23 23:01:35 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000346.html">[SN-devel] How debug
+</A></li>
+        <LI>Next message: <A HREF="000349.html">[SN-devel] How debug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#347">[ date ]</a>
+              <a href="thread.html#347">[ thread ]</a>
+              <a href="subject.html#347">[ subject ]</a>
+              <a href="author.html#347">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Ok, but what if have to debug dbutils.c for example? It is not a parser
+</I>&gt;<i> file, but i need to parse it anyway. I have to compile it with debug option
+</I>&gt;<i> and also able to run it as a &quot;standalone&quot; entity, (I don't believe is
+</I>&gt;<i> possible). So, I have to compile the entire SN for debugging that single
+</I>&gt;<i> file?
+</I>
+Yes, you should configure SN with
+
+#&gt; CFLAGS=&quot;-O2 -g&quot; ./configure --prefix=/some/thing
+
+so the all object files get debug symbols; this needs to be done due
+to the fact that all executables link to various libs (db, tcl,
+dbutils, etc).
+
+To debug parsers there's somewhere in the source a script called
+&quot;snpdbg&quot;, which can help you debugging parsers. Nontheless it's still
+rather complicated.
+I usually do it by invoking a parser manually (the options are display
+when running snavigator -debug 99 for example).
+
+SN's debug facilities aren't very good, I have to admit that.
+
+Also to Earnie: As for using RamDebugger - I think it's rather
+complicated to the fact that &quot;hyper&quot; is adding new tcl/tk functions to
+the tcl interpreter which are not readily available via a tcl script,
+but are purely implemented in C.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000346.html">[SN-devel] How debug
+</A></li>
+	<LI>Next message: <A HREF="000349.html">[SN-devel] How debug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#347">[ date ]</a>
+              <a href="thread.html#347">[ thread ]</a>
+              <a href="subject.html#347">[ subject ]</a>
+              <a href="author.html#347">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

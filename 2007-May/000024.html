@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Build problems on fedora core 6.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C1179263310.11813.2.camel%40dhcppc2%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000023.html">
+   <LINK REL="Next"  HREF="000025.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Build problems on fedora core 6.</H1>
+    <B>Peter Dons Tychsen</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C1179263310.11813.2.camel%40dhcppc2%3E"
+       TITLE="[SN-devel] Build problems on fedora core 6.">donpedro at tdcadsl.dk
+       </A><BR>
+    <I>Tue May 15 23:08:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000023.html">[SN-devel]  Building on HPUX
+</A></li>
+        <LI>Next message: <A HREF="000025.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello SN-NG!
+Great project!
+
+I would like to use your new navigator, but i cannot build it on Fedora
+Core 6.
+
+I get this when configuring:
+
+$ ./configure
+loading cache ./config.cache
+checking host system type... i686-pc-linux-gnu
+checking target system type... i686-pc-linux-gnu
+checking build system type... i686-pc-linux-gnu
+creating ./config.status
+creating Makefile
+configuring in tcl
+running /bin/sh ./configure  --cache-file=.././config.cache --srcdir=.
+loading cache .././config.cache
+checking host system type... i686-pc-linux-gnu
+checking whether make sets ${MAKE}... (cached) yes
+creating ./config.status
+creating Makefile
+configuring in unix
+running /bin/sh ./configure  --cache-file=../.././config.cache
+--srcdir=.
+loading cache ../.././config.cache
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for limits.h... yes
+checking for a BSD compatible install... /usr/bin/install -c
+checking to see if this is LynxOS... no
+checking for building with threads... no (default)
+checking if the compiler understands -pipe... yes
+checking for getcwd... yes
+checking for opendir... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for tmpnam... yes
+checking for waitpid... yes
+checking for strerror... yes
+checking for getwd... yes
+checking for wait3... yes
+checking for uname... yes
+checking for realpath... yes
+checking dirent.h... yes
+checking for errno.h... yes
+checking for float.h... yes
+checking for values.h... yes
+checking for limits.h... (cached) yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for sys/wait.h... yes
+checking for dlfcn.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking termios vs. termio vs. sgtty... termios
+checking fd_set and sys/select... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for sys/time.h... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for tm_zone in struct tm... yes
+checking tm_tzadj in struct tm... no
+checking tm_gmtoff in struct tm... yes
+checking long timezone variable... yes
+checking for timezone declaration... found
+checking for st_blksize in struct stat... yes
+checking for fstatfs... yes
+checking for 8-bit clean memcmp... yes
+checking for memmove... yes
+checking proper strstr implementation... yes
+checking for strtoul... yes
+checking for strtod... yes
+checking for strtod... (cached) yes
+checking for Solaris2.4/Tru64 strtod bugs... ok
+checking for ANSI C header files... yes
+checking for mode_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for uid_t in sys/types.h... yes
+checking for opendir... (cached) yes
+checking union wait... yes
+checking matherr support... yes
+checking return type of signal handlers... void
+checking for vfork... yes
+checking vfork/signal bug... ok
+checking for strncasecmp... yes
+checking for BSDgettimeofday... no
+checking for gettimeofday... yes
+checking for gettimeofday declaration... present
+checking whether char is unsigned... no
+checking signed char declarations... yes
+checking for sin... no
+checking for main in -lieee... yes
+checking for main in -linet... no
+checking for net/errno.h... no
+checking for socket libraries... checking for connect... yes
+checking for gethostbyname... yes
+
+checking if 64bit support is requested... no
+checking if 64bit Sparc VIS support is requested... no
+checking system version (for dynamic loading)... ./configure: line 6046:
+syntax error near unexpected token `)'
+./configure: line 6046: `       OSF*)'
+configure: error: ./configure failed for unix
+configure: error: ./configure failed for tcl
+
+Is there anyway i can fix this ?
+
+Thanks,
+
+Pedro, a.k.a. Peter Dons Tychsen
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000023.html">[SN-devel]  Building on HPUX
+</A></li>
+	<LI>Next message: <A HREF="000025.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

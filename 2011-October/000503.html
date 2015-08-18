@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk 8.4 based SN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C13287370.437301318609334025.JavaMail.defaultUser%40defaultHost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000502.html">
+   <LINK REL="Next"  HREF="000504.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk 8.4 based SN</H1>
+    <B>FANDOM at telefonica.net</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C13287370.437301318609334025.JavaMail.defaultUser%40defaultHost%3E"
+       TITLE="[SN-devel] Tcl/Tk 8.4 based SN">FANDOM at telefonica.net
+       </A><BR>
+    <I>Fri Oct 14 18:22:14 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000502.html">[SN-devel] any idea yet on where you will move hosting of SN to with BERLIOS closing?
+</A></li>
+        <LI>Next message: <A HREF="000504.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#503">[ date ]</a>
+              <a href="thread.html#503">[ thread ]</a>
+              <a href="subject.html#503">[ subject ]</a>
+              <a href="author.html#503">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have more or less got Source Navigator to work with Tcl/Tk 8.4, 
+actually it is
+8.4.19, the lastest that was released, plus some bug fixes.
+
+8.5 would be better but, I am afraid that the internals of the text 
+widget
+have changed a lot, so I think that 8.4 is a good stepping stone to 
+get
+there eventually.
+
+I have also added the tile extension for ttk widgets support and 
+ported
+the startup dialog to choose projects to use them. In Linux there 
+isn't
+much of a difference but it should be huge in Windows.
+
+You can download it at:
+
+<A HREF="https://downloads.sourceforge.net/project/getleftdown/SourceNavigator-">https://downloads.sourceforge.net/project/getleftdown/SourceNavigator-</A>
+NG-8.4.tar.gz?r=&amp;ts=1318608741&amp;use_mirror=master
+
+Now for the bad news:
+
+I only compiled it in Linux, considering what it took to get it to 
+work, compiling it
+in Windows is likely to take a lot of work.
+
+I updated Tix, but by the time I had found a newer incrtTcl/Tk I had 
+already got
+the old one to work, so I didn't update it.
+
+It seems to work, at least in Linux it does, but I would be surprised 
+if there were
+no regressions.
+
+Getting all of SN to use ttk widgets is likely to be some work too, do 
+you
+think it would be worth it?
+
+Regards,
+Andres
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000502.html">[SN-devel] any idea yet on where you will move hosting of SN to with BERLIOS closing?
+</A></li>
+	<LI>Next message: <A HREF="000504.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#503">[ date ]</a>
+              <a href="thread.html#503">[ thread ]</a>
+              <a href="subject.html#503">[ subject ]</a>
+              <a href="author.html#503">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

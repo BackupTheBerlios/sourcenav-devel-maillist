@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C8240f6260709200203x24ac9025k58733d14aff6515d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000048.html">
+   <LINK REL="Next"  HREF="000050.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C8240f6260709200203x24ac9025k58733d14aff6515d%40mail.gmail.com%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Sep 20 11:03:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000048.html">[SN-devel] SN &amp; Berkeley DB 4.6
+</A></li>
+        <LI>Next message: <A HREF="000050.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> linking SN against DB 4.6 greatly improves the stability.
+</I>
+I did a couple of tests and my results were devastating, at least on Linux.
+Using the old compat-185-layer of db4 I would get constant segfaults
+on the dbimp process. And I only tried to index SN's own source...
+
+segfault always occured in the dbimp.c code:
+
+fd = db_scopes-&gt;fd(db_scopes);
+
+which is a call into db185-code and in there something bad happens.
+
+The current db-layer is not really up to ANY change, as it's using a
+lot of dirty and funny tricks to play around some kind of &quot;global db
+service&quot;.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000048.html">[SN-devel] SN &amp; Berkeley DB 4.6
+</A></li>
+	<LI>Next message: <A HREF="000050.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

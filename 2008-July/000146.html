@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Routine references are not cross referenced
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Routine%20references%20are%20not%20cross%20referenced&In-Reply-To=%3C8240f6260807241615r4b2ca52et314f02a34b60dcfd%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000145.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Routine references are not cross referenced</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Routine%20references%20are%20not%20cross%20referenced&In-Reply-To=%3C8240f6260807241615r4b2ca52et314f02a34b60dcfd%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Routine references are not cross referenced">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Jul 25 01:15:16 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000145.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[SN-devel] derived from inner class
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  &gt; If you're talking about function pointers and the like, then - yes.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Can you maybe provide a small .c program which we can parse in SN and
+</I>&gt;<i>  &gt; check for the exact problem you have? That would be most helpful!
+</I>&gt;<i>
+</I>&gt;<i>  Yes it is function pointers I'm talking about. At the end of this reply is an example.
+</I>
+Great, thanks for the example! I think we should include this as a
+test case or something.
+
+There is somewhere in the parser or main sourcenav directory a README
+file detailing SN's shortcomings. Function pointers are one of those
+and well-known right from the start.
+
+&gt;<i>  If I go into XREF for b1() it shows it is called from a(). But it does not show that
+</I>&gt;<i>  b2() is called from a. Instead it invents thing UD thing called b2 in the context of a()
+</I>&gt;<i>  Going to the XREF of b2() says that b2(fu) has NO referred by references.
+</I>&gt;<i>
+</I>&gt;<i>  Interesting enough if I look at the call graph of a() I get:
+</I>&gt;<i>
+</I>&gt;<i>  a(fu) &lt;-- r main(fu)
+</I>&gt;<i>         --&gt; r b0(fu)
+</I>&gt;<i>         --&gt; r b1(fu)
+</I>&gt;<i>         --&gt; r b2(ud)
+</I>&gt;<i>         --&gt; rw b2P(gv)
+</I>&gt;<i>
+</I>&gt;<i>  Why can't SN work out that the b2 referenced in a() is the function b2() defined
+</I>&gt;<i>  in b.c?
+</I>
+If I'm not misunderstanding you:
+Because SN doesn't really know. How should she (SN is a she, I'm sure
+of it) know?
+She doesn't know compile units and its corresponding programm
+namespaces, and while she COULD know include hierarchies, she doesn't
+really use them when generating Xrefs (IIRC).
+All that counts is the symbol's NAME.
+That's why the &quot;there are more than one definition of the function -
+please select&quot; dialogue comes up from time to time.
+
+&gt;<i>  If it did then b2(fu) would have a &quot;referred by&quot; reference. Instead there is this
+</I>&gt;<i>  Undefined b2(ud) in a() that is an orphan.
+</I>
+We have to take a closer look at this problem; but I can tell you upfront:
+the problem is complex, we haven't even touched any of those areas
+(parsing, Xref) yet and possibly there will be no fix in the
+forseeable future. There's simply to much other more basic stuff to be
+done. win32 eg still is a big problem.
+
+If YOU want to work on that area you proposed you are warmly welcomed
+and we could more than use your powers :-)
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000145.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[SN-devel] derived from inner class
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

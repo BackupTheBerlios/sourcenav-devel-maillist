@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Debugging...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Cy2ld90f23b81005060338o2bfd5921mfd0ffd620b559e93%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000359.html">
+   <LINK REL="Next"  HREF="000365.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Debugging...</H1>
+    <B>fabio fossati</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Cy2ld90f23b81005060338o2bfd5921mfd0ffd620b559e93%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Debugging...">fabio.fossati83 at gmail.com
+       </A><BR>
+    <I>Thu May  6 12:38:30 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000359.html">[SN-devel] Debugging...
+</A></li>
+        <LI>Next message: <A HREF="000365.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#364">[ date ]</a>
+              <a href="thread.html#364">[ thread ]</a>
+              <a href="subject.html#364">[ subject ]</a>
+              <a href="author.html#364">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everybody,
+I think there was a misunderstanding. The
+$SNINSTALL/share/snavigator/etc/snpdbg work fine also for me. I'm referring
+at the bash script in $SNINSTALL/bin/snpdbg (the front end for the first
+one); there is a line to decomment if we are using gdb (or ddd). This line
+is not updated, beacuse it cointains some variables (like $etc) never
+initialized. This was, maybe, the older packaging.
+
+Cheers,
+Fabio
+
+2010/5/5 Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;
+
+&gt;<i> &gt; I have installed the SN version for linux which is my default operating
+</I>&gt;<i> &gt; system. I've raised the problem because the script does not work; and
+</I>&gt;<i> infact
+</I>&gt;<i> &gt; the problem seems to be those variable that I have mentioned. Is this a
+</I>&gt;<i> &gt; problem of mine?
+</I>&gt;<i>
+</I>&gt;<i> I'm sorry, Fabio, but the snpdbg scripts runs just fine for me... you
+</I>&gt;<i> shall use $SNINSTALL/bin/snpdbg which is a front-end script for the
+</I>&gt;<i> actual snpdbg.tcl code!
+</I>&gt;<i> And I think here's your problem, you didn't start the shell script?
+</I>&gt;<i>
+</I>&gt;<i> It should be the same as snavigator, only specifies a different $script.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Ronny
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-&lt;https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-&lt;https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>&gt;
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100506/31260243/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100506/31260243/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000359.html">[SN-devel] Debugging...
+</A></li>
+	<LI>Next message: <A HREF="000365.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#364">[ date ]</a>
+              <a href="thread.html#364">[ thread ]</a>
+              <a href="subject.html#364">[ subject ]</a>
+              <a href="author.html#364">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

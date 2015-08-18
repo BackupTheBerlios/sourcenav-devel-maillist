@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] querying source database
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20querying%20source%20database&In-Reply-To=%3C20100410165218.298690%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000325.html">
+   <LINK REL="Next"  HREF="000329.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] querying source database</H1>
+    <B>&quot;Wolfgang St&#246;cher&quot;</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20querying%20source%20database&In-Reply-To=%3C20100410165218.298690%40gmx.net%3E"
+       TITLE="[SN-devel] querying source database">stoecher at gmx.at
+       </A><BR>
+    <I>Sat Apr 10 18:52:18 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000325.html">[SN-devel] 17th Annual Tcl/Tk Conference 2010 - Call for papers
+</A></li>
+        <LI>Next message: <A HREF="000329.html">[SN-devel] querying source database
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#327">[ date ]</a>
+              <a href="thread.html#327">[ thread ]</a>
+              <a href="subject.html#327">[ subject ]</a>
+              <a href="author.html#327">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+at first my congratulations to this great project.
+
+I would like to query the source database interactively, on a high level (SQL-like) if possible. Is there an easy way to quickly get answers to questions like:
+* Are there class members whose name does not start with m_? I could use
+  dbdump bin.iv | grep -v m_
+  to get a rather exact answer.
+* Does every method NewSetting call a function Refresh? In SQL I could do something like this:
+  SELECT * from bin.md INNER JOIN bin.to 
+  ON bin.md.class=bin.to.class AND
+     bin.md.name=bin.to.symbol-name
+  WHERE bin.md.name='NewSetting' AND bin.to.ref-symbol='Refresh'
+to get all methods NewSetting calling Refresh and then compare with the list of all methods NewSetting (or even do that completely in SQL).
+
+I was thinking of importing the btrees into another relational database that supports SQL. What other possibilities would exist?
+
+Currently I am stuck with compiling the &quot;Simple Query Tool&quot; in C on Windows: where to get db.h and corresponding library?
+
+thanks,
+
+Wolfgang
+-- 
+GMX.at - &#214;sterreichs FreeMail-Dienst mit &#252;ber 2 Mio Mitgliedern
+E-Mail, SMS &amp; mehr! Kostenlos: <A HREF="http://portal.gmx.net/de/go/atfreemail">http://portal.gmx.net/de/go/atfreemail</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000325.html">[SN-devel] 17th Annual Tcl/Tk Conference 2010 - Call for papers
+</A></li>
+	<LI>Next message: <A HREF="000329.html">[SN-devel] querying source database
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#327">[ date ]</a>
+              <a href="thread.html#327">[ thread ]</a>
+              <a href="subject.html#327">[ subject ]</a>
+              <a href="author.html#327">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Source Navigator NG on Mac OS 10.5.x available
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG%20on%20Mac%20OS%2010.5.x%20available&In-Reply-To=%3C29574.192.100.116.143.1231503916.squirrel%40tols18.oulu.fi%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000204.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Source Navigator NG on Mac OS 10.5.x available</H1>
+    <B>Victor Arroyo Valle</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Source%20Navigator%20NG%20on%20Mac%20OS%2010.5.x%20available&In-Reply-To=%3C29574.192.100.116.143.1231503916.squirrel%40tols18.oulu.fi%3E"
+       TITLE="[SN-devel] Source Navigator NG on Mac OS 10.5.x available">victor.arroyo at oulu.fi
+       </A><BR>
+    <I>Fri Jan  9 13:25:16 CET 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000204.html">[SN-devel] Source Navigator NG on Mac OS 10.5.x available
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#203">[ date ]</a>
+              <a href="thread.html#203">[ thread ]</a>
+              <a href="subject.html#203">[ subject ]</a>
+              <a href="author.html#203">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I also tried to build it under 10.5.6 getting the same &quot;-soname&quot; error
+that you guys got. I also tried to modify the configure.in (under
+db4/PORTS) files manually but I got more library errors.
+
+Just as info: I got sed installed from fink and Klaus, I think you can
+solve the cc error by installing XCode (includes gcc 4.01).
+
+Cheers,
+
+
+On Tue, December 30, 2008 9:56 pm, Klaus D. G&#195;&#188;nther wrote:
+&gt;<i> I've tried to apply the patches although the line numbers are slightly
+</I>&gt;<i> different and db4/PORTS/configure.in doesn't exist.
+</I>&gt;<i>
+</I>&gt;<i> Now this error occurred:
+</I>&gt;<i> ==================
+</I>&gt;<i>
+</I>&gt;<i> gcc -pipe -c -g -O2  -Wall -Wconversion -Wno-implicit-int
+</I>&gt;<i> -I/Users/guenthk/Desktop/sourcenavigator-NG3/tk/unix
+</I>&gt;<i> -I/Users/guenthk/Desktop/sourcenavigator-NG3/tk/unix/../generic
+</I>&gt;<i> -I/Users/guenthk/Desktop/sourcenavigator-NG3/tk/unix/../bitmaps
+</I>&gt;<i> -I/Users/guenthk/Desktop/sourcenavigator-NG3/tcl/generic
+</I>&gt;<i> -DHAVE_UNISTD_H=1
+</I>&gt;<i> -DHAVE_LIMITS_H=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TIME_H=1
+</I>&gt;<i> -DTIME_WITH_SYS_TIME=1 -DHAVE_PW_GECOS=1 -DSTATIC_BUILD=1
+</I>&gt;<i> -DTCL_NO_DEPRECATED
+</I>&gt;<i> /Users/guenthk/Desktop/sourcenavigator-NG3/tk/unix/tkAppInit.c
+</I>&gt;<i> gcc -pipe  tkAppInit.o \
+</I>&gt;<i>         -L/Users/guenthk/Desktop/sourcenavigator-NG3/tk/unix -ltk8.3 \
+</I>&gt;<i>         -L/Users/guenthk/Desktop/sourcenavigator-NG3/tcl/unix -ltcl8.3
+</I>&gt;<i> -lX11   -lc  -o wish
+</I>&gt;<i> ld: library not found for -lX11
+</I>&gt;<i> collect2: ld returned 1 exit status
+</I>&gt;<i> make[2]: *** [wish] Error 1
+</I>&gt;<i> make[1]: *** [all] Error 2
+</I>&gt;<i> make: *** [all] Error 1
+</I>&gt;<i>
+</I>&gt;<i> ========================================================================
+</I>&gt;<i>
+</I>&gt;<i> I could work around this by &quot;ln -s /usr/X11/lib/libX11.dylib .&quot; in
+</I>&gt;<i> tk/unix.
+</I>&gt;<i>
+</I>&gt;<i> ========================================================================
+</I>&gt;<i>
+</I>&gt;<i> This error remained, however:
+</I>&gt;<i>
+</I>&gt;<i> /bin/sh ./libtool --mode=link gcc -avoid-version -rpath /opt/sourcenav/lib
+</I>&gt;<i> -o libdb-4.6.la db185.lo mut_tas.lo  bt_compare.lo bt_conv.lo bt_curadj.lo
+</I>&gt;<i> bt_cursor.lo bt_delete.lo bt_method.lo bt_open.lo bt_put.lo bt_rec.lo
+</I>&gt;<i> bt_reclaim.lo bt_recno.lo bt_rsearch.lo bt_search.lo bt_split.lo
+</I>&gt;<i> bt_stat.lo
+</I>&gt;<i> bt_compact.lo bt_upgrade.lo btree_auto.lo hash.lo hash_auto.lo
+</I>&gt;<i> hash_conv.lo
+</I>&gt;<i> hash_dup.lo hash_meta.lo hash_method.lo hash_open.lo hash_page.lo
+</I>&gt;<i> hash_rec.lo hash_reclaim.lo hash_stat.lo hash_upgrade.lo hash_verify.lo
+</I>&gt;<i> qam.lo qam_auto.lo qam_conv.lo qam_files.lo qam_method.lo qam_open.lo
+</I>&gt;<i> qam_rec.lo qam_stat.lo qam_upgrade.lo qam_verify.lo rep_stub.lo
+</I>&gt;<i> repmgr_stub.lo db_ovfl_vrfy.lo db_vrfy.lo db_vrfyutil.lo bt_verify.lo
+</I>&gt;<i> lock.lo lock_deadlock.lo lock_failchk.lo lock_id.lo lock_list.lo
+</I>&gt;<i> lock_method.lo lock_region.lo lock_stat.lo lock_timer.lo lock_util.lo
+</I>&gt;<i> mut_alloc.lo mut_failchk.lo mut_method.lo mut_region.lo mut_stat.lo
+</I>&gt;<i> crypto_stub.lo crdel_auto.lo crdel_rec.lo ctime.lo db.lo db_am.lo
+</I>&gt;<i> db_auto.lo
+</I>&gt;<i> db_byteorder.lo db_cam.lo db_cds.lo db_conv.lo db_dispatch.lo db_dup.lo
+</I>&gt;<i> db_err.lo db_getlong.lo db_idspace.lo db_iface.lo db_join.lo db_log2.lo
+</I>&gt;<i> db_meta.lo db_method.lo db_open.lo db_overflow.lo db_pr.lo db_rec.lo
+</I>&gt;<i> db_reclaim.lo db_remove.lo db_rename.lo db_ret.lo db_setid.lo db_setlsn.lo
+</I>&gt;<i> db_shash.lo db_stati.lo db_truncate.lo db_upg.lo db_upg_opd.lo dbm.lo
+</I>&gt;<i> dbreg.lo dbreg_auto.lo dbreg_rec.lo dbreg_stat.lo dbreg_util.lo
+</I>&gt;<i> env_alloc.lo
+</I>&gt;<i> env_config.lo env_failchk.lo env_file.lo env_globals.lo env_method.lo
+</I>&gt;<i> env_name.lo env_open.lo env_recover.lo env_region.lo env_register.lo
+</I>&gt;<i> env_stat.lo fileops_auto.lo fop_basic.lo fop_rec.lo fop_util.lo
+</I>&gt;<i> hash_func.lo
+</I>&gt;<i> hmac.lo hsearch.lo log.lo log_archive.lo log_compare.lo log_debug.lo
+</I>&gt;<i> log_get.lo log_method.lo log_put.lo log_stat.lo mkpath.lo mp_alloc.lo
+</I>&gt;<i> mp_bh.lo mp_fget.lo mp_fmethod.lo mp_fopen.lo mp_fput.lo mp_fset.lo
+</I>&gt;<i> mp_method.lo mp_mvcc.lo mp_region.lo mp_register.lo mp_resize.lo
+</I>&gt;<i> mp_stat.lo
+</I>&gt;<i> mp_sync.lo mp_trickle.lo os_abort.lo os_abs.lo os_alloc.lo os_clock.lo
+</I>&gt;<i> os_config.lo os_dir.lo os_errno.lo os_fid.lo os_flock.lo os_fsync.lo
+</I>&gt;<i> os_fzero.lo os_getenv.lo os_handle.lo os_map.lo os_method.lo os_mkdir.lo
+</I>&gt;<i> os_oflags.lo os_open.lo os_pid.lo os_region.lo os_rename.lo os_root.lo
+</I>&gt;<i> os_rpath.lo os_rw.lo os_seek.lo os_sleep.lo os_spin.lo os_stat.lo
+</I>&gt;<i> os_tmpdir.lo os_truncate.lo os_uid.lo os_unlink.lo os_yield.lo seq_stat.lo
+</I>&gt;<i> sequence.lo sha1.lo snprintf.lo txn.lo txn_auto.lo txn_chkpt.lo
+</I>&gt;<i> txn_failchk.lo txn_method.lo txn_rec.lo txn_recover.lo txn_region.lo
+</I>&gt;<i> txn_stat.lo txn_util.lo xa.lo xa_db.lo xa_map.lo
+</I>&gt;<i> cc -shared  .libs/db185.o .libs/mut_tas.o .libs/bt_compare.o
+</I>&gt;<i> .libs/bt_conv.o
+</I>&gt;<i> .libs/bt_curadj.o .libs/bt_cursor.o .libs/bt_delete.o .libs/bt_method.o
+</I>&gt;<i> .libs/bt_open.o .libs/bt_put.o .libs/bt_rec.o .libs/bt_reclaim.o
+</I>&gt;<i> .libs/bt_recno.o .libs/bt_rsearch.o .libs/bt_search.o .libs/bt_split.o
+</I>&gt;<i> .libs/bt_stat.o .libs/bt_compact.o .libs/bt_upgrade.o .libs/btree_auto.o
+</I>&gt;<i> .libs/hash.o .libs/hash_auto.o .libs/hash_conv.o .libs/hash_dup.o
+</I>&gt;<i> .libs/hash_meta.o .libs/hash_method.o .libs/hash_open.o .libs/hash_page.o
+</I>&gt;<i> .libs/hash_rec.o .libs/hash_reclaim.o .libs/hash_stat.o
+</I>&gt;<i> .libs/hash_upgrade.o
+</I>&gt;<i> .libs/hash_verify.o .libs/qam.o .libs/qam_auto.o .libs/qam_conv.o
+</I>&gt;<i> .libs/qam_files.o .libs/qam_method.o .libs/qam_open.o .libs/qam_rec.o
+</I>&gt;<i> .libs/qam_stat.o .libs/qam_upgrade.o .libs/qam_verify.o .libs/rep_stub.o
+</I>&gt;<i> .libs/repmgr_stub.o .libs/db_ovfl_vrfy.o .libs/db_vrfy.o
+</I>&gt;<i> .libs/db_vrfyutil.o
+</I>&gt;<i> .libs/bt_verify.o .libs/lock.o .libs/lock_deadlock.o .libs/lock_failchk.o
+</I>&gt;<i> .libs/lock_id.o .libs/lock_list.o .libs/lock_method.o .libs/lock_region.o
+</I>&gt;<i> .libs/lock_stat.o .libs/lock_timer.o .libs/lock_util.o .libs/mut_alloc.o
+</I>&gt;<i> .libs/mut_failchk.o .libs/mut_method.o .libs/mut_region.o .libs/mut_stat.o
+</I>&gt;<i> .libs/crypto_stub.o .libs/crdel_auto.o .libs/crdel_rec.o .libs/ctime.o
+</I>&gt;<i> .libs/db.o .libs/db_am.o .libs/db_auto.o .libs/db_byteorder.o
+</I>&gt;<i> .libs/db_cam.o
+</I>&gt;<i> .libs/db_cds.o .libs/db_conv.o .libs/db_dispatch.o .libs/db_dup.o
+</I>&gt;<i> .libs/db_err.o .libs/db_getlong.o .libs/db_idspace.o .libs/db_iface.o
+</I>&gt;<i> .libs/db_join.o .libs/db_log2.o .libs/db_meta.o .libs/db_method.o
+</I>&gt;<i> .libs/db_open.o .libs/db_overflow.o .libs/db_pr.o .libs/db_rec.o
+</I>&gt;<i> .libs/db_reclaim.o .libs/db_remove.o .libs/db_rename.o .libs/db_ret.o
+</I>&gt;<i> .libs/db_setid.o .libs/db_setlsn.o .libs/db_shash.o .libs/db_stati.o
+</I>&gt;<i> .libs/db_truncate.o .libs/db_upg.o .libs/db_upg_opd.o .libs/dbm.o
+</I>&gt;<i> .libs/dbreg.o .libs/dbreg_auto.o .libs/dbreg_rec.o .libs/dbreg_stat.o
+</I>&gt;<i> .libs/dbreg_util.o .libs/env_alloc.o .libs/env_config.o
+</I>&gt;<i> .libs/env_failchk.o
+</I>&gt;<i> .libs/env_file.o .libs/env_globals.o .libs/env_method.o .libs/env_name.o
+</I>&gt;<i> .libs/env_open.o .libs/env_recover.o .libs/env_region.o
+</I>&gt;<i> .libs/env_register.o
+</I>&gt;<i> .libs/env_stat.o .libs/fileops_auto.o .libs/fop_basic.o .libs/fop_rec.o
+</I>&gt;<i> .libs/fop_util.o .libs/hash_func.o .libs/hmac.o .libs/hsearch.o
+</I>&gt;<i> .libs/log.o
+</I>&gt;<i> .libs/log_archive.o .libs/log_compare.o .libs/log_debug.o .libs/log_get.o
+</I>&gt;<i> .libs/log_method.o .libs/log_put.o .libs/log_stat.o .libs/mkpath.o
+</I>&gt;<i> .libs/mp_alloc.o .libs/mp_bh.o .libs/mp_fget.o .libs/mp_fmethod.o
+</I>&gt;<i> .libs/mp_fopen.o .libs/mp_fput.o .libs/mp_fset.o .libs/mp_method.o
+</I>&gt;<i> .libs/mp_mvcc.o .libs/mp_region.o .libs/mp_register.o .libs/mp_resize.o
+</I>&gt;<i> .libs/mp_stat.o .libs/mp_sync.o .libs/mp_trickle.o .libs/os_abort.o
+</I>&gt;<i> .libs/os_abs.o .libs/os_alloc.o .libs/os_clock.o .libs/os_config.o
+</I>&gt;<i> .libs/os_dir.o .libs/os_errno.o .libs/os_fid.o .libs/os_flock.o
+</I>&gt;<i> .libs/os_fsync.o .libs/os_fzero.o .libs/os_getenv.o .libs/os_handle.o
+</I>&gt;<i> .libs/os_map.o .libs/os_method.o .libs/os_mkdir.o .libs/os_oflags.o
+</I>&gt;<i> .libs/os_open.o .libs/os_pid.o .libs/os_region.o .libs/os_rename.o
+</I>&gt;<i> .libs/os_root.o .libs/os_rpath.o .libs/os_rw.o .libs/os_seek.o
+</I>&gt;<i> .libs/os_sleep.o .libs/os_spin.o .libs/os_stat.o .libs/os_tmpdir.o
+</I>&gt;<i> .libs/os_truncate.o .libs/os_uid.o .libs/os_unlink.o .libs/os_yield.o
+</I>&gt;<i> .libs/seq_stat.o .libs/sequence.o .libs/sha1.o .libs/snprintf.o
+</I>&gt;<i> .libs/txn.o
+</I>&gt;<i> .libs/txn_auto.o .libs/txn_chkpt.o .libs/txn_failchk.o .libs/txn_method.o
+</I>&gt;<i> .libs/txn_rec.o .libs/txn_recover.o .libs/txn_region.o .libs/txn_stat.o
+</I>&gt;<i> .libs/txn_util.o .libs/xa.o .libs/xa_db.o .libs/xa_map.o   -Wl,-soname
+</I>&gt;<i> -Wl,
+</I>&gt;<i> libdb-4.6.so -o .libs/libdb-4.6.so
+</I>&gt;<i> ./libtool: line 4501: cc: command not found
+</I>&gt;<i> make[1]: *** [libdb-4.6.la] Error 127
+</I>&gt;<i> make: *** [all] Error 1
+</I>&gt;<i>
+</I>&gt;<i> ======================================================================================
+</I>&gt;<i>
+</I>&gt;<i> 2008/12/30 Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i> &gt; I have tried without success to build sourcenavigatorNG3 on Mac OS
+</I>&gt;&gt;<i> 10.5.6.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; The make process mostly uses gcc for compiling, but in some cases cc
+</I>&gt;&gt;<i> is
+</I>&gt;&gt;<i> used
+</I>&gt;&gt;<i> &gt; for linking programs, resulting in an error message because the
+</I>&gt;&gt;<i> &quot;-soname&quot;
+</I>&gt;&gt;<i> &gt;  option isn't supported.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> OSX is still a bit of a rough platform, but Mark was on it a while
+</I>&gt;&gt;<i> back and we had merged some patches for it, too.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> We had manually fixed that a while back, but rebuilding all the auto*
+</I>&gt;&gt;<i> stuff seems to have reverted it to the old behaviour (cc is tried
+</I>&gt;&gt;<i> first instead of gcc in db4/ directory).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you have a bash on OSX, you can try with
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> #&gt; CC=gcc ./configure --prefix=/some/where &lt;other_flags&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> That should do the trick for your build. If not, try attached patch.
+</I>&gt;&gt;<i> I will try to fix this in a more permanent way, too.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Cheers,
+</I>&gt;&gt;<i> F
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Sourcenav-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Dr. Klaus D. G&#195;&#188;nther
+</I>&gt;<i> Im Hahnb&#195;&#182;hl 11A
+</I>&gt;<i> D-64342 Seeheim-Jugenheim
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://lavape.sf.net/">http://lavape.sf.net/</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>
+
+-- 
+Victor Manuel Arroyo Valle
++358 (0) 404 162 562
+<A HREF="http://www.victorarroyo.com">http://www.victorarroyo.com</A>
+Research Scientist
+Office IT212 - University of Oulu
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000204.html">[SN-devel] Source Navigator NG on Mac OS 10.5.x available
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#203">[ date ]</a>
+              <a href="thread.html#203">[ thread ]</a>
+              <a href="subject.html#203">[ subject ]</a>
+              <a href="author.html#203">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

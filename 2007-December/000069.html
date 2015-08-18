@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Testers needed for upcoming NG3 release (windows	stability improvements)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Testers%20needed%20for%20upcoming%20NG3%20release%0A%20%28windows%09stability%20improvements%29&In-Reply-To=%3C4771EA45.5080703%40scheibli.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000068.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Testers needed for upcoming NG3 release (windows	stability improvements)</H1>
+    <B>Daniel Scheibli</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Testers%20needed%20for%20upcoming%20NG3%20release%0A%20%28windows%09stability%20improvements%29&In-Reply-To=%3C4771EA45.5080703%40scheibli.com%3E"
+       TITLE="[SN-devel] Testers needed for upcoming NG3 release (windows	stability improvements)">daniel at scheibli.com
+       </A><BR>
+    <I>Wed Dec 26 06:44:37 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000068.html">[SN-devel] Testers needed for upcoming NG3 release (windows	stability improvements)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+as you are currently touching the DB code and preparing for NG3,
+can you ensure that the new DB code will support &gt;2 GB databases?
+
+I remember that I had problems with even NG2 (using Linux 32bit
+or 64bit) when cross referencing a really big project (&gt;10M LOC).
+During the xref phase, a dialog with the follow error message did
+show up:
+
+&quot;dbopen error:/home/xca1019/temp/SOURCES/.snprj/FOO.by:Invalid argument&quot;
+
+Checking the file size showed 2147475456 bytes, which is 8K short
+of 2 GB. So I rebuild the tool with explicit 64bit file handling:
+
+export CFLAGS=&quot;-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64&quot;
+./configure --prefix=/opt/sourcenavigator-NG2
+
+This did the trick for me. Ideally one should add those global
+defines to the appropriate autoconf files. I haven't done a patch
+on that yet, but if you anyway replace the DB code you might
+want to add that.
+
+Thanks
+Daniel
+
+
+
+Freek wrote:
+&gt;<i> Dear all,
+</I>&gt;<i> 
+</I>&gt;<i> we are on our way to the NG3 release. And we've ripped out the old
+</I>&gt;<i> db-1.85 which was causing some problems with big projects by
+</I>&gt;<i> spontaneously corrupting some db structures. We've replaced it with
+</I>&gt;<i> the latest db4 library which proofed running smoothly.
+</I>&gt;<i> 
+</I>&gt;<i> Still - we need testers for the WINDOWS build - on that platform most
+</I>&gt;<i> of the problems manifested.
+</I>&gt;<i> 
+</I>&gt;<i> Please go to <A HREF="http://www.freeshells.ch/~amelinte/db4.html">http://www.freeshells.ch/~amelinte/db4.html</A>
+</I>&gt;<i> and download the &gt;Windows binaries&lt;.
+</I>&gt;<i> Then give the build a workout and report back!
+</I>&gt;<i> 
+</I>&gt;<i> Many thanks to Aurelian who did the Windows build!
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> ~F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000068.html">[SN-devel] Testers needed for upcoming NG3 release (windows	stability improvements)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

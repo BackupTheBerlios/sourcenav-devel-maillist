@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] use of the command line options in win32
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCALSkELYkaoCb7YO652nzBv%3DaTS7JFgoGNBCdzNuSQZ9H5KyxJA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000552.html">
+   <LINK REL="Next"  HREF="000555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] use of the command line options in win32</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCALSkELYkaoCb7YO652nzBv%3DaTS7JFgoGNBCdzNuSQZ9H5KyxJA%40mail.gmail.com%3E"
+       TITLE="[SN-devel] use of the command line options in win32">freequaos at gmail.com
+       </A><BR>
+    <I>Mon Mar 19 23:59:40 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000552.html">[SN-devel] use of the command line options in win32
+</A></li>
+        <LI>Next message: <A HREF="000555.html">[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#553">[ date ]</a>
+              <a href="thread.html#553">[ thread ]</a>
+              <a href="subject.html#553">[ subject ]</a>
+              <a href="author.html#553">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Michael,
+
+if you have time and want to help we'd be glad to accept patches for the
+problem. People have been using the batch mode under windows, as far as I
+can tell. I just don't know HOW.
+
+Please have a look at
+
+<A HREF="http://svn.berlios.de/viewvc/sourcenav/trunk/snavigator/snavigator/win/snavigator.c?annotate=725">http://svn.berlios.de/viewvc/sourcenav/trunk/snavigator/snavigator/win/snavigator.c?annotate=725</A>
+
+and your error message - you seem to fail at line 195-198
+
+strcpy(relativePtr, &quot;\\share\\snavigator\\etc\\snavigator&quot;);
+...
+MessageBox(0, &quot;Failed to start Source-Navigator4&quot;, &quot;Error&quot;,
+MB_OK|MB_ICONERROR);
+
+Cheers,
+F
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120319/c3d9fb4a/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120319/c3d9fb4a/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000552.html">[SN-devel] use of the command line options in win32
+</A></li>
+	<LI>Next message: <A HREF="000555.html">[SN-devel] Source-Navigator on 3.0.0-17-generic Ubuntu x86_64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#553">[ date ]</a>
+              <a href="thread.html#553">[ thread ]</a>
+              <a href="subject.html#553">[ subject ]</a>
+              <a href="author.html#553">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

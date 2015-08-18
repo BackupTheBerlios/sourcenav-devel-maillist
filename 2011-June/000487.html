@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] NG4.4 MinGW users mailing list
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTin%3DkOip1RVeAi9CEXNjOShQEQVGSg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000488.html">
+   <LINK REL="Next"  HREF="000489.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] NG4.4 MinGW users mailing list</H1>
+    <B>rogerz</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTin%3DkOip1RVeAi9CEXNjOShQEQVGSg%40mail.gmail.com%3E"
+       TITLE="[SN-devel] NG4.4 MinGW users mailing list">rogerz.zhang at gmail.com
+       </A><BR>
+    <I>Thu Jun 23 17:34:07 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000488.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+        <LI>Next message: <A HREF="000489.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#487">[ date ]</a>
+              <a href="thread.html#487">[ thread ]</a>
+              <a href="subject.html#487">[ subject ]</a>
+              <a href="author.html#487">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jun 23, 2011 at 10:31 PM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> Now I finallyfound the errors I've put in some text file:
+</I>&gt;<i>
+</I>&gt;<i> tclWinDde.c:1146:4: warning: conversion to 'DWORD' from 'int' may change
+</I>&gt;<i> the sig
+</I>&gt;<i> n of the result
+</I>&gt;<i> tclWinDde.c:1158:6: error: lvalue required as left operand of assignment
+</I>&gt;<i> tclWinDde.c:1237:4: warning: pointer targets in passing argument 2 of
+</I>&gt;<i> 'DdeCreate
+</I>&gt;<i>
+</I>&gt;<i> I have just found the same error while compiling with *latest *MinGW. It
+</I>is cause by this statement
+
+((Tcl_Obj **) objv) += (async + 3);
+
+There's a good answer for it on
+<A HREF="http://stackoverflow.com/questions/5879054/compiling-c-code-error-lvalue-required-as-left-operand-of-assignment">http://stackoverflow.com/questions/5879054/compiling-c-code-error-lvalue-required-as-left-operand-of-assignment</A>
+
+GCC 3.4.5's cast-as-lvalue language extension, which was deprecated in 3.4.5
+and removed in 4.0, allows the result of a cast to be used as an lvalue if
+the operand to the cast is an lvalue.
+
+ I just happened to have an old MinGW with GCC 3.4.5 on my office
+computer...
+A workaround for this is
+
+objv = ((Tcl_Obj **) objv) + (async + 3);
+
+I suspect the other issues are also caused by the GCC version difference.
+
+--
+rogerz
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110623/4153f750/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110623/4153f750/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000488.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+	<LI>Next message: <A HREF="000489.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#487">[ date ]</a>
+              <a href="thread.html#487">[ thread ]</a>
+              <a href="subject.html#487">[ subject ]</a>
+              <a href="author.html#487">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

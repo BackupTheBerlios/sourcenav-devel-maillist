@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] db crashes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20db%20crashes&In-Reply-To=%3C8240f6260704200031i1a0545ddk119d2cfdc884cf67%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] db crashes</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20db%20crashes&In-Reply-To=%3C8240f6260704200031i1a0545ddk119d2cfdc884cf67%40mail.gmail.com%3E"
+       TITLE="[SN-devel] db crashes">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Apr 20 09:31:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[SN-devel] [PATCH] Title on Iconised Source Navigator instance
+</A></li>
+        <LI>Next message: <A HREF="000007.html">[SN-devel] db crashes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>For archiving in the lists
+
+---------- Forwarded message ----------
+
+Hi,
+
+I'm on track of some dubious db crashes (I'm experiencing on Linux
+ever since SN 5.2). Reproducing is done by:
+
+Symbols dialogue:
+
+1) enter filename, open this file
+2) in editor, make a NEW line, enter text, save
+3) segfault
+
+Does that sound familiar to you?
+
+I have isolated the exact line in the db code. It has something to do
+with a &quot;pinned&quot; page.
+
+#0  mpool_put (mp=0x8de58955, page=0x45898445, flags=0) at
+./../mpool/mpool.c:260
+#1  0x08076607 in __bt_seq (dbp=0x87fd808, key=0xbfd0bf28,
+data=0xbfd0bf20, flags=7) at ./../btree/bt_seq.c:90
+#2  0x0804fd4b in dbDispCmd (clientData=0x8a18330, interp=0x84ef780,
+argc=8, objv=0xbfd0d0f0) at dbsym.c:1035
+
+Do you have any suggestions on where to start?
+Thanks!
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[SN-devel] [PATCH] Title on Iconised Source Navigator instance
+</A></li>
+	<LI>Next message: <A HREF="000007.html">[SN-devel] db crashes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

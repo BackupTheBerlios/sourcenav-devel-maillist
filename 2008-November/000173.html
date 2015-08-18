@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure under windows Msys - NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C8240f6260811141141u1cd38998n6391ac926d1738bc%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000172.html">
+   <LINK REL="Next"  HREF="000174.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure under windows Msys - NG3</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C8240f6260811141141u1cd38998n6391ac926d1738bc%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Configure failure under windows Msys - NG3">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Nov 14 20:41:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000172.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+        <LI>Next message: <A HREF="000174.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#173">[ date ]</a>
+              <a href="thread.html#173">[ thread ]</a>
+              <a href="subject.html#173">[ subject ]</a>
+              <a href="author.html#173">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  &gt; $ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys &gt;
+</I>&gt;<i>  &gt; out.txt
+</I>&gt;<i>  &gt; configure: error: Cannot find a type to use in place of socklen_t
+</I>&gt;<i>  &gt; configure: error: ./configure failed for db4/PORT
+</I>&gt;<i>
+</I>&gt;<i>  This is telling me that it isn't identifying the windows OS so that it
+</I>&gt;<i>  can use the windows socket layer instead of the UNIX ones.  I'm not
+</I>&gt;<i>  sure what an --enable-msys does.  Is there an --enable-mingw?
+</I>
+DAMN, got catch Earnie.
+I'm so blind (working too much as Mark is ;). It's NOT --enable-msys,
+it's --enable-mingw !
+
+./configure --help does also list that option.
+
+Cheers.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000172.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+	<LI>Next message: <A HREF="000174.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#173">[ date ]</a>
+              <a href="thread.html#173">[ thread ]</a>
+              <a href="subject.html#173">[ subject ]</a>
+              <a href="author.html#173">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

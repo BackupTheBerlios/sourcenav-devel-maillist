@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] New Edit Window size setting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20New%20Edit%20Window%20size%20setting&In-Reply-To=%3CAANLkTilkZSv4bqPjx4Fbm86AgZaj9fDRCpqx6aZEi-fh%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000391.html">
+   <LINK REL="Next"  HREF="000393.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] New Edit Window size setting</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20New%20Edit%20Window%20size%20setting&In-Reply-To=%3CAANLkTilkZSv4bqPjx4Fbm86AgZaj9fDRCpqx6aZEi-fh%40mail.gmail.com%3E"
+       TITLE="[SN-devel] New Edit Window size setting">freequaos at gmail.com
+       </A><BR>
+    <I>Sun Jul 18 08:38:27 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000391.html">[SN-devel] New Edit Window size setting
+</A></li>
+        <LI>Next message: <A HREF="000393.html">[SN-devel] New Edit Window size setting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Medi,
+
+&gt;<i> I was wondering if there is a way to set the new window size when creating a
+</I>&gt;<i> new windows for Edit (etc).
+</I>&gt;<i> For example from Window &gt; New View &gt; Editor, a window is created. However
+</I>&gt;<i> since I have a dual head configuration and my virtual screen size spans
+</I>&gt;<i> across both screens, the window is created with a width of 75% and
+</I>
+There already is a configuration option for that particular problem:
+
+File -&gt; Project preferences -&gt; [Project] under Window:
+
+    Window size is: xx % of screen size
+
+Choose a xx of your liking, then click &quot;Apply&quot; and &quot;Save as default&quot;
+(so it is valid as a general SN preference, too).
+
+Other than that I assume that SN is a bit multi-head agnostic, esp. on
+win32 due to tcl/tk's old age we have to use. As for any hooks - I
+currently have no clue, but all the GUI handling is in
+$SRC/snavigator/gui
+
+Hope that helps and cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000391.html">[SN-devel] New Edit Window size setting
+</A></li>
+	<LI>Next message: <A HREF="000393.html">[SN-devel] New Edit Window size setting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

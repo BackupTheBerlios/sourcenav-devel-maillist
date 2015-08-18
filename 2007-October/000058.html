@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024162358.a0b551ba.Peeter.Vois%40proekspert.ee%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000057.html">
+   <LINK REL="Next"  HREF="000059.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Peeter Vois</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024162358.a0b551ba.Peeter.Vois%40proekspert.ee%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">Peeter.Vois at proekspert.ee
+       </A><BR>
+    <I>Wed Oct 24 15:23:58 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000057.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+        <LI>Next message: <A HREF="000059.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have passed the configuration difficulty of db4.
+in db4/dist/configure.ac I changed:
+- AC_PROG_CC(cc gcc)
++ AC_PROG_CC(gcc cc)
+
+I had to run autoconf script on a FC5 box as the one that is on the HPUX was making something very wrong. The configure works now.
+
+I am now resolving probelms with the following:
+
+configuring in
+tk8.3
+running /bin/sh
+../../../../sourcenavigator-trunk-dev/tix/unix/tk8.3/configure
+--prefix=/var/home/peeter/local --prefix=/var/home/peeter/local
+--cache-file=/dev/null
+--srcdir=../../../../sourcenavigator-trunk-dev/tix/unix/tk8.3
+loading cache /dev/null
+checking for a BSD compatible install... /usr/local/bin/install -c
+checking for ranlib... ranlib
+checking how to run the C preprocessor... cc -E
+checking for unistd.h... yes
+checking for limits.h... yes
+checking whether make sets ${MAKE}... yes
+checking unsigned char... supported
+checking for strcasecmp... yes
+checking for Tcl configuration script...
+/home/peeter/Install/snbuild/tcl/unix/tclConfig.sh
+checking for Tk configuration script... configure: warning: Can't find
+Tk configuration definitions
+checking for Tcl headers in the source tree...
+/home/peeter/Install/sourcenavigator-trunk-dev/tcl/generic
+/home/peeter/Install/sourcenavigator-trunk-dev/tcl/generic
+checking for Tk headers in the source tree... none
+configure: error: Can't find any Tk headers
+configure: error:
+../../../../sourcenavigator-trunk-dev/tix/unix/tk8.3/configure failed
+for tk8.3
+configure: error: ../../../sourcenavigator-trunk-dev/tix/unix/configure
+failed for unix
+configure: error: /bin/sh
+'../../sourcenavigator-trunk-dev/tix/configure' failed for tix
+
+/Peeter
+
+On Wed, 24 Oct 2007 07:52:31 -0400
+Earnie Boyd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">earnie at users.sourceforge.net</A>&gt; wrote:
+
+&gt;<i> Quoting Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Maybe you can patch the configure to check for -ansi ?
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> Or just set CC='gcc -ansi'.
+</I>&gt;<i> 
+</I>&gt;<i> Earnie -- <A HREF="http://for-my-kids.com/">http://for-my-kids.com/</A>
+</I>&gt;<i> -- <A HREF="http://give-me-an-offer.com/">http://give-me-an-offer.com/</A>
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000057.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+	<LI>Next message: <A HREF="000059.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

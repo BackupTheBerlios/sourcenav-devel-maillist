@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C8240f6260710240804r49b30ab9v11d0f6b5bdbb4340%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C8240f6260710240804r49b30ab9v11d0f6b5bdbb4340%40mail.gmail.com%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">freequaos at gmail.com
+       </A><BR>
+    <I>Wed Oct 24 17:04:17 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> I have passed the configuration difficulty of db4.
+</I>&gt;<i> in db4/dist/configure.ac I changed:
+</I>&gt;<i> - AC_PROG_CC(cc gcc)
+</I>&gt;<i> + AC_PROG_CC(gcc cc)
+</I>
+Earnie: Do you think it is safe for us to roll that into our repos?
+Dunno too much about HPUX or other commercial Unices re: compiler,
+headers, problems...
+
+&gt;<i> I am now resolving probelms with the following:
+</I>&gt;<i>
+</I>&gt;<i> checking for Tk headers in the source tree... none
+</I>&gt;<i> configure: error: Can't find any Tk headers
+</I>&gt;<i> configure: error:
+</I>&gt;<i> ../../../../sourcenavigator-trunk-dev/tix/unix/tk8.3/configure failed
+</I>&gt;<i> for tk8.3
+</I>&gt;<i> configure: error: ../../../sourcenavigator-trunk-dev/tix/unix/configure
+</I>&gt;<i> failed for unix
+</I>&gt;<i> configure: error: /bin/sh
+</I>&gt;<i> '../../sourcenavigator-trunk-dev/tix/configure' failed for tix
+</I>
+Yeah ... SN sources don't like when you reconfigure them, the
+tix/tcl/tk sometimes breaks.
+Only way is to start from scratch.
+
+-F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

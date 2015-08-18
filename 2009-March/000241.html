@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%22Jump%20to%20source%20line%22%20doesn%27t%20work%20always%20for%0A%09compiler%20error%20messages%20in%20the%20SN%20build%20window&In-Reply-To=%3Cf39235650903200839j3be85597u424fdc5cfc85dc23%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000240.html">
+   <LINK REL="Next"  HREF="000238.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window</H1>
+    <B>Klaus D. G&#252;nther</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%22Jump%20to%20source%20line%22%20doesn%27t%20work%20always%20for%0A%09compiler%20error%20messages%20in%20the%20SN%20build%20window&In-Reply-To=%3Cf39235650903200839j3be85597u424fdc5cfc85dc23%40mail.gmail.com%3E"
+       TITLE="[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window">klausdguenther at googlemail.com
+       </A><BR>
+    <I>Fri Mar 20 16:39:12 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000240.html">[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window
+</A></li>
+        <LI>Next message: <A HREF="000238.html">[SN-devel] Cannot use gdb for debugging on Mac OS 10.5.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#241">[ date ]</a>
+              <a href="thread.html#241">[ thread ]</a>
+              <a href="subject.html#241">[ subject ]</a>
+              <a href="author.html#241">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>A complete reparse didn't help.
+
+I've also done some more tests:
+
+In all cases I could't select the error line in the compile window
+directly but I had
+to select another output line before I could select the actual error
+line in such a way
+that its background color changed into light blue.
+
+In several cases there wasn't any reaction whatsoever to clicking the
+error line.
+
+In most cases the correct source file has been opened and positioned
+correctly to the erroneous
+source line.
+
+In all cases where a source file &quot;Generated/moc_&lt;xyz-file&gt;.cpp&quot;
+existed in a sub-directory &quot;Generated&quot;
+of the directory where the erroneous file &quot;&lt;xyz-file&gt;.cpp&quot; resides,
+the file Generated/moc_&lt;xyz-file&gt;.cpp
+has been opened and either positioned to the line number reported in
+the error message, or to the last
+line of the file if the error line's number was higher than the number
+of lines in the moc_&lt;xyz-file&gt;.cpp file.
+
+If you want to build and test our software on Mac OS Leopard you can
+get the sources via svn:
+
+   svn co <A HREF="https://lavape.svn.sourceforge.net/svnroot/lavape/trunk/lavape">https://lavape.svn.sourceforge.net/svnroot/lavape/trunk/lavape</A>
+
+You have to install the Qt 4.5.0 software from
+<A HREF="http://www.qtsoftware.com/downloads">http://www.qtsoftware.com/downloads</A> before you can
+successfully run &quot;make&quot; in the lavape root directory. The
+above-mentioned example file LavaPE.cpp
+resides in the src/LavaPE subdirectory, the &quot;disturbing&quot; moc-file in
+its subdirectory &quot;Generated&quot;.
+(The moc files are generated from *.h files by Qt's moc precompiler.)
+
+Many thanks for your effort,
+
+Klaus.
+
+
+2009/3/18 Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;:
+&gt;&gt;<i> &#160;&gt; Example: If I have an error in a source file called &quot;LavaPE.cpp&quot;
+</I>&gt;&gt;<i> &#160;&gt; &#160;and if I double-click the corresponding message line then
+</I>&gt;&gt;<i> &#160;&gt; &#160;SN attempts to display the erroneous line in a file
+</I>&gt;&gt;<i> &#160;&gt; &#160;called &quot;moc_LavaPE.cpp&quot;.
+</I>&gt;&gt;<i> Yes, that functionality is largely untested (because we don't use it)
+</I>&gt;&gt;<i> &#160;and untouched.
+</I>&gt;&gt;<i> &#160;I cannot promise that we will fix this ASAP, but I keep it in the queue.
+</I>&gt;<i>
+</I>&gt;<i> Ok, I've did some tests, but cannot reproduce that (I tried similar
+</I>&gt;<i> naming of files, etc).
+</I>&gt;<i> Can you please again provide the example code where the problem manifests?
+</I>&gt;<i>
+</I>&gt;<i> Can you also please do a complete reparse of the project and see if
+</I>&gt;<i> the problem persists?
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> ~F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000240.html">[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window
+</A></li>
+	<LI>Next message: <A HREF="000238.html">[SN-devel] Cannot use gdb for debugging on Mac OS 10.5.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#241">[ date ]</a>
+              <a href="thread.html#241">[ thread ]</a>
+              <a href="subject.html#241">[ subject ]</a>
+              <a href="author.html#241">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

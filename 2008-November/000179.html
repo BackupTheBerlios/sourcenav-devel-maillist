@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure under windows Msys - NG3 update 2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3%20update%202&In-Reply-To=%3C491EF4DA.6040607%40virgin.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000174.html">
+   <LINK REL="Next"  HREF="000180.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure under windows Msys - NG3 update 2</H1>
+    <B>matthew</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3%20update%202&In-Reply-To=%3C491EF4DA.6040607%40virgin.net%3E"
+       TITLE="[SN-devel] Configure failure under windows Msys - NG3 update 2">dr.mclem at virgin.net
+       </A><BR>
+    <I>Sat Nov 15 17:12:10 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000174.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+        <LI>Next message: <A HREF="000180.html">[SN-devel] Configure failure under windows Msys - NG3 update 3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi again -
+
+As a second check I started from a clean windows XP install and 
+installed the version
+of msys/ingw mentioned in one of the emails (0.8) and tried again - same 
+configuration errors
+i'm afraid.
+
+regards
+
+Matthew
+
+
+matthew wrote:
+&gt;<i> Hi there
+</I>&gt;<i>
+</I>&gt;<i> I have been a long time fan of sourve nav and have used it extensively 
+</I>&gt;<i> over the years
+</I>&gt;<i> and I'm glad to see it being resurrected - hope I can help out in the 
+</I>&gt;<i> future.
+</I>&gt;<i>
+</I>&gt;<i> I have been working on integrating Git into the rcs system on the old 
+</I>&gt;<i> version on and off for a while
+</I>&gt;<i> and thought I would try and port my changes into the new version. For 
+</I>&gt;<i> several reasons I
+</I>&gt;<i> want to build the whole thing anew (mainly for debugging access) and I 
+</I>&gt;<i> am amd struggling to
+</I>&gt;<i> get it configured. I'm using the latest mingw/msys combo
+</I>&gt;<i>
+</I>&gt;<i> It's failing on the db4 configuration is failing on the socket support 
+</I>&gt;<i> and
+</I>&gt;<i> it appears to be missing some of the includes (which ismentioned in 
+</I>&gt;<i> the INSTALL file) -
+</I>&gt;<i>
+</I>&gt;<i> I'm a bit hesitant to mix and match header files as I use this system 
+</I>&gt;<i> for other software as well
+</I>&gt;<i> so any hints on fixing this would be apprecieted.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Matthew
+</I>&gt;<i>
+</I>&gt;<i> Sub set of messages
+</I>&gt;<i>
+</I>&gt;<i> $ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys 
+</I>&gt;<i> --cache-file=../.././config.cache --srcdir=.
+</I>&gt;<i>
+</I>&gt;<i> ## --------- ##
+</I>&gt;<i> ## Platform. ##
+</I>&gt;<i> ## --------- ##
+</I>&gt;<i>
+</I>&gt;<i> hostname = Jafar
+</I>&gt;<i> uname -m = i686
+</I>&gt;<i> uname -r = 1.0.10(0.46/3/2)
+</I>&gt;<i> uname -s = MINGW32_NT-5.1
+</I>&gt;<i> uname -v = 2004-03-15 07:17
+</I>&gt;<i>
+</I>&gt;<i> ....
+</I>&gt;<i>
+</I>&gt;<i> checking for library containing opendir... none required
+</I>&gt;<i> checking sys/select.h usability... no
+</I>&gt;<i> checking sys/select.h presence... no
+</I>&gt;<i> checking for sys/select.h... no
+</I>&gt;<i> checking sys/socket.h usability... no
+</I>&gt;<i> checking sys/socket.h presence... no
+</I>&gt;<i> checking for sys/socket.h... no
+</I>&gt;<i> checking for sys/time.h... (cached) yes
+</I>&gt;<i>
+</I>&gt;<i> ....
+</I>&gt;<i>
+</I>&gt;<i> checking for socklen_t... no
+</I>&gt;<i> checking for socklen_t equivalent...
+</I>&gt;<i>
+</I>&gt;<i> $ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys &gt; 
+</I>&gt;<i> out.txt
+</I>&gt;<i> configure: error: Cannot find a type to use in place of socklen_t
+</I>&gt;<i> configure: error: ./configure failed for db4/PORT
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000174.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+	<LI>Next message: <A HREF="000180.html">[SN-devel] Configure failure under windows Msys - NG3 update 3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

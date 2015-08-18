@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk 8.4 based SN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3CCALSkELaCGopm3T2Hv9ZT9sdNkibS7tDpqsg5PuWLuKy0rbuJvg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000512.html">
+   <LINK REL="Next"  HREF="000514.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk 8.4 based SN</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3CCALSkELaCGopm3T2Hv9ZT9sdNkibS7tDpqsg5PuWLuKy0rbuJvg%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Tcl/Tk 8.4 based SN">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Oct 18 16:27:29 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000512.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+        <LI>Next message: <A HREF="000514.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#513">[ date ]</a>
+              <a href="thread.html#513">[ thread ]</a>
+              <a href="subject.html#513">[ subject ]</a>
+              <a href="author.html#513">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Andres,
+
+&gt;<i> make[1]: Entering directory `/c/Temp/Home/SourceNavigator-NG-8.4-1/db4/PORT'
+</I>&gt;<i> ./libtool --mode=compile gcc -c -I. -I./..  -O3  ../env/env_sig.c
+</I>&gt;<i> libtool: compile:  gcc -c -I. -I./.. -O3 ../env/env_sig.c  -DDLL_EXPORT -DPIC
+</I>&gt;<i> -o .libs/env_sig.o
+</I>&gt;<i> In file included from ../env/env_sig.c:11:0:
+</I>&gt;<i> ./db_int.h:52:24: fatal error: netinet/in.h: No such file or direct
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I guess there is some package I need to install in msys to provide
+</I>&gt;<i> netinet/in.h, anyone knows which?
+</I>
+I think you missed a &quot;--enable-mingw&quot; when running the main configure?
+
+  --enable-mingw          build under win32/minGW
+
+Then the rest should work without manually tinkering with sources ;)
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000512.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+	<LI>Next message: <A HREF="000514.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#513">[ date ]</a>
+              <a href="thread.html#513">[ thread ]</a>
+              <a href="subject.html#513">[ subject ]</a>
+              <a href="author.html#513">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

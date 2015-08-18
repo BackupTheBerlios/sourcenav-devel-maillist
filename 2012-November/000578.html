@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] sn can not see my new project
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20sn%20can%20not%20see%20my%20new%20project&In-Reply-To=%3CCADX0JjuO6L_bHDWFqz4xdZ1qtPmPDfc3_Ea02GAwuffgzd_ncA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000580.html">
+   <LINK REL="Next"  HREF="000583.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] sn can not see my new project</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20sn%20can%20not%20see%20my%20new%20project&In-Reply-To=%3CCADX0JjuO6L_bHDWFqz4xdZ1qtPmPDfc3_Ea02GAwuffgzd_ncA%40mail.gmail.com%3E"
+       TITLE="[SN-devel] sn can not see my new project">montaseri at gmail.com
+       </A><BR>
+    <I>Tue Nov 13 21:57:32 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000580.html">[SN-devel] sn can not see my new project
+</A></li>
+        <LI>Next message: <A HREF="000583.html">[SN-devel] sn can not see my new project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#578">[ date ]</a>
+              <a href="thread.html#578">[ thread ]</a>
+              <a href="subject.html#578">[ subject ]</a>
+              <a href="author.html#578">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Excellent...that was it....I guess Intel is not hiring just any body...good
+job
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~&gt; grep main_ref ~/.sn/nav_projs.lst
+/u/medi/.snav/main_ref.proj
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~&gt;
+
+Medi
+
+On Tue, Nov 13, 2012 at 12:53 PM, John Lash &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">john.k.lash at intel.com</A>&gt; wrote:
+
+&gt;<i> So I'm guessing that it worked from the command line, then you ran it
+</I>&gt;<i> using just the GUI?
+</I>&gt;<i>
+</I>&gt;<i> I think I recall that whenever you start snavigator and open a project, it
+</I>&gt;<i> saves the information for the project in .sn/nav_pojs.lst. That's loaded by
+</I>&gt;<i> the gui when it pops up later on.
+</I>&gt;<i>
+</I>&gt;<i> That file is just a simple text file. Looks like the entries are just
+</I>&gt;<i> path-names to the xxx.proj file.
+</I>&gt;<i>
+</I>&gt;<i> --john
+</I>&gt;<i>
+</I>&gt;<i> On Tue, 13 Nov 2012 12:45:23 -0800
+</I>&gt;<i> Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;<i> &gt; Funny....after I followed your instruction ....I tried the GUI way and
+</I>&gt;<i> now
+</I>&gt;<i> &gt; it works
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; FYI...I have defined an icon on my Linux desktop menu (sorry they (KDE
+</I>&gt;<i> &gt; folks) call it some fancy name, but it is basically an icon) and is
+</I>&gt;<i> &gt; launching
+</I>&gt;<i> &gt; /opt/SN-NG4.5/bin/snavigator
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Maybe some files get touched , potentially
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~/.snav/main_ref.db&gt; ls -l tmp*
+</I>&gt;<i> &gt; -rw-rw-r--. 1 medi medi 0 Nov 12 12:24 tmp_qRbcr1
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; that now makes the GUI to see it
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks
+</I>&gt;<i> &gt; Medi
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Tue, Nov 13, 2012 at 12:28 PM, John Lash &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">john.k.lash at intel.com</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; Actually, that's something I do often (on Linux).
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; This is called from a script so $dir and $name are set such that they
+</I>&gt;<i> &gt; &gt; point to the right place:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;         snavigator --databasedir ${dir}/.snav  --nosplash --project
+</I>&gt;<i> &gt; &gt; ${dir}/${name}.proj &amp;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Can you post how you are trying to start sourcenavigator and I might be
+</I>&gt;<i> &gt; &gt; able to help.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; --john
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; On Tue, 13 Nov 2012 12:03:47 -0800
+</I>&gt;<i> &gt; &gt; Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Hi,
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Just installed sn 4.5 and build a project file from command line.
+</I>&gt;<i> &gt; &gt; &gt; I then launched sn (GUI), but it can not see my new project (ie I
+</I>&gt;<i> can not
+</I>&gt;<i> &gt; &gt; &gt; select and open it).
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~/.snav&gt; ls -1d main_ref.*
+</I>&gt;<i> &gt; &gt; &gt; main_ref.db/
+</I>&gt;<i> &gt; &gt; &gt; main_ref.import
+</I>&gt;<i> &gt; &gt; &gt; main_ref.proj
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Any recommendations?
+</I>&gt;<i> &gt; &gt; &gt; Is it possible to launch sn (GUI) and provide a project file name?
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Thanks
+</I>&gt;<i> &gt; &gt; &gt; Medi
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20121113/3ba6a53d/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20121113/3ba6a53d/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000580.html">[SN-devel] sn can not see my new project
+</A></li>
+	<LI>Next message: <A HREF="000583.html">[SN-devel] sn can not see my new project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#578">[ date ]</a>
+              <a href="thread.html#578">[ thread ]</a>
+              <a href="subject.html#578">[ subject ]</a>
+              <a href="author.html#578">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

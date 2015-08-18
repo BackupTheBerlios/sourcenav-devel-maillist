@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Xref widget launch latency
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20widget%20launch%20latency&In-Reply-To=%3CCALSkELbvwxnUwB7U3TTA6hgMv81K6SYyNCN5dx2d6RmyiSzubQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000586.html">
+   <LINK REL="Next"  HREF="000588.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Xref widget launch latency</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20widget%20launch%20latency&In-Reply-To=%3CCALSkELbvwxnUwB7U3TTA6hgMv81K6SYyNCN5dx2d6RmyiSzubQ%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Xref widget launch latency">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Dec  6 22:54:53 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000586.html">[SN-devel] Xref widget launch latency
+</A></li>
+        <LI>Next message: <A HREF="000588.html">[SN-devel] Xref widget launch latency
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#587">[ date ]</a>
+              <a href="thread.html#587">[ thread ]</a>
+              <a href="subject.html#587">[ subject ]</a>
+              <a href="author.html#587">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Medi,
+
+unfortunately this bug has been present from the very start; it's way
+worse on Windows, but there are situations when also on *nix there's
+an unacceptable delay.
+You are right - the is much going on behind the scenes. A huge list of
+files (to parse afaik) is compiled and written out to a file.
+This condition even is documented in SN's source (I currently can't
+remember where - it's a delayed mapping of a dialogue window and the
+comment even explicitly mentions windows).
+
+The code that is triggered by &quot;Reparse project&quot; is found here:
+snavigator/gui/preferences, line 1222
+
+As for seeing what's going on, try starting snavigator with the
+cmdline switch &quot;--debug 99&quot;. A file zznavig.log will appear in your
+current directory, and lots of output on your console.
+
+Over the years I've tried a few things but none of them seems to
+really work. It has brought me a great deal of pain not being able to
+fix it.
+You're welcome to try and find a new fix :-)
+
+Sorry I couldn't really help.
+
+Cheers,
+F
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000586.html">[SN-devel] Xref widget launch latency
+</A></li>
+	<LI>Next message: <A HREF="000588.html">[SN-devel] Xref widget launch latency
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#587">[ date ]</a>
+              <a href="thread.html#587">[ thread ]</a>
+              <a href="subject.html#587">[ subject ]</a>
+              <a href="author.html#587">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

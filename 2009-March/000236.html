@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Xref problems in NG3 and NG4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20problems%20in%20NG3%20and%20NG4&In-Reply-To=%3C8240f6260903010359t5ab9d9c5j6871e5a712c65586%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000235.html">
+   <LINK REL="Next"  HREF="000237.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Xref problems in NG3 and NG4</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20problems%20in%20NG3%20and%20NG4&In-Reply-To=%3C8240f6260903010359t5ab9d9c5j6871e5a712c65586%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Xref problems in NG3 and NG4">freequaos at gmail.com
+       </A><BR>
+    <I>Sun Mar  1 12:59:01 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000235.html">[SN-devel] Xref  problems in NG3 and NG4
+</A></li>
+        <LI>Next message: <A HREF="000237.html">[SN-devel] &quot;Jump to source line&quot; doesn't work always for compiler	error messages in the SN build window
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#236">[ date ]</a>
+              <a href="thread.html#236">[ thread ]</a>
+              <a href="subject.html#236">[ subject ]</a>
+              <a href="author.html#236">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+&gt;<i> I am having trouble with the xref component, it does not work for calls.
+</I>&gt;<i> The xref panel shows who calls the function but not who the function
+</I>&gt;<i> calls. All it shows are (t) typedefs, not very useful..
+</I>&gt;<i>
+</I>&gt;<i> I know this used to work under 4,5 up to 5.1.1
+</I>
+Can you provide us with sample code that fails in that area? That's
+very important! We did already fix some nasty issues with the parsers
+and this will help us understand the problem. And I collect those code
+samples for future testing.
+
+&gt;<i> Also grep functionality is broken.. assignment search does nothing
+</I>&gt;<i> sensible and the others seem to do nothing either, this is with NG3 on
+</I>&gt;<i> linux and windows.
+</I>
+Mark's our man for that and he did some patches in that area I just
+merged without looking or testing so that's probably my fault ;)
+
+&gt;<i> To be blunt this makes sourcenav useless as a code visualization/rework
+</I>&gt;<i> tool, and pretty gui editors I already have. I will keep using 5.1.1 but
+</I>&gt;<i> this fork is broken... fix it or let it die.
+</I>
+I do understand you general frustration when things suddenly don't
+work you come to like, but let's work together fixing those problems.
+You have to consider that SN is a huge pile of hacked-together mess.
+Code flow sometimes isn't even recognizable anymore and when I tried
+to generalize some duplicated code SN suddenly wouldn't start up
+anymore due to some sideeffects the original code had.
+
+&gt;<i>  I also built an SV6 and have no problems with this doing xref searches.
+</I>
+What's SV6 ?
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000235.html">[SN-devel] Xref  problems in NG3 and NG4
+</A></li>
+	<LI>Next message: <A HREF="000237.html">[SN-devel] &quot;Jump to source line&quot; doesn't work always for compiler	error messages in the SN build window
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#236">[ date ]</a>
+              <a href="thread.html#236">[ thread ]</a>
+              <a href="subject.html#236">[ subject ]</a>
+              <a href="author.html#236">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

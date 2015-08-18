@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Sourcenav-devel Digest, Vol 18, Issue 2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Sourcenav-devel%20Digest%2C%20Vol%2018%2C%20Issue%202&In-Reply-To=%3C3CAC7D20DCEB7540A617EDFEF15745E804492EB2%40corvette.eu.tieto.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000226.html">
+   <LINK REL="Next"  HREF="000228.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Sourcenav-devel Digest, Vol 18, Issue 2</H1>
+    <B>Sten-Rune.Olsson at tieto.com</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Sourcenav-devel%20Digest%2C%20Vol%2018%2C%20Issue%202&In-Reply-To=%3C3CAC7D20DCEB7540A617EDFEF15745E804492EB2%40corvette.eu.tieto.com%3E"
+       TITLE="[SN-devel] Sourcenav-devel Digest, Vol 18, Issue 2">Sten-Rune.Olsson at tieto.com
+       </A><BR>
+    <I>Wed Feb  4 12:27:10 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000226.html">[SN-devel]  Link errors SourceNavigator 6.0 on Unix
+</A></li>
+        <LI>Next message: <A HREF="000228.html">[SN-devel] Source Navigator NG4 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#227">[ date ]</a>
+              <a href="thread.html#227">[ thread ]</a>
+              <a href="subject.html#227">[ subject ]</a>
+              <a href="author.html#227">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks,
+I was recommended to use gcc and -lrt from our SystemAdmin to and it
+works fine!
+
+BR
+/Sten-Rune 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-bounces at lists.berlios.de</A>] On Behalf Of
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>
+Sent: den 4 februari 2009 12:01
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+Subject: Sourcenav-devel Digest, Vol 18, Issue 2
+
+Send Sourcenav-devel mailing list submissions to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+
+To subscribe or unsubscribe via the World Wide Web, visit
+	<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+or, via email, send a message with subject or body 'help' to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>
+
+You can reach the person managing the list at
+	<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-owner at lists.berlios.de</A>
+
+When replying, please edit your Subject line so it is more specific than
+&quot;Re: Contents of Sourcenav-devel digest...&quot;
+
+
+Today's Topics:
+
+   1.  Link errors SourceNavigator 6.0 on Unix (Angelo D'Agnano)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Tue, 3 Feb 2009 21:32:46 +0100 (CET)
+From: Angelo D'Agnano &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">adpubblica at tiscali.it</A>&gt;
+Subject: [SN-devel]  Link errors SourceNavigator 6.0 on Unix
+To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>&gt;
+Message-ID:
+	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">5490287.160551233693166311.JavaMail.defaultUser at defaultHost</A>&gt;
+Content-Type: text/plain;charset=&quot;UTF-8&quot;
+
+This most probably is not the solution to your specific problem, but, on
+Solaris 10 this was what I had to do:
+
+in the sourcenavigator
+folder:
+
+perl -npi.bak -e 's/&quot;cc&quot;$/&quot;gcc&quot;/' db4/PORT/libtool perl -npi.
+bak -e 's/hardcode_libdir_flag_spec\=.*$/hardcode_libdir_flag_spec=&quot;&quot;
+/'  db4/PORT/libtool
+perl -npi.bak -e 's/\-lpthread/-lpthread -lrt/' 
+snavigator/db/Makefile
+perl -npi.bak -e 's/\-lpthread/-lpthread -lrt/' 
+snavigator/hyper/Makefile
+perl -npi.bak -e 's/\-lpthread/-lpthread - lrt/'
+snavigator/parsers/cpp/Makefile
+
+Angelo
+
+
+Attiva Tiscali Tutto Incluso: telefoni e navighi senza limiti A SOLI ?10
+AL MESE FINO ALL?ESTATE. Attiva entro il 05/01/09!
+<A HREF="http://abbonati.tiscali.it/promo/tuttoincluso/">http://abbonati.tiscali.it/promo/tuttoincluso/</A>
+
+
+------------------------------
+
+_______________________________________________
+Sourcenav-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+
+
+End of Sourcenav-devel Digest, Vol 18, Issue 2
+**********************************************
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000226.html">[SN-devel]  Link errors SourceNavigator 6.0 on Unix
+</A></li>
+	<LI>Next message: <A HREF="000228.html">[SN-devel] Source Navigator NG4 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#227">[ date ]</a>
+              <a href="thread.html#227">[ thread ]</a>
+              <a href="subject.html#227">[ subject ]</a>
+              <a href="author.html#227">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

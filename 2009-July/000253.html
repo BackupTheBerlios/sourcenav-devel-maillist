@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0907310740o3a4a182hc271d1824e26a275%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000254.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Daniel Carmo Olops</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0907310740o3a4a182hc271d1824e26a275%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">daniel at olops.eti.br
+       </A><BR>
+    <I>Fri Jul 31 16:40:53 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000254.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+We have an old server running HP-UX 11i, which has Source Navigator 5.x
+already installed. Now I was requested to update it to Source Navigator 6
+and/or Source Navigator NG4.
+
+When I try to do a './configure --prefix=/usr/local/snavNG4' with no
+compiler-related environment variables set, I got the following error:
+_______________________________
+configure: error: No unsigned 1-byte integral type
+configure: error: ./configure failed for db4/PORT
+_______________________________
+
+If I set the CC variable to '/usr/local/bin/gcc', which is where it is
+installed, I pass through the configure step, but stumbles at 'make' with
+lots of errors:
+_______________________________
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:266: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:967: error:
+argument 'border' doesn't match prototype
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:266: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:967: error:
+number of arguments doesn't match prototype
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:266: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:994: warning:
+implicit declaration of function 'XFillRectangle'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:994: error:
+'Tk_FakeWin' has no member named 'display'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:994: error:
+'TkBorder' has no member named 'bgGC'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1001: warning:
+passing argument 2 of 'Tk_Draw3DRectangle' makes pointer from integer
+without a cast
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1001: warning:
+passing argument 3 of 'Tk_Draw3DRectangle' makes integer from pointer
+without a cast
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1001: error:
+too many arguments to function 'Tk_Draw3DRectangle'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'Tk_Fill3DPolygon':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1025: error:
+expected declaration specifiers before 'Drawable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1027: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1038: error:
+argument 'drawable' doesn't match prototype
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:261: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1038: error:
+argument 'border' doesn't match prototype
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:261: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1038: error:
+number of arguments doesn't match prototype
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tkDecls.h:261: error:
+prototype declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1041: error:
+'Tk_FakeWin' has no member named 'display'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1041: error:
+'TkBorder' has no member named 'bgGC'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1042: error:
+'Complex' undeclared (first use in this function)
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1042: error:
+'CoordModeOrigin' undeclared (first use in this function)
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1045: warning:
+passing argument 2 of 'Tk_Draw3DPolygon' makes pointer from integer without
+a cast
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1045: warning:
+passing argument 3 of 'Tk_Draw3DPolygon' makes integer from pointer without
+a cast
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1045: error:
+too many arguments to function 'Tk_Draw3DPolygon'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'BorderInit':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1069: error:
+'TkDisplay' has no member named 'borderInit'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1070: error:
+'TkDisplay' has no member named 'borderTable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: At top level:
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1093: warning:
+conflicting types for 'ShiftLine'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1093: error:
+static declaration of 'ShiftLine' follows non-static declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:859: error:
+previous implicit declaration of 'ShiftLine' was here
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'ShiftLine':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1093: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1094: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1099: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1135: error:
+invalid type argument of 'unary *'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1135: error:
+invalid type argument of 'unary *'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1136: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1136: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1137: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1137: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1155: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1161: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: At top level:
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1186: error:
+static declaration of 'Intersect' follows non-static declaration
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:865: error:
+previous implicit declaration of 'Intersect' was here
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'Intersect':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1186: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1187: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1188: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1189: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1190: error:
+expected declaration specifiers before 'XPoint'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1200: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1200: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1200: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1200: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1201: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1201: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1201: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1201: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1202: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1202: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1202: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1202: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1203: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1203: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1203: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1203: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1208: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1208: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1208: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1208: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1215: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1217: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1219: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1219: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1219: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1219: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1226: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1228: error:
+invalid type argument of '-&gt;'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'Tk_Get3DBorderFromObj':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1261: error:
+'TkWindow' has no member named 'dispPtr'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1276: error:
+'TkBorder' has no member named 'resourceRefCount'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1277: error:
+'Tk_FakeWin' has no member named 'display'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1277: error:
+'Tk_FakeWin' has no member named 'screenNum'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1277: error:
+'TkBorder' has no member named 'screen'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1278: error:
+'Tk_FakeWin' has no member named 'atts'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1278: error:
+'TkBorder' has no member named 'colormap'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1298: error:
+'TkDisplay' has no member named 'borderTable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1298: error:
+'TkDisplay' has no member named 'borderTable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1303: error:
+'TkBorder' has no member named 'nextPtr'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1304: error:
+'Tk_FakeWin' has no member named 'display'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1304: error:
+'Tk_FakeWin' has no member named 'screenNum'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1304: error:
+'TkBorder' has no member named 'screen'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1305: error:
+'Tk_FakeWin' has no member named 'atts'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1305: error:
+'TkBorder' has no member named 'colormap'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1308: error:
+'TkBorder' has no member named 'objRefCount'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c: In function
+'TkDebugBorder':
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1388: error:
+'TkWindow' has no member named 'dispPtr'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1391: error:
+'TkDisplay' has no member named 'borderTable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1391: error:
+'TkDisplay' has no member named 'borderTable'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1397: error:
+'TkBorder' has no member named 'nextPtr'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1400: error:
+'TkBorder' has no member named 'resourceRefCount'
+/var/tmp/dolops/sourcenavigator-NG4/tk/unix/../generic/tk3d.c:1402: error:
+'TkBorder' has no member named 'objRefCount'
+*** Error exit code 1
+
+Stop.
+*** Error exit code 1
+
+Stop.
+*** Error exit code 1
+
+Stop.
+_______________________________
+
+I'm new to HP-UX, although I have some experience with Linux (Debian). What
+can I do in order to compile it successfully on HP-UX?
+
+Here are some useful information (let me know if it's missing something):
+# gcc -v
+Using built-in specs.
+Target: hppa2.0w-hp-hpux11.11
+Configured with: ../gcc/configure
+Thread model: posix
+gcc version 4.2.3
+
+# uname -a
+HP-UX miracula B.11.11 U 9000/800 1482735285 unlimited-user license
+
+# model
+9000/800/rp3410
+
+
+
+Regards,
+
+
+Daniel
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090731/d488a34d/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090731/d488a34d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000254.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

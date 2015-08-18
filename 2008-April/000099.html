@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Bugs in NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C1209339701.3297.12.camel%40dhcppc3%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000098.html">
+   <LINK REL="Next"  HREF="000100.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Bugs in NG3</H1>
+    <B>Peter Dons Tychsen</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C1209339701.3297.12.camel%40dhcppc3%3E"
+       TITLE="[SN-devel] Bugs in NG3">donpedro at tdcadsl.dk
+       </A><BR>
+    <I>Mon Apr 28 01:41:41 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000098.html">[SN-devel] Bugs in NG3
+</A></li>
+        <LI>Next message: <A HREF="000100.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Daniel.
+
+On Sun, 2008-04-27 at 20:57 +0200, Daniel Scheibli wrote:
+&gt;<i> I'am using SN for a quite large project (ca. 37K files) -
+</I>&gt;<i> mostly doing full text scans over the entire code base. In
+</I>&gt;<i> the best case scenario such a run takes about 12 seconds,
+</I>&gt;<i> but this requires that all source files are already present
+</I>&gt;<i> in the file system cache. If this is not the case, then we
+</I>&gt;<i> are talking about a few minutes runtime.
+</I>
+In my case i was talking more about the time it actually takes to open
+the source file when i click it (from the list of files found during
+grep). But of-course the grep itself could also be improved. 
+
+&gt;<i> The question is how to improve that. I think one key
+</I>&gt;<i> question to answer would be how up to date such a search
+</I>&gt;<i> has to be? Are people using SN for searching a &quot;static&quot;
+</I>&gt;<i> snapshot of a given software (say Linux kernel source
+</I>&gt;<i> A.B.C), or are they using SN to process code they are
+</I>&gt;<i> actively working on (i.e. more as a IDE). I myself use
+</I>&gt;<i> SN in the first context only, but I'am curios how others
+</I>&gt;<i> are using SN.
+</I>
+Personally i use it for both. I often re-base the code via git, cvs or svn,
+and then search again with SN-grep.
+
+&gt;<i>From my point of view the point about TCL/TK is important. If others are going 
+</I>to contribute with patches and code, i think it is a show-stopper that
+SN still uses these old versions. The problem is that most programmers
+do not want to work with old versions of anything. Lets say that want to 
+improve SN by fixing a bug in TCL or TK
+
+Normally you would have to:
+
+1) Convince TCL/TK devs to fix it (or send patch)....
+2) Wait for automatic update in your distro (or upgrade manually).
+
+But here you have to:
+
+1) Convince TCL/TK devs to fix it (or send patch)....
+2) Backport fix to older version, which could give some headaches.
+3) Convince SN devs to include fix in their special version.
+
+The second path is not desirable for many reasons. One good reason is that
+it gives poor quality, as only the small team using SN gets to verify
+and test the changes. If its changed on TCL/TK mainline it is theoretically 
+verified by millions.
+
+/Peter
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000098.html">[SN-devel] Bugs in NG3
+</A></li>
+	<LI>Next message: <A HREF="000100.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

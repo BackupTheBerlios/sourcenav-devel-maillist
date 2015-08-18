@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Bugs in NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C8240f6260804300643w28c64247r7b28aadc5e04065f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000104.html">
+   <LINK REL="Next"  HREF="000106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Bugs in NG3</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Bugs%20in%20NG3&In-Reply-To=%3C8240f6260804300643w28c64247r7b28aadc5e04065f%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Bugs in NG3">freequaos at gmail.com
+       </A><BR>
+    <I>Wed Apr 30 15:43:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000104.html">[SN-devel] Bugs in NG3
+</A></li>
+        <LI>Next message: <A HREF="000106.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  Congrats on getting this old puppy back to life. I really like it, and
+</I>&gt;<i>  would like to use it more.
+</I>&gt;<i>  Let me start by saying that i think the work that has been put into NG3
+</I>&gt;<i>  is really great. The tool is much more stable and responsive than in
+</I>&gt;<i>  NG1. Great work! There are however a few annoying bugs that i run in to
+</I>&gt;<i>  from time to time:
+</I>
+I'd like to request such kind of backrubbing more often :-) Is good to
+know the hard work is still appreciated.
+
+&gt;<i>  1) Is there no bug-database to collect info. It would be a big help i
+</I>&gt;<i>  think.
+</I>
+For a short while there was such a thing; didn't do us any favour at all.
+It's psychological thing, the user dumps the bug into the DB and
+magically expects it to suddenly disappear by an eager developer.
+
+We try to use a more directly involving approach - get the user to
+submit patches, get the user to work directly with us, let him stay a
+bit more active and post onto the ML.
+
+Thing is, both Mark and me are terribly busy. We barely get the things
+done we've set our mind on to change in SN NG back when we started.
+
+&gt;<i>  2) I often end up in a situation where i get the dreaded &quot;User 'unknown'
+</I>&gt;<i>  already has the project &lt;path&gt; open on the system &lt;system&gt;&quot;, which
+</I>&gt;<i>  prevents me from opening the project. Probably happens after i shut the
+</I>&gt;<i>  program down brutally. This should probably be fixed, so i don't have to
+</I>&gt;<i>  delete the databases all the time. Maybe a GUI where the user could
+</I>&gt;<i>  over-ride would be smart (sort of like VI does).
+</I>
+This is a new one. Please make a new post with as much information
+(platform, version, what you're doing, the debug logs) as you can
+gather, so we can track the issue under this new thread.
+
+&gt;<i>  3) The source package still contains its own version of tcl/tk. I think
+</I>&gt;<i>  it could become very attractive for distributions to once again include
+</I>&gt;<i>  source-navigator, if this was resolved. I don't think distros like
+</I>&gt;<i>  packages that forces the user to install outdated versions of other
+</I>&gt;<i>  packages. I would love get SN via YUM or apt-get in the future!
+</I>
+This is not a big showstopper for inclusion into repositories: SN is
+strictly linked statically against tcl/tk so it doesn't disturb other
+packages. The packager can even remove those static libs (they're
+provided to have a full SDK included) for a &quot;run-only&quot; package.
+
+However, yes - we WERE thinking about removing the &quot;own&quot; version of
+tcl/tk or upgrading the supplied version to 8.4 but then SN is hugely
+version depended on the version of tcl/tk by using itcl and also some
+custom widgets libraries.
+Which all blows up big time when doing a switch to 8.4 (or even using
+the underlying OS's version).
+So we came to the conclusion to NOT change this at the moment.
+
+&gt;<i>  4) There is a small but funny bug in the help menu, as it tries to use
+</I>&gt;<i>  &quot;netscape&quot; to look up the website. I don't think people have netscape
+</I>&gt;<i>  anymore. Should probably be a list of clients to try, where &quot;firefox&quot;
+</I>&gt;<i>  and &quot;mozilla&quot; should be among them (maybe also popular gnome and KDE
+</I>&gt;<i>  browsers).
+</I>
+That I will try to fix in the source this week :)
+There are even a few hardcoded references to netscape which I will
+also remove.
+
+Hope my post wasn't too disappointing. It's just that we basically are
+2 guys here... for example, without Aurelian the switch to db4
+would've taken also much longer!
+I've also promised updates to php for Earnie which I still haven't
+gotten around doing.
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000104.html">[SN-devel] Bugs in NG3
+</A></li>
+	<LI>Next message: <A HREF="000106.html">[SN-devel] Bugs in NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908260853j4b5776ccr150dd2fcb0ae9af4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000263.html">
+   <LINK REL="Next"  HREF="000265.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Daniel Carmo Olops</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908260853j4b5776ccr150dd2fcb0ae9af4%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">daniel at olops.eti.br
+       </A><BR>
+    <I>Wed Aug 26 17:53:22 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000263.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+        <LI>Next message: <A HREF="000265.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hm, I installed HP Developer's Toolkit and the X11 headers are now in place.
+
+I still can't 'make', but the error changed. Attached is 'log1' (configure
+output), that shows some warnings, a complain about limits.h present but not
+compilable (seems to be an error in autoconf, though), and something about
+'flex'. The attached 'log2' is the make output.
+
+Could you see the logs, and tell me if there are some library missing, some
+component needing updates, or anything else?
+
+Thanks in advance, and for your help up to now.
+
+Cheers,
+
+Daniel
+
+On Wed, Aug 26, 2009 at 7:01 AM,
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>&gt;wrote:
+
+&gt;<i> And there is your problem (configure):
+</I>&gt;<i>
+</I>&gt;<i> checking for X11 header files... couldn't find any!
+</I>&gt;<i> checking for X11 libraries... /usr/lib/X11R4
+</I>&gt;<i>
+</I>&gt;<i> ... and make:
+</I>&gt;<i>
+</I>&gt;<i> /var/tmp/sourcenavigator-NG4/tk/unix/../generic/tk.h:83:23: error:
+</I>&gt;<i> X11/Xlib.h: No such file or directory
+</I>&gt;<i>
+</I>&gt;<i> Make sure you have the appropriate development-packages for your
+</I>&gt;<i> X11/XFree (whatever HP-UX is using) installed and rerun configure and
+</I>&gt;<i> watch for the output regarding X11.
+</I>&gt;<i>
+</I>&gt;<i> Then please retry and get back to us.
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: log1
+Type: application/octet-stream
+Size: 44174 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment.obj">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: log2
+Type: application/octet-stream
+Size: 159131 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment-0001.obj">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090826/df44f58b/attachment-0001.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000263.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+	<LI>Next message: <A HREF="000265.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] derived from inner class
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20derived%20from%20inner%20class&In-Reply-To=%3C376773.99250.qm%40web35007.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000142.html">
+   <LINK REL="Next"  HREF="000144.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] derived from inner class</H1>
+    <B>Lucian Ioan</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20derived%20from%20inner%20class&In-Reply-To=%3C376773.99250.qm%40web35007.mail.mud.yahoo.com%3E"
+       TITLE="[SN-devel] derived from inner class">xtndd at yahoo.com
+       </A><BR>
+    <I>Thu Jul 24 17:02:08 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000142.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+        <LI>Next message: <A HREF="000144.html">[SN-devel] derived from inner class
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I'm using NG3 on Linux.
+
+If a class is derived from an inner class, the inheritance tree is incomplete (as if the base class is not found in the database), even if the definition of the base class is found.
+For example:
+
+class Outter
+{
+public:
+    class Inner
+    {
+    };
+};
+
+class Derived : public Outter::Inner
+{
+};
+
+Can this be fixed? Can I get a hint where to look in the source tree so maybe I can fix it myself?
+
+Thanks!
+
+
+      __________________________________________________________
+Not happy with your email address?.
+Get the one you really want - millions of new email addresses available now at Yahoo! <A HREF="http://uk.docs.yahoo.com/ymail/new.html">http://uk.docs.yahoo.com/ymail/new.html</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20080724/99702d2c/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20080724/99702d2c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000142.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+	<LI>Next message: <A HREF="000144.html">[SN-devel] derived from inner class
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

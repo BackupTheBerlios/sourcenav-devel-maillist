@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024080705.1w9225w0tv7ogw4g%40mail.progw.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000063.html">
+   <LINK REL="Next"  HREF="000064.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Earnie Boyd</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C20071024080705.1w9225w0tv7ogw4g%40mail.progw.org%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">earnie at users.sourceforge.net
+       </A><BR>
+    <I>Wed Oct 24 14:07:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000063.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+        <LI>Next message: <A HREF="000064.html">[SN-devel] Question on namespace support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Quoting Peeter Vois &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Peeter.Vois at proekspert.ee</A>&gt;:
+
+&gt;<i> I was trying to compile it for HPUX with my snmake.sh script.
+</I>
+Not a kind machine for third party compilers.
+
+&gt;<i> I had to modify it a little ofcourse, but I was not successful. The 
+</I>&gt;<i> first problem was that db4/dist/configure was using cc command 
+</I>&gt;<i> instead of gcc. I changed it with environment variable CC=&quot;gcc&quot;. This 
+</I>&gt;<i> cured the issue. Then I get such messages:
+</I>&gt;<i>
+</I>
+Did you build GCC yourself or get it from a third party?  You might 
+want to try using the native compiler (all unix platforms have a 
+compiler for OS patching).
+
+&gt;<i> configure:3594: gcc -qlanglvl=ansi -c -g -D_REENTRANT conftest.c &gt;&amp;5
+</I>&gt;<i> gcc: unrecognized option '-langlvl=ansi'
+</I>&gt;<i> In file included from /usr/local/hplx/include/stdio.h:31
+</I>&gt;<i> 	from configure:3552:
+</I>&gt;<i> /usr/local/hplx/include/hp_include/stdio.h:593: parse error before &quot;__size_t&quot;
+</I>&gt;<i>
+</I>
+The stdio.h issue is usually an indication that some expected macro 
+isn't defined.  The configure command is probably trying out different 
+options to see if it is valid but I don't know that.  If you started 
+the build process without CC set then you need to start over with CC 
+set for the entire build.
+
+Earnie -- <A HREF="http://for-my-kids.com/">http://for-my-kids.com/</A>
+-- <A HREF="http://give-me-an-offer.com/">http://give-me-an-offer.com/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000063.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+	<LI>Next message: <A HREF="000064.html">[SN-devel] Question on namespace support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

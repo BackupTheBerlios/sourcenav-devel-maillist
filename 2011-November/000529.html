@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk 8.4 based SN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C201111102009.55699.fandom%40telefonica.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000522.html">
+   <LINK REL="Next"  HREF="000530.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk 8.4 based SN</H1>
+    <B>Andr&#233;s Garc&#237;a</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C201111102009.55699.fandom%40telefonica.net%3E"
+       TITLE="[SN-devel] Tcl/Tk 8.4 based SN">fandom at telefonica.net
+       </A><BR>
+    <I>Thu Nov 10 20:09:55 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000522.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+        <LI>Next message: <A HREF="000530.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#529">[ date ]</a>
+              <a href="thread.html#529">[ thread ]</a>
+              <a href="subject.html#529">[ subject ]</a>
+              <a href="author.html#529">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+At least I now know where it crashes, it happens when loading a file that has
+to be parsed, like a *.tcl or *.c file.
+
+If it is a tcl file, it get to the 'yy_get_next_buffer()' function in tcl_high.c
+and gets to the line:
+
+		/* Read in more data. */
+		YY_INPUT( (&amp;yy_current_buffer-&gt;yy_ch_buf[number_to_move]),
+			yy_n_chars, num_to_read );
+
+Where YY_INPUT is a macro:
+
+/* Gets input and stuffs it into &quot;buf&quot;.  number of characters read, or YY_NULL,
+ * is returned in &quot;result&quot;.
+ */
+#ifndef YY_INPUT
+#define YY_INPUT(buf,result,max_size) \
+	if ( yy_current_buffer-&gt;yy_is_interactive ) \
+		{ \
+		int c = '*', n; \
+		for ( n = 0; n &lt; max_size &amp;&amp; \
+			     (c = getc( yyin )) != EOF &amp;&amp; c != '\n'; ++n ) \
+			buf[n] = (char) c; \
+		if ( c == '\n' ) \
+			buf[n++] = (char) c; \
+		if ( c == EOF &amp;&amp; ferror( yyin ) ) \
+			YY_FATAL_ERROR( &quot;input in flex scanner failed&quot; ); \
+		result = n; \
+		} \
+	else \
+		{ \
+		errno=0; \
+		while ( (result = fread(buf, 1, max_size, yyin))==0 &amp;&amp; ferror(yyin)) \
+			{ \
+			if( errno != EINTR) \
+				{ \
+				YY_FATAL_ERROR( &quot;input in flex scanner failed&quot; ); \
+				break; \
+				} \
+			errno=0; \
+			clearerr(yyin); \
+			} \
+		}
+#endif
+
+The fread function triggers a 'bad file descriptor' error, I still don't know why,
+and SN crashes.
+
+
+&gt;<i> you could put your work into some GIT 
+</I>
+I could fork the source navigator project at Github and create a branch for this
+in the fork.
+
+Would that mess with your repository?
+
+&gt;<i> Currently we are very busy to find a new hosting home, adjust content
+</I>&gt;<i> and merge a few outstanding patches, so the tcl/tk 8.4 work can be
+</I>&gt;<i> adressed in the new year the earliest I'm afraid.
+</I>
+That's sensible, it will take a lot of work to get the branch to a state where
+it can be merged.
+
+Andres
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000522.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+	<LI>Next message: <A HREF="000530.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#529">[ date ]</a>
+              <a href="thread.html#529">[ thread ]</a>
+              <a href="subject.html#529">[ subject ]</a>
+              <a href="author.html#529">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

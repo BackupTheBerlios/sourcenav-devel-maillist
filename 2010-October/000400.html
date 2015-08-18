@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Help wanted: Java parser
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Help%20wanted%3A%20Java%20parser&In-Reply-To=%3C4CCABAEC.7070605%40simdevices.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000399.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Help wanted: Java parser</H1>
+    <B>Maurice Havelday</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Help%20wanted%3A%20Java%20parser&In-Reply-To=%3C4CCABAEC.7070605%40simdevices.com%3E"
+       TITLE="[SN-devel] Help wanted: Java parser">maurice1 at simdevices.com
+       </A><BR>
+    <I>Fri Oct 29 14:15:40 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000399.html">[SN-devel] Help wanted: Java parser
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#400">[ date ]</a>
+              <a href="thread.html#400">[ thread ]</a>
+              <a href="subject.html#400">[ subject ]</a>
+              <a href="author.html#400">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Mr. Kiefer.
+
+The basic problem is that the current SN Java parser
+is based on the 1.0 Java specs, and what we have are the
+program generated code (which is unmaintainable). So,
+what is needed is to create the parsing rules using
+opensource tools (flex with perhaps bison) with the
+more recent Java specs.
+
+What's happening is that newer Java constructs, like Enum,
+are not being handled properly by the program jbrowser.
+The code is causing a segfault as it tries to bring back
+its state machine back to a sane state after encountering
+something new.
+
+Freek can start you up with an SVN branch to play with.
+As a point of reference, I can help you along the way
+with how the PHP browser is constructed using the SN
+library and opensource tools.
+
+Hope you have time to help. Good luck.
+
+--Maurice
+
+
+On 10/29/2010 02:12 AM, Bernd Kiefer wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> i would offer my help, although i don't have enough resources myself
+</I>&gt;<i> to do it alone. But working together on getting a parser for
+</I>&gt;<i> the current Java (beyond 1.4) would be a great thing. Could you give
+</I>&gt;<i> me an overview of what the problems are?
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> 
+</I>&gt;<i>     Bernd Kiefer
+</I>&gt;<i> 
+</I>&gt;<i> On 28.10.2010 20:40, Freek wrote:
+</I>&gt;&gt;<i> Dear all,
+</I>&gt;&gt;<i> we're currently having a few problems with the Java parser, and due to
+</I>&gt;&gt;<i> our limited capacities we cannot solve them right away.
+</I>&gt;&gt;<i> Furthermore (and unfortunately) those issues seem to be unfixable with
+</I>&gt;&gt;<i> the current implementation, but again we'd be happy to be proven
+</I>&gt;&gt;<i> differently :)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> As such we'd like ask for your help - if you're interested in doing
+</I>&gt;&gt;<i> language analysis and parsers, please drop an email.
+</I>&gt;&gt;<i> Many thanks and cheers,
+</I>&gt;&gt;<i> ~F
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Sourcenav-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000399.html">[SN-devel] Help wanted: Java parser
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#400">[ date ]</a>
+              <a href="thread.html#400">[ thread ]</a>
+              <a href="subject.html#400">[ subject ]</a>
+              <a href="author.html#400">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] ubuntu .0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%20.0&In-Reply-To=%3C1245098091.5571.19.camel%40macstar%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000249.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] ubuntu .0</H1>
+    <B>Heini X</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%20.0&In-Reply-To=%3C1245098091.5571.19.camel%40macstar%3E"
+       TITLE="[SN-devel] ubuntu .0">heinix at versanet.de
+       </A><BR>
+    <I>Mon Jun 15 22:34:51 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000249.html">[SN-devel] ubuntu .0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I tried to install sourcenavigator-NG4 on my ubuntu-9.04 boxes (macbook
+pro and dell Optiplex 755). The installation made no problems, but when
+I try to run snavigator I get on both machines:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">heini at macstar</A>:~
+$ /usr/local/software/Sourcenavigator/NG4/install/bin/snavigator 
+Can't find a usable tk.tcl in the following directories: 
+    /usr/local/software/Sourcenavigator/NG4/install/share/tk8.3
+
+/usr/local/software/Sourcenavigator/NG4/install/share/tk8.3/tk.tcl: no
+event type or button # or keysym
+no event type or button # or keysym
+    while executing
+&quot;bind Listbox &lt;MouseWheel&gt; {
+    %W yview scroll [expr {- (%D / 120) * 4}] units
+}&quot;
+    (file
+&quot;/usr/local/software/Sourcenavigator/NG4/install/share/tk8.3/listbox.tcl&quot; line 182)
+    invoked from within
+&quot;source [file join $tk_library listbox.tcl]&quot;
+    invoked from within
+&quot;if {[string compare $tcl_platform(platform) &quot;macintosh&quot;] &amp;&amp; \
+	[string compare {} $tk_library]} {
+    source [file join $tk_library button.tcl]
+    so...&quot;
+    (file
+&quot;/usr/local/software/Sourcenavigator/NG4/install/share/tk8.3/tk.tcl&quot;
+line 308)
+    invoked from within
+&quot;source /usr/local/software/Sourcenavigator/NG4/install/share/tk8.3/tk.tcl&quot;
+    (&quot;uplevel&quot; body line 1)
+    invoked from within
+&quot;uplevel \#0 [list source $file]&quot;
+
+
+This probably means that tk wasn't installed properly.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Other tk/tcl scripts run fine on those boxes. On an other machine (dell
+Precision) with Xubuntu with more or less the same packages installed
+sourcenavigator works fine.
+
+My main question is: Has anyone a working sourcenavigator on a 64-bit
+ubuntu 9.04 with a Gnome-desktop? Or has anyone the same or a similar
+problem?
+
+Best regards, have fun
+Heini
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000249.html">[SN-devel] ubuntu .0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk 8.4 based SN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3CCAC%3DN8J%3Dxh88NJg0zmtgu9P6q-APv6%2B5tkgFus%3Di0GyrSaYRtLg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000537.html">
+   <LINK REL="Next"  HREF="000523.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk 8.4 based SN</H1>
+    <B>Chris Wj</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3CCAC%3DN8J%3Dxh88NJg0zmtgu9P6q-APv6%2B5tkgFus%3Di0GyrSaYRtLg%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Tcl/Tk 8.4 based SN">chris0wj at gmail.com
+       </A><BR>
+    <I>Mon Nov 21 21:05:04 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000537.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+        <LI>Next message: <A HREF="000523.html">[SN-devel] Seems like BerliOS might continue as society
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Nov 15, 2011 at 9:30 AM, <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">FANDOM at telefonica.net</A> &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">FANDOM at telefonica.net</A>&gt; wrote:
+
+&gt;<i>
+</I>&gt;<i> &gt;Yes, it is the reason but I would also like to see
+</I>&gt;<i> &gt;--without-included-tcl and --without-included-tk meaning that an
+</I>&gt;<i> already
+</I>&gt;<i> &gt;installed version is used.  Or perhaps reverse the default to be use
+</I>&gt;<i> an
+</I>&gt;<i> &gt;installed version unless --with-included-[tcl|tk] is used.
+</I>&gt;<i>
+</I>&gt;<i> That would be great, but for the time being it is not possible, the
+</I>&gt;<i> main problem
+</I>&gt;<i> is that, Tk's text widget has to be patched for use in sn as the only
+</I>&gt;<i> tab width it
+</I>&gt;<i> supports is 8.
+</I>&gt;<i>
+</I>&gt;<i> We would need to create a new widget, equivalent to the original plus
+</I>&gt;<i> the patch,
+</I>&gt;<i> and use that or, maybe, get the patch accepted in the official Tcl/Tk.
+</I>&gt;<i>
+</I>&gt;<i> Andres
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>
+I just built the latest version of this (SourceNavigator-NG-8.4-3.tar.gz
+from SF.net) on Ubuntu 11.10. It builds and runs fine, but I get errors
+when I use the &quot;Find Declaration&quot; or &quot;Find Implementation&quot; feature. This is
+the message I get:
+
+invalid command name &quot;itk_initialize&quot;
+&gt;<i>     while executing
+</I>&gt;<i> &quot;itk_initialize -pattern MetaConfig -what {fd md fr} -file {} -type {}
+</I>&gt;<i> -param {} -mtype -exact -edit_single 1 -bell 0 -title {} -icon {}
+</I>&gt;<i> -icon_prefix {...&quot;
+</I>&gt;<i>     (&quot;eval&quot; body line 1)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;eval itk_initialize $args&quot;
+</I>&gt;<i>     while constructing object &quot;::.sn-retr-6&quot; in ::Retriever&amp;::constructor
+</I>&gt;<i> (body line 4)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;Retriever&amp; ${win} -pattern ${pat} -what ${what} -file ${file} -type
+</I>&gt;<i> ${type} -param ${param} -mtype ${mtype} -edit_single ${edit_single} -bell
+</I>&gt;<i> ${bell} ...&quot;
+</I>&gt;<i>     (procedure &quot;sn_retrieve_symbol&quot; line 11)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;sn_retrieve_symbol ${string} ${scopes} ${file}  -exact 1 0 ${cmd} &quot;&quot;
+</I>&gt;<i> ${type} ${prm}&quot;
+</I>&gt;<i>     (procedure &quot;::Editor&amp;::search_implementation&quot; body line 93)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;search_implementation ${cls} ${string} ${file} &quot;def&quot;&quot;
+</I>&gt;<i>     (procedure &quot;::Editor&amp;::search_definition&quot; body line 2)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;Editor&amp;::search_definition
+</I>&gt;<i> ::.multiwindow-4.nbook.nbframe.edit.paned.edit.editor MetaConfig&quot;
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;.sn_pop_menu_listbox invoke active&quot;
+</I>&gt;<i>     (&quot;uplevel&quot; body line 1)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;uplevel #0 [list $w invoke active]&quot;
+</I>&gt;<i>     (procedure &quot;tk::MenuInvoke&quot; line 50)
+</I>&gt;<i>     invoked from within
+</I>&gt;<i> &quot;tk::MenuInvoke .sn_pop_menu_listbox 1&quot;
+</I>&gt;<i>     (command bound to event)
+</I>&gt;<i>
+</I>
+-Chris
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20111121/2a35e516/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20111121/2a35e516/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000537.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+	<LI>Next message: <A HREF="000523.html">[SN-devel] Seems like BerliOS might continue as society
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

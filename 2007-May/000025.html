@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Build problems on fedora core 6.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C8240f6260705151427y467ae16apbfc2ad0079f52d27%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Build problems on fedora core 6.</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C8240f6260705151427y467ae16apbfc2ad0079f52d27%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Build problems on fedora core 6.">freequaos at gmail.com
+       </A><BR>
+    <I>Tue May 15 23:27:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Hello SN-NG!
+</I>&gt;<i> Great project!
+</I>
+Thanks! We try our best :)
+
+&gt;<i> I would like to use your new navigator, but i cannot build it on Fedora
+</I>&gt;<i> Core 6.
+</I>
+&gt;<i> checking if 64bit support is requested... no
+</I>&gt;<i> checking if 64bit Sparc VIS support is requested... no
+</I>&gt;<i> checking system version (for dynamic loading)... ./configure: line 6046:
+</I>&gt;<i> syntax error near unexpected token `)'
+</I>&gt;<i> ./configure: line 6046: `       OSF*)'
+</I>&gt;<i> configure: error: ./configure failed for unix
+</I>&gt;<i> configure: error: ./configure failed for tcl
+</I>&gt;<i>
+</I>&gt;<i> Is there anyway i can fix this ?
+</I>
+I think I have the according patches at hand, but I didn't apply them
+to the tree yet. Will take a couple of days until I get back to my
+devel env.
+
+For now you can try to patch the failing configure script manually.
+1) find the configure-script that fails (eg in db/, snavigator/, tcl/
+... there is one each)
+2) go to line 6046 and figure out what's wrong. most like some runaway
+apostrophes or somesuch (in your case I suspect a broken switch-case
+statement).
+3) report back what's wrong.
+
+Cheers,
+F
+
+PS: Please subscribe to the list so you can freely post to this list -
+I've authorized your post once so it shows up.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

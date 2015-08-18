@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] use of the command line options in win32
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCALSkELaO2-uxYrp%3DbP%2Be7XJoFWvQAgVju2Q8tDQ1G%2BtDQED6fA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000549.html">
+   <LINK REL="Next"  HREF="000258.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] use of the command line options in win32</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCALSkELaO2-uxYrp%3DbP%2Be7XJoFWvQAgVju2Q8tDQ1G%2BtDQED6fA%40mail.gmail.com%3E"
+       TITLE="[SN-devel] use of the command line options in win32">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Mar 20 00:08:53 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000549.html">[SN-devel] use of the command line options in win32
+</A></li>
+        <LI>Next message: <A HREF="000258.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi again,
+
+please let me kindly ask you to only post in plain text without any
+attachments, signatures and full quoting - it makes replying pretty
+hard.
+
+&gt;<i> is the windows branch maintained at the moment by your team?
+</I>
+Yes, more or less we're trying to support Windows, Mark also tries to
+do OSX. I'm of course developing under Linux, which has been the
+platform with the best coverage and least problems. Most SN users
+actually seem to be Windows users using our binary distribution. I've
+merged some Solaris and even HPUX patches, but that was a long time
+ago. I'd love to do Alpha again, but...
+
+&gt;<i> At the moment I try to compile the current SN-NG4.4 sourcecode from trunk with mingw under winxp. But it seems, that it's not
+</I>&gt;<i> compilable without any sourcecode changes.
+</I>&gt;<i> I had to do some code modifications at \tcl\win\tclWinReg.c and  \tcl\win\tclWinDde.c to fix compiler errors, but now the
+</I>&gt;<i> compiler halted at db4\mutex\mut_failchk.c...
+</I>
+Yes; you also must specify --enable-mingw to configure.
+There has been a patch somewhere, and the MinGW-people were very
+helpful there, but I haven't gotten around merging it.
+
+Cheers,
+F
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000549.html">[SN-devel] use of the command line options in win32
+</A></li>
+	<LI>Next message: <A HREF="000258.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

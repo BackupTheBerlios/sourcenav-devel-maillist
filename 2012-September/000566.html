@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] snavigator CLI Waiting for cross-referencing to	complete
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20snavigator%20CLI%20Waiting%20for%20cross-referencing%20to%0A%09complete&In-Reply-To=%3CCALSkELbaZQWV%2BkawGURfSq2mF4Fw2_2in-uX-2fKAHstEs9%2BCw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000565.html">
+   <LINK REL="Next"  HREF="000567.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] snavigator CLI Waiting for cross-referencing to	complete</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20snavigator%20CLI%20Waiting%20for%20cross-referencing%20to%0A%09complete&In-Reply-To=%3CCALSkELbaZQWV%2BkawGURfSq2mF4Fw2_2in-uX-2fKAHstEs9%2BCw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] snavigator CLI Waiting for cross-referencing to	complete">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Sep 27 12:20:45 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000565.html">[SN-devel] snavigator CLI Waiting for cross-referencing to complete
+</A></li>
+        <LI>Next message: <A HREF="000567.html">[SN-devel] snavigator CLI Waiting for cross-referencing to	complete
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Medi,
+
+first of all, which OS are you using?
+
+&gt;<i> snavigator --batchmode --create --import ~/.snav/foo.import  --databasedir
+</I>&gt;<i> ~/.snav/foo.db  --project ~/.snav/foo --noxref
+</I>&gt;<i>
+</I>&gt;<i> Unfortunately after many hours of seeing
+</I>&gt;<i> Scanning: /x/y/z
+</I>&gt;<i> Scanning: /a/b/c
+</I>&gt;<i> Waiting for cross-referencing to complete
+</I>&gt;<i>
+</I>&gt;<i> I see the following processes....
+</I>&gt;<i>
+</I>&gt;<i>  /opt/SN-NG4.4/libexec/snavigator/hyper --home /opt/SN-NG4.4 -file
+</I>&gt;<i> /opt/SN-NG4.4/share/snavigator/etc/snavigator --batchmode --create etc etc
+</I>&gt;<i> see above CLI
+</I>&gt;<i> /opt/SN-NG4.4/libexec/snavigator/cbrowser2 -n /u/medi/.snav/foo.db -c 2048
+</I>&gt;<i> -C 8192 /u/medi/.snav/foo.db/tmp_W8Pcro
+</I>&gt;<i> /opt/SN-NG4.4/libexec/snavigator/dbimp -H myHostName -P 5953 -c 2048 -C 8192
+</I>&gt;<i> /u/medi/.snav/foo.db/foo
+</I>&gt;<i>
+</I>&gt;<i> I ran a strace(1) on dbimp and I see
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~&gt; strace -p 6580
+</I>&gt;<i> Process 6580 attached - interrupt to quit
+</I>&gt;<i> read(0,
+</I>&gt;<i>
+</I>&gt;<i> Question: what is this process waiting for input from stdin...this is
+</I>&gt;<i> supposed to be --batchmode
+</I>
+dbimp is the database process that reads data it is fed via stdin by
+the various parsing processes and puts it into the BerkeleyDB files.
+So no problem here in principle.
+
+&gt;<i> Question: I asked for --noxref, is it building a xref db ?
+</I>
+That might be a bug, batchmode seems to be a bit untested, especially
+under win32.
+Does it work as expected when you do it in interactive mode?
+
+&gt;<i> Question: what should I do next....maybe the position of command line args
+</I>&gt;<i> are not position independent and one has to provide the --noxref in some
+</I>&gt;<i> specific position
+</I>
+- You could choose a smaller subset of the code you want to parse, to
+see if it's an input-related problem
+- You could add a little bit of debugging output in snavigator/gui/sninit.tcl
+- You could increase the cache size to, say,  256MB
+
+Cheers,
+F
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000565.html">[SN-devel] snavigator CLI Waiting for cross-referencing to complete
+</A></li>
+	<LI>Next message: <A HREF="000567.html">[SN-devel] snavigator CLI Waiting for cross-referencing to	complete
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure Windows - NG3 workaround -	goodnews/badnews
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20Windows%20-%20NG3%20workaround%20-%0A%09goodnews/badnews&In-Reply-To=%3C4921B135.5030408%40virgin.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000183.html">
+   <LINK REL="Next"  HREF="000191.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure Windows - NG3 workaround -	goodnews/badnews</H1>
+    <B>matthew</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20Windows%20-%20NG3%20workaround%20-%0A%09goodnews/badnews&In-Reply-To=%3C4921B135.5030408%40virgin.net%3E"
+       TITLE="[SN-devel] Configure failure Windows - NG3 workaround -	goodnews/badnews">dr.mclem at virgin.net
+       </A><BR>
+    <I>Mon Nov 17 19:00:21 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000183.html">[SN-devel] Configure failure Windows - NG3 reply to Freek
+</A></li>
+        <LI>Next message: <A HREF="000191.html">[SN-devel] Configure failure Windows - NG3 workaround	-	goodnews/badnews
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#184">[ date ]</a>
+              <a href="thread.html#184">[ thread ]</a>
+              <a href="subject.html#184">[ subject ]</a>
+              <a href="author.html#184">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all - here is my recipie for building sourcenav-NG3 under windows. 
+The good news is I can get
+it to work - not elegant and there are probably some shortcuts - the bad 
+news is that this doesn't
+work with the latest MinGW for some reason - on the current version the 
+tix library fails to link
+correctly - (error message at end od email)
+
+So - you will need to download
+
+msys/mingw 0.8   (from 
+<A HREF="http://sourceforge.net/project/showfiles.php?group_id=10894&amp;package_id=41063">http://sourceforge.net/project/showfiles.php?group_id=10894&amp;package_id=41063</A>)
+berkely db 4.7.25 (from 
+<A HREF="http://www.oracle.com/technology/software/products/berkeley-db/index.html">http://www.oracle.com/technology/software/products/berkeley-db/index.html</A>)
+sourcenavigator-NG3 source distribution
+
+Install mingw0.8 and upack it into a directory such as c:/msys      (note 1)
+If you have any logitech cameras - kill the LVPrcSrv.exe process (note 2)
+unpack the source nav code to some directory eg. c:\sourcenavigator-NG3
+delete c:\sourcenavigator-NG3\db4
+unpack the db4.7.25 package and copy to c\sourcenavigator-NG3\db4
+start up an msys shell from now on working in the msys environment
+
+Create a temporary PORT configuration to get us past the configuration step
+
+cd /c/sourcenavigator-NG3/db4
+mkdir PORT
+cd PORT
+cp ../build_unix/tags .
+cp ../dist/configure .
+cp ../dist/config.hin .
+cp ../dist/Makefile.in .
+
+Now we can configure the project
+cd /c/sourcenavigator-NG3
+./configure --prefix=/c/build --enable-mingw --enable-compat185
+
+Unfortunatly this does correctly configure db4 (libtool is missing) so 
+manually configure it afterwards
+cd db4/PORT
+../dist/configure --prefix=/c/build --enable-mingw --enable-compat185
+
+Now we can build it      (note 3)
+cd /c/sourcenavigator-NG3
+make
+make install
+
+Notes
+1)   Msys doesn't like any silly characters in the bin path such as 
+spaces so a simple directory is best
+2)   this is a well known interaction with msys  - if you random 
+crashing of commands and producing stack dumps
+      this is the usual culprit
+3)  Way too much gets installed here - a complete db install appears 
+under c/msys/local
+
+Hope this helps - the error I am currently getting with the most recent 
+mingw/msys combo is during the
+tix library build and is a linkage issue.
+
+gcc -shared -s -nostartfiles -o tix4183.dll tcl8.3/tixClass.o 
+tcl8.3/tixCmds.o tcl8.3/tixCompat.o tcl8.3/tixDiImg.o tcl8.3/tixDiITxt.o 
+tcl8.3/tixDiStyle.o tcl8.3/tixDItem.o tcl8.3/tixDiText.o 
+tcl8.3/tixDiWin.o tcl8.3/tixError.o tcl8.3/tixForm.o 
+tcl8.3/tixFormMisc.o tcl8.3/tixGeometry.o tcl8.3/tixHLCol.o 
+tcl8.3/tixHLHdr.o tcl8.3/tixHLInd.o tcl8.3/tixImgCmp.o tcl8.3/tixHList.o 
+tcl8.3/tixList.o tcl8.3/tixMethod.o tcl8.3/tixOption.o tcl8.3/tixSmpLs.o 
+tcl8.3/tixWidget.o tcl8.3/tixInit.o tcl8.3/tixItcl.o tcl8.3/tixUtils.o 
+tcl8.3/tixImgXpm.o tcl8.3/tixNBFrame.o tcl8.3/tixTList.o 
+tcl8.3/tixGrid.o tcl8.3/tixGrData.o tcl8.3/tixGrRC.o tcl8.3/tixGrFmt.o 
+tcl8.3/tixGrSel.o tcl8.3/tixGrUtl.o tcl8.3/tixScroll.o tcl8.3/tixWCmpt.o 
+tcl8.3/tixWinDraw.o tcl8.3/tixWinXpm.o tcl8.3/tixWinWm.o \
+../../tk/win/librhtk83.a ../../tcl/win/librhtcl83.a -lgdi32 \
+-mwindows -e <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">_DllMain at 12</A> -Wl,--image-base,0x66600000 \
+-Wl,--out-implib,tcl8.3/libtix4183.a
+Info: resolving _atexit by linking to __imp__atexit (auto-import)
+Creating library file: tcl8.3/libtix4183.a
+fu000001.o:(.idata$2+0xc): undefined reference to `libmsvcrt_a_iname'
+nmth000000.o:(.idata$4+0x0): undefined reference to `_nm__atexit'
+collect2: ld returned 1 exit status
+make[2]: *** [tcl8.3/tix4183.dll] Error 1
+make[2]: Leaving directory `/d/Develop/sourcenavigator-NG3/tix/win'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/d/Develop/sourcenavigator-NG3/tix'
+make: *** [all] Error 1
+
+Regards
+
+Matthew
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000183.html">[SN-devel] Configure failure Windows - NG3 reply to Freek
+</A></li>
+	<LI>Next message: <A HREF="000191.html">[SN-devel] Configure failure Windows - NG3 workaround	-	goodnews/badnews
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#184">[ date ]</a>
+              <a href="thread.html#184">[ thread ]</a>
+              <a href="subject.html#184">[ subject ]</a>
+              <a href="author.html#184">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

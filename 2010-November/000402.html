@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Grep window and jumping to search matches does not work for all strings/text
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Grep%20window%20and%20jumping%20to%20search%20matches%20does%20not%0A%20work%20for%20all%20strings/text&In-Reply-To=%3CAANLkTi%3DB6URc6Y48U2kvw_gt2S4cZ5189LKc6YYGKsRB%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000401.html">
+   <LINK REL="Next"  HREF="000407.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Grep window and jumping to search matches does not work for all strings/text</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Grep%20window%20and%20jumping%20to%20search%20matches%20does%20not%0A%20work%20for%20all%20strings/text&In-Reply-To=%3CAANLkTi%3DB6URc6Y48U2kvw_gt2S4cZ5189LKc6YYGKsRB%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Grep window and jumping to search matches does not work for all strings/text">freequaos at gmail.com
+       </A><BR>
+    <I>Mon Nov  1 19:32:44 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000401.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+        <LI>Next message: <A HREF="000407.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#402">[ date ]</a>
+              <a href="thread.html#402">[ thread ]</a>
+              <a href="subject.html#402">[ subject ]</a>
+              <a href="author.html#402">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Markus,
+
+&gt;<i> The grep function/window appears not to be able to jump to a match for all
+</I>[...]
+&gt;<i> 1) Create a text file (call it anything, for example asdf.txt) containing
+</I>&gt;<i> the following text:
+</I>&gt;<i>
+</I>&gt;<i> asdf MUX
+</I>&gt;<i> counter_id = asiRead16_lookup(MUX_DEMUX_ARRAY_BASE:5, $session_id:16,
+</I>&gt;<i> VIRTUAL_HANDLE:1, 0:2)
+</I>&gt;<i> asiWrite32_lookup(MUX_DEMUX_ARRAY_BASE:5, DEMUX_SESSION_ID_11:16,
+</I>&gt;<i> VIRTUAL_HANDLE:1, 0:2, MUX_DEMUX_VIRT_11:32)
+</I>&gt;<i> vbnm MUX
+</I>
+Unfortunately I can confim that (lines 2+3 won't jump).
+Problem seems to be some kind of mismatch in what file SN is supposed
+to open, see snavigator -debug 99 output below (the sn_grep_edit_file
+is totally screwed):
+
+(NOT WORKING)
+text_select_line 2
+new selected line_num is 2, line is &quot;asdf.txt:2:counter_id =
+asiRead16_lookup(MUX_DEMUX_ARRAY_BASE:5, $session_id:16,
+VIRTUAL_HANDLE:1, 0:2)&quot;
+text_select_line 2
+greppane Text -&gt; Button double 2
+search file found: /opt/SN/share/snavigator/etc/sn_cmp_g.pat
+sn_grep_edit_file file &lt;E:5, $session_id&gt; line &lt;16&gt;
+sn_convert_FileName &quot;E:5, $session_id&quot; -&gt; &quot;E:5, $session_id&quot;
+
+(WORKING)
+text_select_line 4
+new selected line_num is 4, line is &quot;asdf.txt:4:vbnm MUX&quot;
+text_select_line 4
+greppane Text -&gt; Button double 4
+sn_grep_edit_file file &lt;asdf.txt&gt; line &lt;4&gt;
+sn_convert_FileName &quot;asdf.txt&quot; -&gt; &quot;asdf.txt&quot;
+edit file (dummy, asdf.txt, 4, 1, )
+sn_parse_uptodate asdf.txt 1
+name:asdf.txt,type:others,mtime:1288635713
+sn_parse_uptodate asdf.txt 0
+name:asdf.txt,type:others,mtime:1288635713
+Empty highlighter command for &quot;asdf.txt&quot;
+
+We'll try to attack this bug next.
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000401.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+	<LI>Next message: <A HREF="000407.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#402">[ date ]</a>
+              <a href="thread.html#402">[ thread ]</a>
+              <a href="subject.html#402">[ subject ]</a>
+              <a href="author.html#402">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

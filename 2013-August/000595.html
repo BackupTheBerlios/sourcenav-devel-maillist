@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] sn 4.5 is not parsing python code , or is it.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20sn%204.5%20is%20not%20parsing%20python%20code%20%2C%20or%20is%20it.&In-Reply-To=%3CCADX0JjspsfSQRzEMgWUZtjD5GbBeFFwvBWN2oJWBcLWU%2BA3XvA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000594.html">
+   <LINK REL="Next"  HREF="000596.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] sn 4.5 is not parsing python code , or is it.</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20sn%204.5%20is%20not%20parsing%20python%20code%20%2C%20or%20is%20it.&In-Reply-To=%3CCADX0JjspsfSQRzEMgWUZtjD5GbBeFFwvBWN2oJWBcLWU%2BA3XvA%40mail.gmail.com%3E"
+       TITLE="[SN-devel] sn 4.5 is not parsing python code , or is it.">montaseri at gmail.com
+       </A><BR>
+    <I>Tue Aug 20 09:52:45 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000594.html">[SN-devel] sn 4.5 is not parsing python code , or is it.
+</A></li>
+        <LI>Next message: <A HREF="000596.html">[SN-devel] sn 4.5 is not parsing python code , or is it.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#595">[ date ]</a>
+              <a href="thread.html#595">[ thread ]</a>
+              <a href="subject.html#595">[ subject ]</a>
+              <a href="author.html#595">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>foo.py is like foo.c, it contains python src code.
+
+SN symbol finder can find files, functions, methods, etc. In this case I
+was asking SN to find foo.py  (a filename). I have done this operation
+looking for goo.c or goo.h hundreds of time and SN finds the file searched
+for.
+
+I guess, I was writing to make sure that I have properly trained SN to
+parse all files ending with .py  (just like .c or .cc or .h)
+
+Cheers
+Medi
+
+
+On Tue, Aug 20, 2013 at 12:13 AM, Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;wrote:
+
+&gt;<i> Not being python literate but foo.py is a file name not a symbol as far as
+</I>&gt;<i> SN is concerned.  What does foo.py contain ?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 20 August 2013 00:24, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> - I am using SN 4.5,
+</I>&gt;&gt;<i> - have configured a project that includes python src code.
+</I>&gt;&gt;<i> - Project Preference &gt; Parser, I have specified *.py as file extensions.
+</I>&gt;&gt;<i> - I see foo.py if I navigate the src tree in Project Editor
+</I>&gt;&gt;<i> - grep-ing thru my foo.proj is showing presence of foo.py
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> But when I try to find foo.py from Symbol Finder, it does not find it.
+</I>&gt;&gt;<i> The pattern is *foo.py
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any ideas ?
+</I>&gt;&gt;<i> Thanks
+</I>&gt;&gt;<i> Medi
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Sourcenav-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20130820/b2a4aded/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20130820/b2a4aded/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000594.html">[SN-devel] sn 4.5 is not parsing python code , or is it.
+</A></li>
+	<LI>Next message: <A HREF="000596.html">[SN-devel] sn 4.5 is not parsing python code , or is it.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#595">[ date ]</a>
+              <a href="thread.html#595">[ thread ]</a>
+              <a href="subject.html#595">[ subject ]</a>
+              <a href="author.html#595">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

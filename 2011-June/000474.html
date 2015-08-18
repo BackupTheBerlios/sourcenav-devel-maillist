@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] How to set size of new windows
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTinYuDZxVsO-1Zg0NEj4hxTaXEMuaw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000473.html">
+   <LINK REL="Next"  HREF="000475.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] How to set size of new windows</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTinYuDZxVsO-1Zg0NEj4hxTaXEMuaw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] How to set size of new windows">mark.thornber at gmail.com
+       </A><BR>
+    <I>Sat Jun 18 14:10:28 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000473.html">[SN-devel] How to set size of new windows
+</A></li>
+        <LI>Next message: <A HREF="000475.html">[SN-devel] How to set size of new windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#474">[ date ]</a>
+              <a href="thread.html#474">[ thread ]</a>
+              <a href="subject.html#474">[ subject ]</a>
+              <a href="author.html#474">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Medi,
+
+On 16 June 2011 20:57, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I was wondering if there is any front door or back door way of setting new
+</I>&gt;<i> window size?
+</I>[snip]
+&gt;<i> &#160;&#160;&#160;&#160;&#160;&#160;&#160; set width 780
+</I>&gt;<i> &#160;&#160;&#160;&#160;&#160;&#160;&#160; set height 580
+</I>Those define the size of the Preferences window.
+
+In .../snagivator/gui/multiview.tcl at lines 63 and 66 the initial
+size of a new window is calculated.
+
+try
+
+set width [ expr { ( height * 5 ) / 4 } ]
+
+at line 66 (E&amp;OE)
+
+I'm minded to add another preference to define the initial aspect
+ratio of a new window (5x4, 16x9, ...)
+
+HTH
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000473.html">[SN-devel] How to set size of new windows
+</A></li>
+	<LI>Next message: <A HREF="000475.html">[SN-devel] How to set size of new windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#474">[ date ]</a>
+              <a href="thread.html#474">[ thread ]</a>
+              <a href="subject.html#474">[ subject ]</a>
+              <a href="author.html#474">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

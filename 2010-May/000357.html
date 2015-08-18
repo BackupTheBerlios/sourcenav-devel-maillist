@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Debugging...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Cl2z8240f6261005030838k5892233en7799e201f32af030%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000356.html">
+   <LINK REL="Next"  HREF="000358.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Debugging...</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Cl2z8240f6261005030838k5892233en7799e201f32af030%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Debugging...">freequaos at gmail.com
+       </A><BR>
+    <I>Mon May  3 17:38:50 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000356.html">[SN-devel] Debugging...
+</A></li>
+        <LI>Next message: <A HREF="000358.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#357">[ date ]</a>
+              <a href="thread.html#357">[ thread ]</a>
+              <a href="subject.html#357">[ subject ]</a>
+              <a href="author.html#357">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+&gt;<i> I want to report that snpdbg is not update since &quot;epoc&quot; :D
+</I>&gt;<i> In the script are variables never declared like $etcdir that point to
+</I>&gt;<i> snpdbg(file) that no longer exists in share/etc directory, now it is in
+</I>&gt;<i> share/snavigator/etc. The same stuff for hyper too, that was moved from
+</I>&gt;<i> ../bin to ../libexec/snavigtor
+</I>
+Yes, that's probably true for win32. I've fixed it in my trunk, but
+need a win32 box to test on before I commit that. Alternatively you
+can also send in your patch.
+
+&gt;<i> I have done all the changes for correct the snpdbg script, as above. Using
+</I>&gt;<i> ddd, I want to see cbrowser's functionalities but when i try to attach the
+</I>&gt;<i> debugger to the process, ddd kills cbrowser.
+</I>&gt;<i>  I would like to know how and when the parsing through the code is done,
+</I>&gt;<i> this is the point of using ddd. My &quot;final&quot; task would change the &quot;stop until
+</I>&gt;<i> first&quot; behaviour but I don't know how to locate this stuff implemented.
+</I>&gt;<i>  I guess, reading at the code, that probably  snavigator/parser/cpp  and
+</I>&gt;<i> snavigator/db/dbutils.c make my case but I don't know:
+</I>&gt;<i> 1. if they are linked together at compile time
+</I>
+Yes. dbutils.c is linked into each parser via libdbutils.a
+
+&gt;<i>  2. how to reach with ddd
+</I>
+Ah, well ... for that I have no real clue right now as they're all fork()ed out.
+
+&gt;<i> 3. why even a printf seems to has no effect (probably because the executable
+</I>&gt;<i> run in background?)
+</I>
+If I remember correctly (in all the parsers) the file descriptor for
+stdout (which printf will operate on) has either been closed or
+remapped to the pipe &quot;dbimp&quot; is reading from.
+So you wont see any output. I also seem to see this problem on win32
+with the &quot;normal&quot; hyper process, but I couldn't find out what the
+problem was.
+
+Quick workaround: open a file &quot;/tmp/mydebug&quot; and write all your
+debugging output there with fprintf().
+
+&gt;<i> I'm going mad...
+</I>
+Believe me, we all already have when dealing with SN...
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000356.html">[SN-devel] Debugging...
+</A></li>
+	<LI>Next message: <A HREF="000358.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#357">[ date ]</a>
+              <a href="thread.html#357">[ thread ]</a>
+              <a href="subject.html#357">[ subject ]</a>
+              <a href="author.html#357">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

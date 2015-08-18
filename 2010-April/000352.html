@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] parser output
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3Cu2x8240f6261004240900wc3d56a77l7b4de82424b2e4c1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000348.html">
+   <LINK REL="Next"  HREF="000353.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] parser output</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3Cu2x8240f6261004240900wc3d56a77l7b4de82424b2e4c1%40mail.gmail.com%3E"
+       TITLE="[SN-devel] parser output">freequaos at gmail.com
+       </A><BR>
+    <I>Sat Apr 24 18:00:02 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000348.html">[SN-devel] parser output
+</A></li>
+        <LI>Next message: <A HREF="000353.html">[SN-devel] parser output
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  I guess cbrowser is the C/C++ parser. (btw: what is cbrowser2 for?)
+</I>
+Yes. cbrowser2 seems to be the xref-generator. If you have a look at
+the process when the xref bar appears in SN's main window, there is
+cbrowser2 process being very busy.
+
+&gt;<i>  I am trying to better understand the information flow now. When looking at the output of
+</I>&gt;<i>  cbrowser PropTest2.h
+</I>&gt;<i>  (see attachments) I wonder how the relations &quot;refers to&quot; and &quot;referred by&quot; can be
+</I>&gt;<i> created from it (e.g. the functions GetProp and SetProp both refer to m_prop).
+</I>
+I don't know the exact answer to that; however I strongly suspect
+that's cbrowser2's jobs (it is doing a separate pass over the DB). The
+output is annotated a bit, you need to have a look at the numbers (see
+next paragraph).
+
+&gt;<i>  And what do the numbers at the beginning of each line mean? Where are these
+</I>&gt;<i> type constants defined?
+</I>
+The numbers at the beginning determine the type of the line, i.e.
+constants, variables, function names, etc. These constants are defined
+in $SNSRC/snavigator/hyper/sn.h.
+
+Hope that helps a bit, so you can dig deeper now.
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000348.html">[SN-devel] parser output
+</A></li>
+	<LI>Next message: <A HREF="000353.html">[SN-devel] parser output
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

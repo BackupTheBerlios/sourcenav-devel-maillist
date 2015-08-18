@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Status; removal of -fwritable-strings
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Status%3B%20removal%20of%20-fwritable-strings&In-Reply-To=%3C8240f6260705040411u4a7a4909r79df0575c2fca423%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Status; removal of -fwritable-strings</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Status%3B%20removal%20of%20-fwritable-strings&In-Reply-To=%3C8240f6260705040411u4a7a4909r79df0575c2fca423%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Status; removal of -fwritable-strings">freequaos at gmail.com
+       </A><BR>
+    <I>Fri May  4 13:11:14 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000017.html">[SN-devel] [PATCH] Highlight grep pattern when using format string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+how's the status - any patches you want to have in for the NG1-release?
+
+I've fixed a couple of smaller issues (languages, build-related stuff)
+in the last days.
+
+I also have successfully built SN with gcc 4.1.2 on Linux; support for
+-fwritable-strings has been removed as of gcc4 and I was not sure if
+any of the old code relies on this deprecated feature (char *x=&quot;data&quot;
+becomes writable).
+Apparently it doesn't as SN runs.
+
+I'd like to do further testing across platforms - does anyone have
+Solaris, Windows, BSD around to test on? I'd like to remove that for
+NG2.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000017.html">[SN-devel] [PATCH] Highlight grep pattern when using format string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

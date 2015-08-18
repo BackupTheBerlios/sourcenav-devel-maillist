@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Problems on Mac
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Problems%20on%20Mac&In-Reply-To=%3CAANLkTilW-xDSw9flyNiH-dF7u3vjDtdWICM4T4sKNIZ3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000383.html">
+   <LINK REL="Next"  HREF="000385.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Problems on Mac</H1>
+    <B>Steven Snelgrove</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Problems%20on%20Mac&In-Reply-To=%3CAANLkTilW-xDSw9flyNiH-dF7u3vjDtdWICM4T4sKNIZ3%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Problems on Mac">steven.snelgrove at gmail.com
+       </A><BR>
+    <I>Tue Jun 15 00:21:16 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000383.html">[SN-devel] Proposal: Sorted project list
+</A></li>
+        <LI>Next message: <A HREF="000385.html">[SN-devel] 2 Call For Papers, 17th Annual Tcl/Tk Conference 2010
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#384">[ date ]</a>
+              <a href="thread.html#384">[ thread ]</a>
+              <a href="subject.html#384">[ subject ]</a>
+              <a href="author.html#384">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I had Source Navigator running previously on the Mac but then upgraded the
+OS.
+
+Now I have the following version.
+  System Version:    Mac OS X 10.6.3 (10D573)
+  Kernel Version:    Darwin 10.3.0
+
+My original problem was the when I tried to scan a new project, snavigator
+would crash.
+
+So I downloaded your latest version 4.2 and it had the same problem. In
+addition, it would not build because it did not recognize the library file
+extensions for X11.
+
+$ ls /usr/X11R6/lib/libX11*
+/usr/X11R6/lib/libX11.6.2.0.dylib    /usr/X11R6/lib/libX11.6.dylib
+/usr/X11R6/lib/libX11.dylib
+
+I fixed this by adding the dylib extension in configure and was able to
+build.
+
+But same error.
+
+$ snavigator
+hyper(80295) malloc: *** error for object 0x7fff5fbff908: pointer being
+freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap
+
+
+
+Here is the stack backtrace from gdb.
+
+
+(gdb) bt
+#0  0x00007fff85390886 in __kill ()
+#1  0x00007fff85430eae in abort ()
+#2  0x00007fff85348a75 in free ()
+#3  0x00000001001f9c10 in TclSetEnv (name=0x101580f40 &quot;tmp&quot;,
+value=0x1015c51b0 &quot;/Users/sls/SNDB4&quot;) at ./../generic/tclEnv.c:230
+#4  0x00000001001f9d22 in EnvTraceProc (clientData=&lt;value temporarily
+unavailable, due to optimizations&gt;, interp=0x101127440, name1=0x101580868
+&quot;env&quot;, name2=0x101580f40 &quot;tmp&quot;, flags=32) at ./../generic/tclEnv.c:568
+#5  0x000000010022c784 in CallTraces (iPtr=0x101127440,
+arrayPtr=0x10112b010, varPtr=0x101581ef0, part1=0x101580868 &quot;env&quot;,
+part2=0x101580f40 &quot;tmp&quot;, flags=32) at ./../generic/tclVar.c:4140
+#6  0x000000010022d050 in TclSetElementOfIndexedArray (interp=0x101127440,
+localIndex=&lt;value temporarily unavailable, due to optimizations&gt;,
+elemPtr=&lt;value temporarily unavailable, due to optimizations&gt;,
+newValuePtr=0x100d48ad0, leaveErrorMsg=512) at ./../generic/tclVar.c:1741
+#7  0x00000001001fc798 in TclExecuteByteCode (interp=0x101127440,
+codePtr=0x1015cb460) at ./../generic/tclExecute.c:1257
+#8  0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ae6390, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#9  0x0000000100221d9e in TclObjInterpProc (clientData=0x101239c70,
+interp=0x101127440, objc=2, objv=0x100a73e90) at ./../generic/tclProc.c:1000
+#10 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x100c80000) at
+./../generic/tclExecute.c:845
+#11 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ac6df0, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#12 0x0000000100221d9e in TclObjInterpProc (clientData=0x1012377f0,
+interp=0x101127440, objc=2, objv=0x100a73e80) at ./../generic/tclProc.c:1000
+#13 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x101376720) at
+./../generic/tclExecute.c:845
+#14 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100c35a00, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#15 0x0000000100221d9e in TclObjInterpProc (clientData=0x101354ab0,
+interp=0x101127440, objc=2, objv=0x100a73e70) at ./../generic/tclProc.c:1000
+#16 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10136a7c0) at
+./../generic/tclExecute.c:845
+#17 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100c1f830, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#18 0x00000001001824b2 in ButtonWidgetObjCmd (clientData=0x101363290,
+interp=0x101127440, objc=2, objv=0x101356720) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkButton.c:848
+#19 0x000000010021a42c in EvalObjv (interp=0x101127440, objc=2,
+objv=0x101356720, command=0x100238a78 &quot;&quot;, length=0, flags=262144) at
+./../generic/tclParse.c:932
+#20 0x000000010021a7ff in Tcl_EvalObjv (interp=0x101127440, objc=2,
+objv=0x101356720, flags=262144) at ./../generic/tclParse.c:1019
+#21 0x00000001001ddcf7 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100c2e140, flags=262144) at ./../generic/tclBasic.c:2575
+#22 0x0000000100222520 in Tcl_UplevelObjCmd (dummy=&lt;value temporarily
+unavailable, due to optimizations&gt;, interp=0x101127440, objc=&lt;value
+temporarily unavailable, due to optimizations&gt;, objv=&lt;value temporarily
+unavailable, due to optimizations&gt;) at ./../generic/tclProc.c:603
+#23 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10136a5d0) at
+./../generic/tclExecute.c:845
+#24 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100abf980, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#25 0x0000000100221d9e in TclObjInterpProc (clientData=0x1011a5ff0,
+interp=0x101127440, objc=2, objv=0x7fff5fbfa180) at
+./../generic/tclProc.c:1000
+#26 0x000000010021a42c in EvalObjv (interp=0x101127440, objc=2,
+objv=0x7fff5fbfa180, command=0x7fff5fbfa610 &quot;\n    tkButtonUp
+.sn_open_proj.btns.new\n&quot;, length=39, flags=0) at
+./../generic/tclParse.c:932
+#27 0x000000010021c23f in Tcl_EvalEx (interp=0x101127440,
+script=0x7fff5fbfa610 &quot;\n    tkButtonUp .sn_open_proj.btns.new\n&quot;,
+numBytes=39, flags=&lt;value temporarily unavailable, due to optimizations&gt;) at
+./../generic/tclParse.c:1393
+#28 0x000000010021c3b6 in Tcl_Eval (interp=0x101127440, string=&lt;value
+temporarily unavailable, due to optimizations&gt;) at
+./../generic/tclParse.c:1512
+#29 0x00000001001dbf0a in Tcl_GlobalEval (interp=0x101127440, command=&lt;value
+temporarily unavailable, due to optimizations&gt;) at
+./../generic/tclBasic.c:4149
+#30 0x000000010014a374 in Tk_BindEvent (bindingTable=&lt;value temporarily
+unavailable, due to optimizations&gt;, eventPtr=0x10136a490, tkwin=0x101363090,
+numObjects=0, objectPtr=&lt;value temporarily unavailable, due to
+optimizations&gt;) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkBind.c:1775
+#31 0x000000010014e703 in TkBindEventProc (winPtr=0x101363090,
+eventPtr=0x10136a490) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkCmds.c:244
+#32 0x0000000100152e13 in Tk_HandleEvent (eventPtr=0x10136a490) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkEvent.c:752
+#33 0x00000001001530cd in WindowEventProc (evPtr=0x10136a480, flags=&lt;value
+temporarily unavailable, due to optimizations&gt;) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkEvent.c:1087
+#34 0x0000000100218319 in Tcl_ServiceEvent (flags=-3) at
+./../generic/tclNotify.c:607
+#35 0x00000001002185a7 in Tcl_DoOneEvent (flags=-3) at
+./../generic/tclNotify.c:846
+#36 0x00000001001f9f5a in Tcl_VwaitObjCmd (clientData=&lt;value temporarily
+unavailable, due to optimizations&gt;, interp=0x101127440, objc=&lt;value
+temporarily unavailable, due to optimizations&gt;, objv=&lt;value temporarily
+unavailable, due to optimizations&gt;) at ./../generic/tclEvent.c:960
+#37 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x100c28a00) at
+./../generic/tclExecute.c:845
+#38 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100c35290, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#39 0x0000000100221d9e in TclObjInterpProc (clientData=0x101359560,
+interp=0x101127440, objc=1, objv=0x10135c980) at ./../generic/tclProc.c:1000
+#40 0x000000010021a42c in EvalObjv (interp=0x101127440, objc=1,
+objv=0x10135c980, command=0x100238a78 &quot;&quot;, length=0, flags=262144) at
+./../generic/tclParse.c:932
+#41 0x000000010021a7ff in Tcl_EvalObjv (interp=0x101127440, objc=1,
+objv=0x10135c980, flags=262144) at ./../generic/tclParse.c:1019
+#42 0x00000001001ddcf7 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100c35e50, flags=262144) at ./../generic/tclBasic.c:2575
+#43 0x0000000100222520 in Tcl_UplevelObjCmd (dummy=&lt;value temporarily
+unavailable, due to optimizations&gt;, interp=0x101127440, objc=&lt;value
+temporarily unavailable, due to optimizations&gt;, objv=&lt;value temporarily
+unavailable, due to optimizations&gt;) at ./../generic/tclProc.c:603
+#44 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x100a8b200) at
+./../generic/tclExecute.c:845
+#45 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ac6800, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#46 0x0000000100221d9e in TclObjInterpProc (clientData=0x10119a800,
+interp=0x101127440, objc=2, objv=0x100a73e20) at ./../generic/tclProc.c:1000
+#47 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10135be10) at
+./../generic/tclExecute.c:845
+#48 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ac71b0, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#49 0x0000000100221d9e in TclObjInterpProc (clientData=0x101235ed0,
+interp=0x101127440, objc=1, objv=0x100a73e10) at ./../generic/tclProc.c:1000
+#50 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10135de70) at
+./../generic/tclExecute.c:845
+#51 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ac7270, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#52 0x0000000100221d9e in TclObjInterpProc (clientData=0x1012358a0,
+interp=0x101127440, objc=1, objv=0x100a73e08) at ./../generic/tclProc.c:1000
+#53 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10134e5f0) at
+./../generic/tclExecute.c:845
+#54 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100ac72a0, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#55 0x0000000100221d9e in TclObjInterpProc (clientData=0x1012356a0,
+interp=0x101127440, objc=1, objv=0x100a73e00) at ./../generic/tclProc.c:1000
+#56 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x10122c8f0) at
+./../generic/tclExecute.c:845
+#57 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x101127440,
+objPtr=0x100a50e40, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#58 0x0000000100206c5e in SlaveEval (interp=0x1005014b0,
+slaveInterp=0x101127440, objc=1, objv=0x100802810) at
+./../generic/tclInterp.c:2019
+#59 0x0000000100207477 in SlaveObjCmd (clientData=0x101127440,
+interp=0x1005014b0, objc=3, objv=0x100802800) at
+./../generic/tclInterp.c:1869
+#60 0x00000001001feb9d in TclExecuteByteCode (interp=&lt;value temporarily
+unavailable, due to optimizations&gt;, codePtr=0x1011270a0) at
+./../generic/tclExecute.c:845
+#61 0x00000001001ddc35 in Tcl_EvalObjEx (interp=0x1005014b0,
+objPtr=0x10082ff10, flags=&lt;value temporarily unavailable, due to
+optimizations&gt;) at ./../generic/tclBasic.c:2733
+#62 0x0000000100221d9e in TclObjInterpProc (clientData=0x101016f40,
+interp=0x1005014b0, objc=2, objv=0x7fff5fbff360) at
+./../generic/tclProc.c:1000
+#63 0x000000010021a42c in EvalObjv (interp=0x1005014b0, objc=2,
+objv=0x7fff5fbff360, command=0x101126e30 &quot;\n# Create an interp and run the
+SN session inside it.\ncreate_interp {\n  sn_session\n}\n&quot;, length=85,
+flags=0) at ./../generic/tclParse.c:932
+#64 0x000000010021c23f in Tcl_EvalEx (interp=0x1005014b0, script=0x101126de0
+&quot;# Name the main interp, so we can keep them straight.\ntk appname
+sourcenav-main\n\n# Create an interp and run the SN session inside
+it.\ncreate_interp {\n  sn_session\n}\n&quot;, numBytes=165, flags=&lt;value
+temporarily unavailable, due to optimizations&gt;) at
+./../generic/tclParse.c:1393
+#65 0x0000000100211d72 in Tcl_EvalFile (interp=0x1005014b0,
+fileName=0x7fff5fbff720 &quot;/usr/share/snavigator/etc/snavigator&quot;) at
+./../generic/tclIOUtil.c:323
+#66 0x000000010015e086 in Tk_MainEx (argc=&lt;value temporarily unavailable,
+due to optimizations&gt;, argv=0x100500088, appInitProc=0x10000a940
+&lt;Sn_setup_Init&gt;, interp=0x1005014b0) at
+/Users/sls/src/sourcenavigator-NG4/tk/unix/../generic/tkMain.c:233
+#67 0x000000010000c9c9 in run_application (argc=5, argv=0x7fff5fbff8d8) at
+sninit.c:689
+#68 0x000000010000cd29 in main (argc=&lt;value temporarily unavailable, due to
+optimizations&gt;, argv=&lt;value temporarily unavailable, due to optimizations&gt;)
+at sninit.c:721
+
+
+I tried commenting out all of the free's to see if I could make the error
+just go away at the expense of memory leakage but somehow could not get my
+changes to take effect even after doing sudo make install.
+
+Thanks for your work on this very nice tool. Hope this helps.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100614/328cb1ca/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100614/328cb1ca/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000383.html">[SN-devel] Proposal: Sorted project list
+</A></li>
+	<LI>Next message: <A HREF="000385.html">[SN-devel] 2 Call For Papers, 17th Annual Tcl/Tk Conference 2010
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#384">[ date ]</a>
+              <a href="thread.html#384">[ thread ]</a>
+              <a href="subject.html#384">[ subject ]</a>
+              <a href="author.html#384">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] jbrowser crash. unload problem.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20jbrowser%20crash.%20unload%20problem.&In-Reply-To=%3C50722.94048.qm%40web112010.mail.gq1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000388.html">
+   <LINK REL="Next"  HREF="000390.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] jbrowser crash. unload problem.</H1>
+    <B>Lucian Ioan</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20jbrowser%20crash.%20unload%20problem.&In-Reply-To=%3C50722.94048.qm%40web112010.mail.gq1.yahoo.com%3E"
+       TITLE="[SN-devel] jbrowser crash. unload problem.">xtndd at yahoo.com
+       </A><BR>
+    <I>Wed Jul 14 14:17:35 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000388.html">[SN-devel] Patch fixing TK bug (missing maximize buttons)
+</A></li>
+        <LI>Next message: <A HREF="000390.html">[SN-devel]  jbrowser crash. unload problem.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#389">[ date ]</a>
+              <a href="thread.html#389">[ thread ]</a>
+              <a href="subject.html#389">[ subject ]</a>
+              <a href="author.html#389">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I'm using SN-NG4.2 on Windows XP (SP3, 2GB of RAM).
+
+It seems there is still a problem with unload feature from project editor, 
+sometimes it removes the selected files, sometimes it doesn't (files appear back 
+after apply).
+I can reproduce it everytime by creating a new project from 
+sourcenavigator-NG4.2.tar.bz2 files and unloading db4.
+
+Another (unrelated) problem I discovered on these sources is a crash of jbrowser 
+(see picture below) during project creation:
+
+<A HREF="http://www.glowfoto.com/static_image/14-045857L/4433/png/07/2010/img6/glowfoto">http://www.glowfoto.com/static_image/14-045857L/4433/png/07/2010/img6/glowfoto</A>
+
+Best regards,
+Lucian
+
+
+
+
+----- Original Message ----
+From: Daniel Scheibli &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">daniel at scheibli.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+Sent: Wed, 7 July, 2010 3:54:55
+Subject: [SN-devel] Patch fixing TK bug (missing maximize buttons)
+
+
+Hi Freek,
+Hi Mark,
+
+please find attached a patch for fixing a bug in our TK version
+which causes the maximize button to be missing in KDE/KWin based
+environments. It applies to NG4.2.
+
+- Problem -
+Running Source Navigator NG4.2 (and older for that matter) on a
+recent KDE/Kwin based system (in my case an up to date Debian Lenny
+on a i386 box), all Source Navigator NG windows have no &quot;maximize&quot;
+title bar button; only &quot;minimize&quot; and &quot;close&quot; are available.
+
+According to [1][2] the issue was fixed with TK 8.4.6, but given
+Source Navigator NG brings it's own TK version (based on TK 8.3.2),
+changes have to be applied accordingly.
+
+- Solution -
+The patch provided in the TK bug tracker [3] has been back-ported
+in order to apply to the older TK version shipped and used by
+Source Navigator NG.
+
+Best Regards,
+Daniel
+
+
+[1] <A HREF="http://bugs.kde.org/show_bug.cgi?id=67577">http://bugs.kde.org/show_bug.cgi?id=67577</A>
+[2] <A HREF="http://bugs.gentoo.org/show_bug.cgi?id=56229">http://bugs.gentoo.org/show_bug.cgi?id=56229</A>
+[2] 
+<A HREF="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=915350&amp;group_id=12997&amp;atid=112997">http://sourceforge.net/tracker/index.php?func=detail&amp;aid=915350&amp;group_id=12997&amp;atid=112997</A>
+
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000388.html">[SN-devel] Patch fixing TK bug (missing maximize buttons)
+</A></li>
+	<LI>Next message: <A HREF="000390.html">[SN-devel]  jbrowser crash. unload problem.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#389">[ date ]</a>
+              <a href="thread.html#389">[ thread ]</a>
+              <a href="subject.html#389">[ subject ]</a>
+              <a href="author.html#389">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

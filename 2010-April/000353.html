@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] parser output
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3C20100424173213.177740%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000352.html">
+   <LINK REL="Next"  HREF="000350.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] parser output</H1>
+    <B>&quot;Wolfgang St&#246;cher&quot;</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3C20100424173213.177740%40gmx.net%3E"
+       TITLE="[SN-devel] parser output">stoecher at gmx.at
+       </A><BR>
+    <I>Sat Apr 24 19:32:13 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000352.html">[SN-devel] parser output
+</A></li>
+        <LI>Next message: <A HREF="000350.html">[SN-devel]  CPP xref bug?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok, part of my questions I can answer now myself:
+- cbrowser2 is for a second pass of the parser to generate the xref information; but I still couldn't figure out how to use it (e.g.: where should the argument 'xref-file' come from?)
+- the type constants for the parser output are defined in sn.h (as can be found in the documentation for dbimp)
+
+cheers,
+
+Wolfgang
+
+-------- Original-Nachricht --------
+&gt;<i> Datum: Sat, 24 Apr 2010 15:09:50 +0200
+</I>&gt;<i> Von: &quot;Wolfgang St&#246;cher&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">stoecher at gmx.at</A>&gt;
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> Betreff: [SN-devel] parser output
+</I>
+&gt;<i> Hi Freek,
+</I>&gt;<i> 
+</I>&gt;<i> I guess cbrowser is the C/C++ parser. (btw: what is cbrowser2 for?)
+</I>&gt;<i> 
+</I>&gt;<i> I am trying to better understand the information flow now. When looking at
+</I>&gt;<i> the output of 
+</I>&gt;<i>   cbrowser PropTest2.h
+</I>&gt;<i> (see attachments) I wonder how the relations &quot;refers to&quot; and &quot;referred by&quot;
+</I>&gt;<i> can be created from it (e.g. the functions GetProp and SetProp both refer
+</I>&gt;<i> to m_prop).
+</I>&gt;<i> And what do the numbers at the beginning of each line mean? Where are
+</I>&gt;<i> these type constants defined?
+</I>&gt;<i> 
+</I>&gt;<i> Thank you for any hints,
+</I>&gt;<i> 
+</I>&gt;<i> Wolfgang
+</I>&gt;<i> 
+</I>&gt;<i> -------- Original-Nachricht --------
+</I>&gt;<i> &gt; Datum: Sun, 11 Apr 2010 12:30:40 +0200
+</I>&gt;<i> &gt; Von: Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;
+</I>&gt;<i> &gt; An: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; Betreff: Re: [SN-devel] querying source database
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hi Wolfgang,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; yes, you can query the db. No, it's not really that easy :)
+</I>&gt;<i> &gt; At first I suggest you'd get the SN source code because the win32 and
+</I>&gt;<i> &gt; linux builds don't contain any of the development files (headers,
+</I>&gt;<i> &gt; libraries, whatnot).
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; And then you can start here:
+</I>&gt;<i> &gt;
+</I>&gt;<i> <A HREF="http://sourcenav.sourceforge.net/online-docs/progref/dbaseAPI.html#pgfId-996751">http://sourcenav.sourceforge.net/online-docs/progref/dbaseAPI.html#pgfId-996751</A>
+</I>&gt;<i> &gt; This describes the DB API (mostly via tcl).
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; You should also have a look at $SNSOURCE/snavigator/sdk/database and
+</I>&gt;<i> &gt; the tcl files in there; they will show you how to query and especially
+</I>&gt;<i> &gt; combine db information, esp. call-freq.tcl, unused.tcl and maybe
+</I>&gt;<i> &gt; diamonds.tcl (they need to be started with hyper, so you will have to
+</I>&gt;<i> &gt; fiddle around with a startup script similar to snavigator).
+</I>&gt;<i> &gt; Other than that the &quot;sdk&quot; isn't really in a great shape.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; If you want to go lowlevel you should look at dbutils.c and dbimp.c
+</I>&gt;<i> &gt; and also should manually run a parser to see what the parsers really
+</I>&gt;<i> &gt; spew out for you to use.
+</I>&gt;<i> &gt; It's like: parser(file.c) --pipe--&gt; dbimp --&gt; SNDB4/&lt;files&gt;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; What you absolutely don't want to do is reimport the db stuff, trust
+</I>&gt;<i> &gt; me - SN has quite a nasty db schema.
+</I>&gt;<i> &gt; We'll also love to hear what you've achieved and how - just report
+</I>&gt;<i> &gt; back if you feel like it. Or if you can contribute something along the
+</I>&gt;<i> &gt; way :)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Cheers
+</I>&gt;<i> &gt; F
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Sourcenav-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> Sicherer, schneller und einfacher. Die aktuellen Internet-Browser -
+</I>&gt;<i> jetzt kostenlos herunterladen! <A HREF="http://portal.gmx.net/de/go/atbrowser">http://portal.gmx.net/de/go/atbrowser</A>
+</I>
+-- 
+Sicherer, schneller und einfacher. Die aktuellen Internet-Browser -
+jetzt kostenlos herunterladen! <A HREF="http://portal.gmx.net/de/go/atbrowser">http://portal.gmx.net/de/go/atbrowser</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000352.html">[SN-devel] parser output
+</A></li>
+	<LI>Next message: <A HREF="000350.html">[SN-devel]  CPP xref bug?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

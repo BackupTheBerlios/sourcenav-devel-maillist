@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTi%3Di1UjHZjHX0XsfxmnaatMHYE3X-UCp8duHBWvB%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000425.html">
+   <LINK REL="Next"  HREF="000431.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTi%3Di1UjHZjHX0XsfxmnaatMHYE3X-UCp8duHBWvB%40mail.gmail.com%3E"
+       TITLE="[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Mar 10 20:50:15 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000425.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+        <LI>Next message: <A HREF="000431.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#430">[ date ]</a>
+              <a href="thread.html#430">[ thread ]</a>
+              <a href="subject.html#430">[ subject ]</a>
+              <a href="author.html#430">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;<i> I'm trying to find another way to make SN behave correctly in batch
+</I>&gt;&gt;<i> without a display.
+</I>
+Mhm, the error seems to come from /opt/SN/share/tcl8.3/init.tcl which
+again is original tcl stuff; maybe it's best if you simply put an
+&quot;export DISPLAY=:0.0&quot; in front of your script to work around that
+because it doesn't seem to be fixable in any sensible way.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000425.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+	<LI>Next message: <A HREF="000431.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#430">[ date ]</a>
+              <a href="thread.html#430">[ thread ]</a>
+              <a href="subject.html#430">[ subject ]</a>
+              <a href="author.html#430">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

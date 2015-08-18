@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk 8.4 based SN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C201110201456.09139.fandom%40telefonica.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000514.html">
+   <LINK REL="Next"  HREF="000521.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk 8.4 based SN</H1>
+    <B>Andr&#233;s Garc&#237;a</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%208.4%20based%20SN&In-Reply-To=%3C201110201456.09139.fandom%40telefonica.net%3E"
+       TITLE="[SN-devel] Tcl/Tk 8.4 based SN">fandom at telefonica.net
+       </A><BR>
+    <I>Thu Oct 20 14:56:09 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000514.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+        <LI>Next message: <A HREF="000521.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>HI,
+
+ 
+I finally got it to compile on Windows after applying the workaround for db.h
+already mentioned in the mailing list.
+
+You can get a snap of the open project dialog:
+
+<A HREF="http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-03.png/download">http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-03.png/download</A>
+
+And the installer:
+
+<A HREF="http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/sourcenav-ng-setup-v4.4.90.exe/download">http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/sourcenav-ng-setup-v4.4.90.exe/download</A>
+
+While the source tarball is:
+
+<A HREF="http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SourceNavigator-NG-8.4-1.tar.gz/download">http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SourceNavigator-NG-8.4-1.tar.gz/download</A>
+
+Which sounds great but the fact is that it doesn't work, the executable
+crashes left and right complaining about the c++ runtime.
+
+I don't know what's happening, maybe all those compiler warnings finally
+took their revenge. If you have an idea about what the problem is or how
+to debug I would love to hear it.
+
+I also backported the antialiasing font support for linux from Tcl/Tk 8.5, you
+can see the results:
+
+<A HREF="http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-01.png/download">http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-01.png/download</A>
+<A HREF="http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-02.png/download">http://sourceforge.net/projects/getleftdown/files/SourceNavigator-Tryouts/SN-02.png/download</A>
+
+Since the benefits from antialiasing are arguable, it is not activated by
+default, you need to configure SN with '--enable-xft'. You will probably also
+need to install a libXft-devel package. In any case the end result will depend
+on what fonts you have installed in your system as SN uses the Adobe family 
+instead of the default Tk fonts.
+
+Andres
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000514.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+	<LI>Next message: <A HREF="000521.html">[SN-devel] Tcl/Tk 8.4 based SN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure Windows - NG3 reply to Freek
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20Windows%20-%20NG3%20reply%20to%20Freek&In-Reply-To=%3C20081118091622.p06zmubxz54w404g%40mail.progw.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000189.html">
+   <LINK REL="Next"  HREF="000185.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure Windows - NG3 reply to Freek</H1>
+    <B>Earnie Boyd</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20Windows%20-%20NG3%20reply%20to%20Freek&In-Reply-To=%3C20081118091622.p06zmubxz54w404g%40mail.progw.org%3E"
+       TITLE="[SN-devel] Configure failure Windows - NG3 reply to Freek">earnie at users.sourceforge.net
+       </A><BR>
+    <I>Tue Nov 18 15:16:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000189.html">[SN-devel] Configure failure Windows - NG3 reply to Freek
+</A></li>
+        <LI>Next message: <A HREF="000185.html">[SN-devel] Configure failure under windows Msys - NG3 update 3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#190">[ date ]</a>
+              <a href="thread.html#190">[ thread ]</a>
+              <a href="subject.html#190">[ subject ]</a>
+              <a href="author.html#190">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Quoting Earnie Boyd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">earnie at users.sourceforge.net</A>&gt;:
+
+&gt;<i>
+</I>&gt;<i> So this change
+</I>&gt;<i> &lt;diff&gt;
+</I>&gt;<i> --- ng4/db4/dist/aclocal/socklen.m4	2008-11-17 16:35:59 -0500
+</I>&gt;<i> +++ depot/db-4.7.25/dist/aclocal/socklen.m4	2007-12-04 14:31:48 -0500
+</I>&gt;<i> @@ -30,10 +30,10 @@ AC_DEFUN([AM_SOCKLEN_T],[
+</I>&gt;<i> 	 db_cv_socklen_t_equiv=
+</I>&gt;<i> 	 for arg2 in &quot;struct sockaddr&quot; void; do
+</I>&gt;<i> 	   for t in int size_t &quot;unsigned int&quot; &quot;long int&quot; &quot;unsigned long int&quot;; do
+</I>&gt;<i> -	     AC_TRY_COMPILE(
+</I>&gt;<i> -	       [#include &lt;sys/types.h&gt;
+</I>&gt;<i> -		#include &lt;sys/socket.h&gt;
+</I>&gt;<i> -
+</I>&gt;<i> +	     AC_TRY_COMPILE([$db_includes
+</I>&gt;<i> +#ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> +#include &lt;sys/socket.h&gt;
+</I>&gt;<i> +#endif
+</I>&gt;<i> 		int getpeername (int, $arg2 *, $t *);],
+</I>&gt;<i> 	       [$t len;
+</I>&gt;<i> 		getpeername (0, 0, &amp;len);],
+</I>&gt;<i> @@ -49,7 +49,7 @@ AC_DEFUN([AM_SOCKLEN_T],[
+</I>&gt;<i>       AC_MSG_RESULT([$db_cv_socklen_t_equiv])
+</I>&gt;<i>       AC_DEFINE_UNQUOTED([socklen_t], [$db_cv_socklen_t_equiv],
+</I>&gt;<i> 	[type to use in place of socklen_t if not defined])],
+</I>&gt;<i> -	[#include &lt;sys/types.h&gt;
+</I>&gt;<i> -	 #ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> -	 #include &lt;sys/socket.h&gt;
+</I>&gt;<i> -	 #endif])])
+</I>&gt;<i> +	[$db_includes
+</I>&gt;<i> +#ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> +#include &lt;sys/socket.h&gt;
+</I>&gt;<i> +#endif])])
+</I>&gt;<i> &lt;/diff&gt;
+</I>&gt;<i>
+</I>&gt;<i> which causes this change
+</I>&gt;<i> &lt;diff&gt;
+</I>&gt;<i> --- _configure.orig	2008-11-17 16:35:39 -0500
+</I>&gt;<i> +++ configure	2008-11-18 08:43:25 -0500
+</I>&gt;<i> @@ -29529,10 +29529,10 @@ _ACEOF
+</I>&gt;<i> cat confdefs.h &gt;&gt;conftest.$ac_ext
+</I>&gt;<i> cat &gt;&gt;conftest.$ac_ext &lt;&lt;_ACEOF
+</I>&gt;<i> /* end confdefs.h.  */
+</I>&gt;<i> -#include &lt;sys/types.h&gt;
+</I>&gt;<i> -	 #ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> -	 #include &lt;sys/socket.h&gt;
+</I>&gt;<i> -	 #endif
+</I>&gt;<i> +$db_includes
+</I>&gt;<i> +#ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> +#include &lt;sys/socket.h&gt;
+</I>&gt;<i> +#endif
+</I>&gt;<i>
+</I>&gt;<i> typedef socklen_t ac__type_new_;
+</I>&gt;<i> int
+</I>&gt;<i> @@ -29594,8 +29594,10 @@ _ACEOF
+</I>&gt;<i> cat confdefs.h &gt;&gt;conftest.$ac_ext
+</I>&gt;<i> cat &gt;&gt;conftest.$ac_ext &lt;&lt;_ACEOF
+</I>&gt;<i> /* end confdefs.h.  */
+</I>&gt;<i> -#include &lt;sys/types.h&gt;
+</I>&gt;<i> -		#include &lt;sys/socket.h&gt;
+</I>&gt;<i> +$db_includes
+</I>&gt;<i> +#ifdef HAVE_SYS_SOCKET_H
+</I>&gt;<i> +#include &lt;sys/socket.h&gt;
+</I>&gt;<i> +#endif
+</I>&gt;<i>
+</I>&gt;<i> 		int getpeername (int, $arg2 *, $t *);
+</I>&gt;<i> int
+</I>&gt;<i> &lt;/diff&gt;
+</I>&gt;<i>
+</I>&gt;<i> allows the configure to happen correctly for the existing db4 code
+</I>&gt;<i> base.  Now to configure the entire package.  I'm using more recent
+</I>&gt;<i> versions of the mingw runtime, w32api, gcc, binutils and msys.
+</I>&gt;<i>
+</I>
+And with these changes I was able to execute the configure command to 
+completion.  However I get the following error when doing the build.  I 
+configured in a build directory outside of the source directory.  I 
+will now try configuring and building in the source directory to see if 
+it matters.
+
+&lt;error&gt;
+/bin/sh: line 1: tclsh83.exe: command not found
+make[2]: *** [../../../ng4/tcl/win/../generic/tclStubInit.c] Error 127
+make[2]: Leaving directory `/devshop/greenthumb/sn/bld/tcl/win'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/devshop/greenthumb/sn/bld/tcl'
+make: *** [all] Error 1
+&lt;/error&gt;
+
+--
+Earnie
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000189.html">[SN-devel] Configure failure Windows - NG3 reply to Freek
+</A></li>
+	<LI>Next message: <A HREF="000185.html">[SN-devel] Configure failure under windows Msys - NG3 update 3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#190">[ date ]</a>
+              <a href="thread.html#190">[ thread ]</a>
+              <a href="subject.html#190">[ subject ]</a>
+              <a href="author.html#190">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

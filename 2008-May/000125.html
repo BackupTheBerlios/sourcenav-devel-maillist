@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Autotools
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Autotools&In-Reply-To=%3C8240f6260805050123g68717f92mb0e6d1e7a48cdaea%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000124.html">
+   <LINK REL="Next"  HREF="000126.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Autotools</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Autotools&In-Reply-To=%3C8240f6260805050123g68717f92mb0e6d1e7a48cdaea%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Autotools">freequaos at gmail.com
+       </A><BR>
+    <I>Mon May  5 10:23:47 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000124.html">[SN-devel] Autotools
+</A></li>
+        <LI>Next message: <A HREF="000126.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#125">[ date ]</a>
+              <a href="thread.html#125">[ thread ]</a>
+              <a href="subject.html#125">[ subject ]</a>
+              <a href="author.html#125">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  Works on Linux/CentOS 4.6, both in-tree and out-of-tree building.
+</I>&gt;<i>  Tomorrow I'll check win32.
+</I>
+win32 broke for me; seems to me the tortoiseSVN cannot really cope
+with symlinks.
+Suddenly the config.sub and config.guess in db4/PORT read like
+
+link ../dist/config.sub
+
+and then of course the configure run fails.
+
+Mark: seems we have to revert the symlinks to full file copies.
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000124.html">[SN-devel] Autotools
+</A></li>
+	<LI>Next message: <A HREF="000126.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#125">[ date ]</a>
+              <a href="thread.html#125">[ thread ]</a>
+              <a href="subject.html#125">[ subject ]</a>
+              <a href="author.html#125">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

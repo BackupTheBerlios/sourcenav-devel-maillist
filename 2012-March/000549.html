@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] use of the command line options in win32
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3COF97C78313.71002B9D-ONC12579C1.0042C670-C12579C1.00444CB6%40pilz.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000551.html">
+   <LINK REL="Next"  HREF="000554.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] use of the command line options in win32</H1>
+    <B>Michael Kling</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3COF97C78313.71002B9D-ONC12579C1.0042C670-C12579C1.00444CB6%40pilz.de%3E"
+       TITLE="[SN-devel] use of the command line options in win32">m.kling at pilz.de
+       </A><BR>
+    <I>Wed Mar 14 13:25:59 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000551.html">[SN-devel] use of the command line options in win32
+</A></li>
+        <LI>Next message: <A HREF="000554.html">[SN-devel] use of the command line options in win32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#549">[ date ]</a>
+              <a href="thread.html#549">[ thread ]</a>
+              <a href="subject.html#549">[ subject ]</a>
+              <a href="author.html#549">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mark,
+is the windows branch maintained at the moment by your team? 
+
+At the moment I try to compile the current SN-NG4.4 sourcecode from trunk 
+with mingw under winxp. But it seems, that it's not compilable without any 
+sourcecode changes. 
+I had to do some code modifications at \tcl\win\tclWinReg.c and  \tcl\win\
+tclWinDde.c to fix compiler errors, but now the compiler halted at 
+db4\mutex\mut_failchk.c...
+If you like, I create a patch of the changes at the end, which should be 
+reviewed by a developer, which has more background to tcl as I'am.
+
+The installed windows version of SN-NG runs fine as long as I use the GUI 
+mode only. 
+
+PS: Of course, I really meant snavigator.exe in my last mail :-)
+
+Mit freundlichen Gr&#252;&#223;en/Yours sincerely
+
+Michael Kling
+Dipl.-Ing. (FH)
+Entwicklung Produkte/Product Development
+Steuerungssysteme/Control Systems
+
+Pilz GmbH &amp; Co. KG, Sichere Automation
+Felix-Wankel-Stra&#223;e 2, 73760 Ostfildern, Deutschland/Germany
+Tel.: +49 711 3409-583, Fax: +49 711 3409-9583
+E-Mail: mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">m.kling at pilz.de</A>, Internet: <A HREF="http://www.pilz.com">http://www.pilz.com</A>
+
+
+
+Von:
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>
+An:
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+Datum:
+14.03.2012 12:00
+Betreff:
+Sourcenav-devel Digest, Vol 46, Issue 1
+
+
+
+Send Sourcenav-devel mailing list submissions to
+                 <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+
+To subscribe or unsubscribe via the World Wide Web, visit
+                 <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+or, via email, send a message with subject or body 'help' to
+                 <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>
+
+You can reach the person managing the list at
+                 <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-owner at lists.berlios.de</A>
+
+When replying, please edit your Subject line so it is more specific
+than &quot;Re: Contents of Sourcenav-devel digest...&quot;
+
+
+Today's Topics:
+
+   1. use of the command line options in win32 (Michael Kling)
+   2. Re: use of the command line options in win32 (Mark Thornber)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Wed, 14 Mar 2012 08:56:01 +0100
+From: &quot;Michael Kling&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">m.kling at pilz.de</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+Subject: [SN-devel] use of the command line options in win32
+Message-ID:
+ &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">OFF8AE5F2D.466C531F-ONC12579C1.00299062-C12579C1.002B953C at pilz.de</A>&gt;
+Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+
+Hello everybody,
+
+I'd like to use the source navigator, to parse a source directory and then 
+
+extracting the parsed global variables out of the berkeley-db files with a 
+
+own written tool to store them in a xml file for some documentation 
+purposes.
+
+For this process to parse the project automatically I've been set my 
+sourcenavigator path to the windows system path variable and then tried to 
+
+do &quot;sourcenavigator.exe --batchmode&quot;, but I got only the error message 
+window &quot;Failed to start Source Navigator 4&quot;. 
+My question in general, is it possible to use the source navigator only 
+with command line options under windows os? Isn't it possible, because of 
+obsolete source code or a bug? Or is it only possible in a unix-like 
+environment?
+
+
+Mit freundlichen Gr??en/Yours sincerely
+
+Michael Kling
+Dipl.-Ing. (FH)
+Entwicklung Produkte/Product Development
+Steuerungssysteme/Control Systems
+
+Pilz GmbH &amp; Co. KG, Sichere Automation
+Felix-Wankel-Stra?e 2, 73760 Ostfildern, Deutschland/Germany
+Tel.: +49 711 3409-583, Fax: +49 711 3409-9583
+E-Mail: mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">m.kling at pilz.de</A>, Internet: <A HREF="http://www.pilz.com">http://www.pilz.com</A>
+Gesch?ftsf?hrung: Renate Pilz, Susanne Kunschert, Thomas Pilz
+Pilz GmbH &amp; Co. KG, Sitz: Ostfildern, HRA 210 893, Amtsgericht Stuttgart
+Kompl. Ges. Peter Pilz GmbH, Sitz: Ostfildern, HRB 210 612, Amtsgericht 
+Stuttgart
+Umsatzsteuer: ID-Nr. DE 145 355 773
+
+This email is intended solely for the use of the named address(es).
+Any unauthorised disclosure, copying or distribution of these confidential 
+information contained therein, or the taking of any action based on it, is 
+prohibited.
+The sender disclaims any liability for the integrity of this email. 
+Legally binding declarations must be in written form.
+Umweltschutz liegt uns am Herzen! - Bitte denken Sie an unsere Umwelt, 
+bevor Sie diese E-Mail drucken.
+We do care about the environment! - Please consider the environment before 
+printing this e-mail.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;
+<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/77fbdede/attachment-0001.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/77fbdede/attachment-0001.html</A>
+&gt;<i>
+</I>-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: L-Automation-on-tour-4c-93.jpg
+Type: image/jpeg
+Size: 1900 bytes
+Desc: not available
+URL: &lt;
+<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/77fbdede/attachment-0001.jpg">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/77fbdede/attachment-0001.jpg</A>
+&gt;<i>
+</I>
+------------------------------
+
+Message: 2
+Date: Wed, 14 Mar 2012 08:35:51 +0000
+From: Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+Subject: Re: [SN-devel] use of the command line options in win32
+Message-ID:
+ &lt;CAE35vgJGxpw1n-_Kr0hmAy3M_wa=<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">-7YQRY5reKeWCRuYMH0_8w at mail.gmail.com</A>&gt;
+Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+
+On 14 March 2012 07:56, Michael Kling &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">m.kling at pilz.de</A>&gt; wrote:
+
+&gt;<i> Hello everybody,
+</I>&gt;<i>
+</I>&gt;<i> I'd like to use the source navigator, to parse a source directory and 
+</I>then
+&gt;<i> extracting the parsed global variables out of the berkeley-db files with 
+</I>a
+&gt;<i> own written tool to store them in a xml file for some documentation
+</I>&gt;<i> purposes.
+</I>&gt;<i>
+</I>&gt;<i> For this process to parse the project automatically I've been set my
+</I>&gt;<i> sourcenavigator path to the windows system path variable and then tried 
+</I>to
+&gt;<i> do &quot;sourcenavigator.exe --batchmode&quot;, but I got only the error message
+</I>&gt;<i> window &quot;Failed to start Source Navigator 4&quot;.
+</I>
+(I presume you mean snavigator.exe :-) )
+
+
+&gt;<i> My question in general, is it possible to use the source navigator only
+</I>&gt;<i> with command line options under windows os? Isn't it possible, because 
+</I>of
+&gt;<i> obsolete source code or a bug? Or is it only possible in a unix-like
+</I>&gt;<i> environment?
+</I>&gt;<i>
+</I>I really don't know.  Unfortunately I'm not a Windows developer so I don't
+use SN in that environment.
+
+SNG4 needs to find a whole bunch of of other .exe and .dll files to run so
+it may be down to environment
+
+-- 
+Mark Thornber
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;
+<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/785b5f89/attachment-0001.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/785b5f89/attachment-0001.html</A>
+&gt;<i>
+</I>
+------------------------------
+
+_______________________________________________
+Sourcenav-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+
+
+End of Sourcenav-devel Digest, Vol 46, Issue 1
+**********************************************
+
+
+
+Gesch&#228;ftsf&#252;hrung: Renate Pilz, Susanne Kunschert, Thomas Pilz
+Pilz GmbH &amp; Co. KG, Sitz: Ostfildern, HRA 210 893, Amtsgericht Stuttgart
+Kompl. Ges. Peter Pilz GmbH, Sitz: Ostfildern, HRB 210 612, Amtsgericht Stuttgart
+Umsatzsteuer: ID-Nr. DE 145 355 773
+
+This email is intended solely for the use of the named address(es).
+Any unauthorised disclosure, copying or distribution of these confidential information contained therein, or the taking of any action based on it, is prohibited.
+The sender disclaims any liability for the integrity of this email. Legally binding declarations must be in written form.
+Umweltschutz liegt uns am Herzen! - Bitte denken Sie an unsere Umwelt, bevor Sie diese E-Mail drucken.
+We do care about the environment! - Please consider the environment before printing this e-mail.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/0a5929c8/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/0a5929c8/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: L-Automation-on-tour-4c-93.jpg
+Type: image/jpeg
+Size: 1900 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/0a5929c8/attachment.jpg">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120314/0a5929c8/attachment.jpg</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000551.html">[SN-devel] use of the command line options in win32
+</A></li>
+	<LI>Next message: <A HREF="000554.html">[SN-devel] use of the command line options in win32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#549">[ date ]</a>
+              <a href="thread.html#549">[ thread ]</a>
+              <a href="subject.html#549">[ subject ]</a>
+              <a href="author.html#549">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Quite off-topic
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Quite%20off-topic&In-Reply-To=%3CAANLkTin3JNYC_Xnajf76nA5NT9TYgicRsIDMOW9xahTK%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000370.html">
+   <LINK REL="Next"  HREF="000373.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Quite off-topic</H1>
+    <B>fabio fossati</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Quite%20off-topic&In-Reply-To=%3CAANLkTin3JNYC_Xnajf76nA5NT9TYgicRsIDMOW9xahTK%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Quite off-topic">fabio.fossati83 at gmail.com
+       </A><BR>
+    <I>Mon May 24 19:33:29 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000370.html">[SN-devel] Quite off-topic
+</A></li>
+        <LI>Next message: <A HREF="000373.html">[SN-devel] Quite off-topic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#371">[ date ]</a>
+              <a href="thread.html#371">[ thread ]</a>
+              <a href="subject.html#371">[ subject ]</a>
+              <a href="author.html#371">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Funny!!!!! This is email is the proof on how my English is weak. Now I try
+to explain the thing better ;)
+When I say UML, I mean Unified Modeling Language, not the suffix of a file.
+So my task is: taking the kernel source files and using source navigator
+with some modification, generate (UML) diagrams in an automatic way.
+So my problem is: how can I perform the &quot;choose that file&quot; operation which
+is the same operation that make does while compiling. Be more clear!!! :)
+Suppose I have 2 file in the kernel directory:  asm/sparc/foo.c  and
+asm/x86/foo.c
+When make look for foo.c, if we suppose have an intel machine, the choice
+will be
+asm/x86/foo.c looking in its $ARCH=uname -m variable etc. and so on with
+other prerequisite and file descending the tree.
+So, again, the question is if I can emulate/catch/return these choices that
+make perform during its affairs.
+I try to  look both debug messages and DB infos that make maintains, but not
+found anything can help me.
+Thank you Mark,
+Cheers.
+
+2010/5/24 Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;
+
+&gt;<i> On 24 May 2010 16:25, fabio fossati &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">fabio.fossati83 at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; I've modified SN to show (in the Include Browser) all the header file
+</I>&gt;<i> &gt; included within a source. Now I have to take a decision on what
+</I>&gt;<i> &gt; source/header select for compile a certain DIR. In this process GNU make
+</I>&gt;<i> &gt; seems to do very well! :D
+</I>&gt;<i> &gt; So I asked if there is an option a flag a trick that i can exploit to
+</I>&gt;<i> guess
+</I>&gt;<i> &gt; which file select for compiling. I know that for example some file are
+</I>&gt;<i> &gt; choosen basing on $ARCH. So, can I create a simple behaviour that acts
+</I>&gt;<i> like
+</I>&gt;<i> &gt; make?
+</I>&gt;<i> &gt; I hope this explanation will be moore celar (I know my english lack in
+</I>&gt;<i> &gt; clarity) Maybe this is not an example!
+</I>&gt;<i> At the risk of teaching grandmothers to suck eggs ...
+</I>&gt;<i>
+</I>&gt;<i> make takes rules, dependencies, and timestamps to generate the actions
+</I>&gt;<i> to create a target.
+</I>&gt;<i>
+</I>&gt;<i> Your required output is a uml file (.uml ?)
+</I>&gt;<i>
+</I>&gt;<i> UML_FILES = $(patsubst %.c,%.uml,$(wildcard *.c))
+</I>&gt;<i>
+</I>&gt;<i> Your rule is (maybe)
+</I>&gt;<i>
+</I>&gt;<i> %.uml: %.c
+</I>&gt;<i> &lt;tab&gt;umlgen &lt; $&lt; &gt; $@
+</I>&gt;<i>
+</I>&gt;<i> Your targets are (again, maybe)
+</I>&gt;<i>
+</I>&gt;<i> default: $(UML_FILES)
+</I>&gt;<i>
+</I>&gt;<i> clean:
+</I>&gt;<i> &lt;tab&gt;rm -f $(UML_FILES)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> So running `make` will build all .uml files that either do not exist
+</I>&gt;<i> or do exist but are older that then corresponding .c file.
+</I>&gt;<i>
+</I>&gt;<i> Running `make fred.uml` will build just fred.uml from fred.c if required
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The GNUMake manual has examples of automatically creating Makefiles
+</I>&gt;<i> that can then be included in the controlling Makefile - search on
+</I>&gt;<i> 'make depend'
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Now - does that go anywhere near answering your question ?
+</I>&gt;<i>
+</I>&gt;<i> HTH
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Fabio F.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100524/e9063a9c/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100524/e9063a9c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000370.html">[SN-devel] Quite off-topic
+</A></li>
+	<LI>Next message: <A HREF="000373.html">[SN-devel] Quite off-topic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#371">[ date ]</a>
+              <a href="thread.html#371">[ thread ]</a>
+              <a href="subject.html#371">[ subject ]</a>
+              <a href="author.html#371">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

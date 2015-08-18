@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908270449v57e3c3fapc48593087dac9a5e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000265.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Daniel Carmo Olops</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908270449v57e3c3fapc48593087dac9a5e%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">daniel at olops.eti.br
+       </A><BR>
+    <I>Thu Aug 27 13:49:27 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000265.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#266">[ date ]</a>
+              <a href="thread.html#266">[ thread ]</a>
+              <a href="subject.html#266">[ subject ]</a>
+              <a href="author.html#266">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>About 'flex', I have 2 copies of it, both of same version, and both out of
+my path. See below:
+
+# whereis flex
+flex: /usr/local/bin/flex /opt/csw/bin/flex /usr/local/man/man1/flex.1
+# echo $PATH
+/usr/sbin:/usr/bin:/usr/ccs/bin:/usr/contrib/bin:/opt/hparray/bin:/opt/nettladm/bin:/opt/upgrade/bin:/opt/fcms/bin:/opt/pd/bin:/usr/bin/X11:/usr/contrib/bin/X11:/opt/resmon/bin:/opt/mx/bin:/opt/gnome/bin:/opt/mozilla:/opt/perl/bin:/opt/wbem/bin:/opt/wbem/sbin:/opt/ignite/bin:/usr/sbin/diag/contrib:/opt/graphics/common/bin:/opt/imake/bin:/sbin:/home/root:/usr/local/vnc
+# /usr/local/bin/flex -V
+/usr/local/bin/flex version 2.5.4
+# /opt/csw/bin/flex -V
+/opt/csw/bin/flex version 2.5.4
+
+If you need any more information, let me know.
+
+
+Daniel
+
+On Thu, Aug 27, 2009 at 7:01 AM,
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>&gt;wrote:
+
+&gt;<i> &gt; Hm, I installed HP Developer's Toolkit and the X11 headers are now in
+</I>&gt;<i> place.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I still can't 'make', but the error changed. Attached is 'log1'
+</I>&gt;<i> (configure
+</I>&gt;<i> &gt; output), that shows some warnings, a complain about limits.h present but
+</I>&gt;<i> not
+</I>&gt;<i> &gt; compilable (seems to be an error in autoconf, though), and something
+</I>&gt;<i> about
+</I>&gt;<i> &gt; 'flex'.
+</I>&gt;<i> yes - not clear from log if flex was found or not
+</I>&gt;<i>
+</I>&gt;<i> &gt; The attached 'log2' is the make output.
+</I>&gt;<i> very strange - the make fails because the ar line for libitk3.2.a is
+</I>&gt;<i> missing the 'o' from the file names
+</I>&gt;<i>
+</I>&gt;<i> &lt;quote&gt;
+</I>&gt;<i>        /usr/local/bin/gcc -DPACKAGE_NAME=\&quot;\&quot; -DPACKAGE_TARNAME=\&quot;\&quot;
+</I>&gt;<i> -DPACKAGE_VERSION=\&quot;\&quot; -DPACKAGE_STRING=\&quot;\&quot; -DPACKAGE_BUGREPORT=\&quot;\&quot;
+</I>&gt;<i> -DVERSION=\&quot;3.2\&quot; -DSTATIC_BUILD=1
+</I>&gt;<i> -DITK_LIBRARY=\&quot;/opt/SN-NG4/share/itk3.2\&quot;
+</I>&gt;<i> -I/var/tmp/sourcenavigator-NG4/tcl/generic
+</I>&gt;<i> -I/var/tmp/sourcenavigator-NG4/tcl/unix
+</I>&gt;<i> -I/var/tmp/sourcenavigator-NG4/tk/generic
+</I>&gt;<i> -I/var/tmp/sourcenavigator-NG4/tk/unix
+</I>&gt;<i> -I&quot;/var/tmp/sourcenavigator-NG4/itcl/itcl/generic&quot;
+</I>&gt;<i> -I&quot;/var/tmp/sourcenavigator-NG4/itcl/itk/generic&quot;
+</I>&gt;<i> -I&quot;/var/tmp/sourcenavigator-NG4/itcl/itk/unix&quot;    -g -O2   -c `echo
+</I>&gt;<i> /var/tmp/sourcenavigator-NG4/itcl/itk/generic/itkStubLib.c` -o
+</I>&gt;<i> itkStubLib.o
+</I>&gt;<i>        rm -f libitk3.2.a
+</I>&gt;<i>        ar cr libitk3.2.a itk_cmds.  itk_option.  itk_archetype.
+</I>&gt;<i> itk_util.  itkStubInit.  itkStubLib.
+</I>&gt;<i> ar: No such file or directory
+</I>&gt;<i> &lt;/quote&gt;
+</I>&gt;<i>
+</I>&gt;<i> what _is_ it about [incr tcl] ?
+</I>&gt;<i>
+</I>&gt;<i> &lt;digging&gt;
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090827/5ff25a63/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090827/5ff25a63/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000265.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#266">[ date ]</a>
+              <a href="thread.html#266">[ thread ]</a>
+              <a href="subject.html#266">[ subject ]</a>
+              <a href="author.html#266">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

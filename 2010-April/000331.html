@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] querying source database
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20querying%20source%20database&In-Reply-To=%3Cr2j8240f6261004130142q183a742bia8ff4058bb239b46%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000330.html">
+   <LINK REL="Next"  HREF="000332.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] querying source database</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20querying%20source%20database&In-Reply-To=%3Cr2j8240f6261004130142q183a742bia8ff4058bb239b46%40mail.gmail.com%3E"
+       TITLE="[SN-devel] querying source database">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Apr 13 10:42:53 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000330.html">[SN-devel] querying source database
+</A></li>
+        <LI>Next message: <A HREF="000332.html">[SN-devel] querying source database
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  ok, I downloaded the SN-NG 4.2 sources and I could build Win32 targets of db4. But I
+</I>&gt;<i> am not able to open
+</I>&gt;<i>  snavigator\snavigator\win\snavigator.mdp (a VS 5 project file?)
+</I>&gt;<i>  with VS 6 nor VS 8.
+</I>
+Well, no - you don't build it like that. You build it by using
+MinGW/msys and doing a good old &quot;configure --prefix=/some/thing ; make
+; make install&quot;. Just look into INSTALL, it's all there.
+
+As for tcl/tk I'd strongly suggest to get familiar with it, because
+that way you'll get the quickest results and tcl is SN's main
+language.
+Please note that while SN builds and runs on win32 it is by no chance
+our best supported platform. It's much faster and easier to work with
+(development-wise) on Linux.
+
+As for the bug, please send in (seperate thread, please) an example,
+what you'd expect from SN re: parsing/xref/whatver, and also a
+download link to more example code (if any).
+We then can decide if it's valuable to add (who is Borland and why
+should I remember? ;-)
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000330.html">[SN-devel] querying source database
+</A></li>
+	<LI>Next message: <A HREF="000332.html">[SN-devel] querying source database
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

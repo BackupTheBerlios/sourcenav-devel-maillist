@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Feature request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C8240f6260705191234w153481f2yc3334b7b4c9ced75%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Feature request</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C8240f6260705191234w153481f2yc3334b7b4c9ced75%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Feature request">freequaos at gmail.com
+       </A><BR>
+    <I>Sat May 19 21:34:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[SN-devel] Feature request
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> &gt; Before I get to the request - thanks for the updates to SN.  It's a
+</I>&gt;<i> &gt; great tool and deserves a bright future.  It has proven to be for me,
+</I>&gt;<i> &gt; the best/quickest way to understand application code flow.
+</I>
+Thank you, your praise is highly regarded. Things like these keep us going.
+
+&gt;<i> &gt;   Per the application's name, I use SN extensively to navigate through
+</I>&gt;<i> &gt; code.  However, I perform all of my editing in [g]vim.  I would like to
+</I>&gt;<i> &gt; request that someone who has a good understanding of the SN code
+</I>&gt;<i> &gt; implement a right click menu option for editorpane.tcl that would open
+</I>&gt;<i> &gt; the current file in 'an editor of choice' and that would recognize when
+</I>&gt;<i> &gt; the file has been changed and update it in editorpane.tcl.
+</I>
+Very good idea - I was thinking of the same thing years ago.
+To get it right, we might add some printf-style substitutions, as in
+
+editor-args=&quot;-l %l,%c&quot;
+(%l = line, %c = col)
+
+Also some integration into the preferences stuff is needed (text:
+avourite editor, text: editor args, checkbox: show &quot;edit in external
+editor&quot; in context menu). I might look into it on my lazy sunday
+afternoon.
+
+If you have some code, could you please send the patch? We could use
+it as a basis.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[SN-devel] Feature request
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

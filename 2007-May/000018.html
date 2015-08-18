@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [PATCH] Highlight grep pattern when using format	string
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20Highlight%20grep%20pattern%20when%20using%20format%0A%09string&In-Reply-To=%3C8240f6260705060850x6e8b1452ra655a0d6ed95435d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000019.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [PATCH] Highlight grep pattern when using format	string</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20Highlight%20grep%20pattern%20when%20using%20format%0A%09string&In-Reply-To=%3C8240f6260705060850x6e8b1452ra655a0d6ed95435d%40mail.gmail.com%3E"
+       TITLE="[SN-devel] [PATCH] Highlight grep pattern when using format	string">freequaos at gmail.com
+       </A><BR>
+    <I>Sun May  6 17:50:54 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[SN-devel] [PATCH] Highlight grep pattern when using format string
+</A></li>
+        <LI>Next message: <A HREF="000019.html">[SN-devel] Source Navigator NG1 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Changes
+</I>&gt;<i> 1) Convert word boundary markers from egrep format to tcl format ('\&lt;'
+</I>&gt;<i> '\&gt;' become '\m' '\M') when highlighting (tagging) matches.
+</I>&gt;<i> 2) Use filename+line_number pattern match on every line to determine
+</I>&gt;<i> start position of search.
+</I>&gt;<i> 3) Determine length of matched pattern to use for highlighting (tagging).
+</I>&gt;<i> 4) Make default grep executable egrep.
+</I>
+Works great, looks great. Commited!
+
+&gt;<i> Change 4 is a stop-gap.  Given the multiplicity of target systems and
+</I>&gt;<i> of grep executables it may be better in the long run to ship a grep
+</I>&gt;<i> with known behaviour as part of the distribution.  (The code in
+</I>&gt;<i> execgrepdriver.tcl already supports this.)
+</I>
+Very wise proposal. At first I had some stomach ache because of the
+egrep, but I think that a proper egrep-equipped *nix will rule the
+world eventually ;)
+We should attack this when the first complaints are posted.
+
+Cheers and thanks,
+Freek
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[SN-devel] [PATCH] Highlight grep pattern when using format string
+</A></li>
+	<LI>Next message: <A HREF="000019.html">[SN-devel] Source Navigator NG1 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

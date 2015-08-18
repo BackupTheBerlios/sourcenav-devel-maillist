@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Grep window and jumping to search matches does not work for all strings/text
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Grep%20window%20and%20jumping%20to%20search%20matches%20does%20not%20work%0A%20for%20all%20strings/text&In-Reply-To=%3CBE6BE45F348CEE449E0C77219AF425A90195FCF8E5%40ESESSCMS0361.eemea.ericsson.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000402.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Grep window and jumping to search matches does not work for all strings/text</H1>
+    <B>Markus Magnusson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Grep%20window%20and%20jumping%20to%20search%20matches%20does%20not%20work%0A%20for%20all%20strings/text&In-Reply-To=%3CBE6BE45F348CEE449E0C77219AF425A90195FCF8E5%40ESESSCMS0361.eemea.ericsson.se%3E"
+       TITLE="[SN-devel] Grep window and jumping to search matches does not work for all strings/text">markus.magnusson at ericsson.com
+       </A><BR>
+    <I>Mon Nov  1 08:52:08 CET 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000402.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The grep function/window appears not to be able to jump to a match for all strings. For some text/strings it jumps correct to the match in the source code when double clicking on the search matc, for some it doesn't jump at all.
+
+Here is an example how to reproduce the fault:
+
+1) Create a text file (call it anything, for example asdf.txt) containing the following text:
+
+asdf MUX
+counter_id = asiRead16_lookup(MUX_DEMUX_ARRAY_BASE:5, $session_id:16, VIRTUAL_HANDLE:1, 0:2)
+asiWrite32_lookup(MUX_DEMUX_ARRAY_BASE:5, DEMUX_SESSION_ID_11:16, VIRTUAL_HANDLE:1, 0:2, MUX_DEMUX_VIRT_11:32)
+vbnm MUX
+
+2) Start source navigator and create a project and add the file asdf.txt to the project.
+
+3) Open the grep window and grep for MUX.
+
+4) Now double click on the matches in the &quot;grep window&quot;, for some of the matches the editor jumps automatically to the match, but for some of the matches it doesn't jump to the match.
+
+Brs,
+Markus
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20101101/1a12f2de/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20101101/1a12f2de/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000402.html">[SN-devel] Grep window and jumping to search matches does not work for all strings/text
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

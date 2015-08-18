@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] db crashes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20db%20crashes&In-Reply-To=%3C8240f6260704201308q1634a89cxc6686395671bca94%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000009.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] db crashes</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20db%20crashes&In-Reply-To=%3C8240f6260704201308q1634a89cxc6686395671bca94%40mail.gmail.com%3E"
+       TITLE="[SN-devel] db crashes">freequaos at gmail.com
+       </A><BR>
+    <I>Fri Apr 20 22:08:53 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[SN-devel] db crashes
+</A></li>
+        <LI>Next message: <A HREF="000009.html">[SN-devel] [bart.vanrompaey2 at ua.ac.be: [sourcenav-patch] patch for	xref in batch mode]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;<i> I'm on track of some dubious db crashes (I'm experiencing on Linux
+</I>&gt;&gt;<i> ever since SN 5.2). Reproducing is done by:
+</I>&gt;<i> Yes, there is a strange memory corruption bug in that version of the db
+</I>&gt;<i> library.
+</I>
+I possibly have found an entry point for this bug:
+The NKEYS (=hdr.nkeys define) value for the hash table may be too small.
+
+0) When enabling DEBUG for the db-lib I saw, you'll see the following
+debug output:
+
+TABLE POINTER   847d450
+BUCKET SIZE     4096
+BUCKET SHIFT    12
+DIRECTORY SIZE  256
+SEGMENT SIZE    256
+SEGMENT SHIFT   8
+FILL FACTOR     65536
+MAX BUCKET      1
+OVFL POINT           1
+LAST FREED      2
+HIGH MASK       3
+LOW  MASK       1
+NSEGS           1
+NKEYS           145
+
+1) When I was opening the (very big) sourcenavigator proj, I noticed
+that the NKEYS suddenly got _negative_. The struct-definition reveals
+it's an int, the printf-format is correct with %d (file hash.h)
+
+init_htab:
+TABLE POINTER   87d9ec8
+BUCKET SIZE     4096
+BUCKET SHIFT    12
+DIRECTORY SIZE  256
+SEGMENT SIZE    256
+SEGMENT SHIFT   8
+FILL FACTOR     25
+MAX BUCKET      12
+OVFL POINT           4
+LAST FREED      1
+HIGH MASK       f
+LOW  MASK       7
+NSEGS           1
+NKEYS           -48
+
+
+Mo, do you think this could be (a part of) the problem?
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[SN-devel] db crashes
+</A></li>
+	<LI>Next message: <A HREF="000009.html">[SN-devel] [bart.vanrompaey2 at ua.ac.be: [sourcenav-patch] patch for	xref in batch mode]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

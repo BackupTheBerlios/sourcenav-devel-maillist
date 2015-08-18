@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Debugging...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Co2zd90f23b81005050307h17e26c68sf559b787a3ccddd1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000357.html">
+   <LINK REL="Next"  HREF="000359.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Debugging...</H1>
+    <B>fabio fossati</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Debugging...&In-Reply-To=%3Co2zd90f23b81005050307h17e26c68sf559b787a3ccddd1%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Debugging...">fabio.fossati83 at gmail.com
+       </A><BR>
+    <I>Wed May  5 12:07:01 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000357.html">[SN-devel] Debugging...
+</A></li>
+        <LI>Next message: <A HREF="000359.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#358">[ date ]</a>
+              <a href="thread.html#358">[ thread ]</a>
+              <a href="subject.html#358">[ subject ]</a>
+              <a href="author.html#358">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+I have installed the SN version for linux which is my default operating
+system. I've raised the problem because the script does not work; and infact
+the problem seems to be those variable that I have mentioned. Is this a
+problem of mine?
+Bye
+
+2010/5/3 Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> &gt; I want to report that snpdbg is not update since &quot;epoc&quot; :D
+</I>&gt;<i> &gt; In the script are variables never declared like $etcdir that point to
+</I>&gt;<i> &gt; snpdbg(file) that no longer exists in share/etc directory, now it is in
+</I>&gt;<i> &gt; share/snavigator/etc. The same stuff for hyper too, that was moved from
+</I>&gt;<i> &gt; ../bin to ../libexec/snavigtor
+</I>&gt;<i>
+</I>&gt;<i> Yes, that's probably true for win32. I've fixed it in my trunk, but
+</I>&gt;<i> need a win32 box to test on before I commit that. Alternatively you
+</I>&gt;<i> can also send in your patch.
+</I>&gt;<i>
+</I>&gt;<i> &gt; I have done all the changes for correct the snpdbg script, as above.
+</I>&gt;<i> Using
+</I>&gt;<i> &gt; ddd, I want to see cbrowser's functionalities but when i try to attach
+</I>&gt;<i> the
+</I>&gt;<i> &gt; debugger to the process, ddd kills cbrowser.
+</I>&gt;<i> &gt;  I would like to know how and when the parsing through the code is done,
+</I>&gt;<i> &gt; this is the point of using ddd. My &quot;final&quot; task would change the &quot;stop
+</I>&gt;<i> until
+</I>&gt;<i> &gt; first&quot; behaviour but I don't know how to locate this stuff implemented.
+</I>&gt;<i> &gt;  I guess, reading at the code, that probably  snavigator/parser/cpp  and
+</I>&gt;<i> &gt; snavigator/db/dbutils.c make my case but I don't know:
+</I>&gt;<i> &gt; 1. if they are linked together at compile time
+</I>&gt;<i>
+</I>&gt;<i> Yes. dbutils.c is linked into each parser via libdbutils.a
+</I>&gt;<i>
+</I>&gt;<i> &gt;  2. how to reach with ddd
+</I>&gt;<i>
+</I>&gt;<i> Ah, well ... for that I have no real clue right now as they're all fork()ed
+</I>&gt;<i> out.
+</I>&gt;<i>
+</I>&gt;<i> &gt; 3. why even a printf seems to has no effect (probably because the
+</I>&gt;<i> executable
+</I>&gt;<i> &gt; run in background?)
+</I>&gt;<i>
+</I>&gt;<i> If I remember correctly (in all the parsers) the file descriptor for
+</I>&gt;<i> stdout (which printf will operate on) has either been closed or
+</I>&gt;<i> remapped to the pipe &quot;dbimp&quot; is reading from.
+</I>&gt;<i> So you wont see any output. I also seem to see this problem on win32
+</I>&gt;<i> with the &quot;normal&quot; hyper process, but I couldn't find out what the
+</I>&gt;<i> problem was.
+</I>&gt;<i>
+</I>&gt;<i> Quick workaround: open a file &quot;/tmp/mydebug&quot; and write all your
+</I>&gt;<i> debugging output there with fprintf().
+</I>&gt;<i>
+</I>&gt;<i> &gt; I'm going mad...
+</I>&gt;<i>
+</I>&gt;<i> Believe me, we all already have when dealing with SN...
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Fabio F.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100505/90f5c24d/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100505/90f5c24d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000357.html">[SN-devel] Debugging...
+</A></li>
+	<LI>Next message: <A HREF="000359.html">[SN-devel] Debugging...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#358">[ date ]</a>
+              <a href="thread.html#358">[ thread ]</a>
+              <a href="subject.html#358">[ subject ]</a>
+              <a href="author.html#358">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

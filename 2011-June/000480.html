@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] NG4.4 MinGW users mailing list
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTinuNkNvv4g3oD5sCsevUtpBMGV%2Bgw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000479.html">
+   <LINK REL="Next"  HREF="000481.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] NG4.4 MinGW users mailing list</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTinuNkNvv4g3oD5sCsevUtpBMGV%2Bgw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] NG4.4 MinGW users mailing list">freequaos at gmail.com
+       </A><BR>
+    <I>Wed Jun 22 20:20:45 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000479.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+        <LI>Next message: <A HREF="000481.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#480">[ date ]</a>
+              <a href="thread.html#480">[ thread ]</a>
+              <a href="subject.html#480">[ subject ]</a>
+              <a href="author.html#480">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Gary, Rogerz,
+
+thank you very much for your support. It's regarded warmly among us to
+get &quot;outsiders' help&quot; so openly and quickly.
+
+You can get SN NG by SVN:
+$&gt; svn co <A HREF="https://svn.berlios.de/svnroot/repos/sourcenav/tags/SN-NG4.4">https://svn.berlios.de/svnroot/repos/sourcenav/tags/SN-NG4.4</A>
+
+or download a tar.bz2 for NG4.4 here:
+<A HREF="http://developer.berlios.de/project/showfiles.php?group_id=8334">http://developer.berlios.de/project/showfiles.php?group_id=8334</A>
+
+Building is usually done in the following way (the prefix shouldn't
+matter much):
+
+$&gt; CFLAGS=&quot;-O2 -ffast-math -fomit-frame-pointer -march=i686&quot;
+./configure --prefix=/opt/SN-NG4.4 --enable-mingw -C
+$&gt; make &amp;&amp; make install
+
+I suspect we can get away with some of the old code by supplying a
+&quot;-std=gnu89&quot; or something?
+I don't have access to win32 machines on a regular basis, so it's
+kinda hard to cross-check...
+
+Cheers, and many thanks
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000479.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+	<LI>Next message: <A HREF="000481.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#480">[ date ]</a>
+              <a href="thread.html#480">[ thread ]</a>
+              <a href="subject.html#480">[ subject ]</a>
+              <a href="author.html#480">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

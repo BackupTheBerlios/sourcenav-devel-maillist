@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] snavigator CLI Waiting for cross-referencing to complete
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20snavigator%20CLI%20Waiting%20for%20cross-referencing%20to%20complete&In-Reply-To=%3CCADX0Jjshp4Pc932S0N3zx4_V%2BBhTOxHUCfFM9qsNQH3b7ZwpTA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000566.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] snavigator CLI Waiting for cross-referencing to complete</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20snavigator%20CLI%20Waiting%20for%20cross-referencing%20to%20complete&In-Reply-To=%3CCADX0Jjshp4Pc932S0N3zx4_V%2BBhTOxHUCfFM9qsNQH3b7ZwpTA%40mail.gmail.com%3E"
+       TITLE="[SN-devel] snavigator CLI Waiting for cross-referencing to complete">montaseri at gmail.com
+       </A><BR>
+    <I>Wed Sep 26 23:54:23 CEST 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000566.html">[SN-devel] snavigator CLI Waiting for cross-referencing to	complete
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#565">[ date ]</a>
+              <a href="thread.html#565">[ thread ]</a>
+              <a href="subject.html#565">[ subject ]</a>
+              <a href="author.html#565">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I build my projects from command line with
+
+snavigator --batchmode --create --import ~/.snav/foo.import  --databasedir
+~/.snav/foo.db  --project ~/.snav/foo --noxref
+
+Unfortunately after many hours of seeing
+Scanning: /x/y/z
+Scanning: /a/b/c
+Waiting for cross-referencing to complete
+
+I see the following processes....
+
+ /opt/SN-NG4.4/libexec/snavigator/hyper --home /opt/SN-NG4.4 -file
+/opt/SN-NG4.4/share/snavigator/etc/snavigator --batchmode --create etc etc
+see above CLI
+/opt/SN-NG4.4/libexec/snavigator/cbrowser2 -n /u/medi/.snav/foo.db -c 2048
+-C 8192 /u/medi/.snav/foo.db/tmp_W8Pcro
+/opt/SN-NG4.4/libexec/snavigator/dbimp -H myHostName -P 5953 -c 2048 -C
+8192 /u/medi/.snav/foo.db/foo
+
+I ran a strace(1) on dbimp and I see
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">medi at medi</A>:~&gt; strace -p 6580
+Process 6580 attached - interrupt to quit
+read(0,
+
+Question: what is this process waiting for input from stdin...this is
+supposed to be --batchmode
+Question: I asked for --noxref, is it building a xref db ?
+Question: what should I do next....maybe the position of command line args
+are not position independent and one has to provide the --noxref in some
+specific position
+
+Thanks
+Medi
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120926/48a22908/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20120926/48a22908/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000566.html">[SN-devel] snavigator CLI Waiting for cross-referencing to	complete
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#565">[ date ]</a>
+              <a href="thread.html#565">[ thread ]</a>
+              <a href="subject.html#565">[ subject ]</a>
+              <a href="author.html#565">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

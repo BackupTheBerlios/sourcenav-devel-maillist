@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [PATCH] new patch for xref in batch mode
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20new%20patch%20for%20xref%20in%20batch%20mode&In-Reply-To=%3C1177578795.4850.15.camel%40nefertiti%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [PATCH] new patch for xref in batch mode</H1>
+    <B>Bart Van Rompaey</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20new%20patch%20for%20xref%20in%20batch%20mode&In-Reply-To=%3C1177578795.4850.15.camel%40nefertiti%3E"
+       TITLE="[SN-devel] [PATCH] new patch for xref in batch mode">bart.vanrompaey2 at ua.ac.be
+       </A><BR>
+    <I>Thu Apr 26 11:13:15 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2007-04-26 at 10:08 +0200, Freek wrote:
+&gt;<i> &gt; I did find a strange behaviour (interactive mode) where the indexing
+</I>&gt;<i> &gt; of a completely NEW project (in the symbol browser) is labeled
+</I>&gt;<i> &gt; &quot;Deleting&quot; instead of &quot;Xref&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> Sorry, can't accept the patch right now. I didn't find the problem
+</I>&gt;<i> with why suddenly &quot;Deleting&quot; is shown instead of &quot;Xref&quot;, when a new
+</I>&gt;<i> (interactive) project is doing the Xref'ing.
+</I>&gt;<i> 
+</I>&gt;<i> As a bugfix and enhancement I'm interested in this patch, so please do
+</I>&gt;<i> an improved version :)
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>
+I found the problem. The issue is due to a dumb copy-paste error on my
+behalf. Here goes my third attempt:
+
+====================================================================
+--- misc.tcl	2004-01-08 05:03:56.000000000 +0100
++++ misc.tcl	2007-04-23 22:12:24.000000000 +0200
+@@ -1095,19 +1095,29 @@
+ 
+         sn_log &quot;Cross-ref PIPE: ${line}&quot;
+ 
+-        #actualize termometer
+-
++        #actualize termometer (not for batch mode)
+         set scanning &quot;Status: Scanning: &quot;
+         if {[string first $scanning ${line}] == 0} {
+             set file [string range $line [string length $scanning] end]
+-            xref_termometer_disp $file 0
++	     if {[sn_batch_mode]} { 
++		# do nothing 
++	     } else { 
++		# show the advancements graphically
++		xref_termometer_disp $file 0
++	     }
+         }
+ 
+         set deleting &quot;Status: Deleting: &quot;
+         if {[string first $deleting ${line}] == 0} {
+             set file [string range $line [string length $deleting] end]
+-            xref_termometer_disp $file 1
++            if {[sn_batch_mode]} { 
++		# do nothing 
++	     } else { 
++		# show the advancements graphically
++		xref_termometer_disp $file 1
++	     }
+         }
++	
+     }
+ 
+     update idletasks
+@@ -1926,9 +1936,15 @@
+     # be mapped. This avoids a problem under Windown 95/98
+     # where there is a long pause between the time the
+     # file scanning is done and the symbol browser shows up.
++    #
++    # This delay causes the batch mode to stop prematurely,
++    # without creating the xref tables. (reason?)
++    # Therefore, I removed it again (Bart Van Rompaey - 
++    # <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">bart.vanrompaey2 at ua.ac.be</A>)
+     if {${xfer_file} != &quot;&quot; &amp;&amp; [file exists ${xfer_file}] &amp;&amp; [file size\
+       ${xfer_file}] &gt; 0} {
+-        after 1000 [list sn_load_xref ${xfer_file} ${cbrowser_xref}]
++	 sn_load_xref ${xfer_file} ${cbrowser_xref}
++        #after 1000 [list sn_load_xref ${xfer_file} ${cbrowser_xref}]
+     }
+ 
+     catch {paf_db_proj sync}
+====================================================================
+
+Notice how the second parameter of xref_termometer_disp indicates whether
+the termometer should display &quot;xref&quot; (0) or &quot;delete&quot; (1).
+
+Bart.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

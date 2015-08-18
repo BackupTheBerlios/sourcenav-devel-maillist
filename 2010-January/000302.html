@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%22Jump%20to%20source%20line%22%20doesn%27t%20work%20always%20for%0A%09compiler%20error%20messages%20in%20the%20SN%20build%20window&In-Reply-To=%3C8240f6261001300745k221dd310rcd765f6eee8c198f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%22Jump%20to%20source%20line%22%20doesn%27t%20work%20always%20for%0A%09compiler%20error%20messages%20in%20the%20SN%20build%20window&In-Reply-To=%3C8240f6261001300745k221dd310rcd765f6eee8c198f%40mail.gmail.com%3E"
+       TITLE="[SN-devel] &quot;Jump to source line&quot; doesn't work always for	compiler error messages in the SN build window">freequaos at gmail.com
+       </A><BR>
+    <I>Sat Jan 30 16:45:59 CET 2010</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#302">[ date ]</a>
+              <a href="thread.html#302">[ thread ]</a>
+              <a href="subject.html#302">[ subject ]</a>
+              <a href="author.html#302">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+after a long time of consideration I might have fixed the bug, it's
+just been commited to trunk.
+Turns out it was a bug in snavigator/gui/utilities.tcl ::
+sn_convert_Filename() which was overly fuzzy at matching filenames.
+
+Other operations (i.e. non-fuzzy matching, or without param &quot;any&quot;)
+should be not affected due to exact matching beforehand.
+But still keep an eye open and report any problems.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#302">[ date ]</a>
+              <a href="thread.html#302">[ thread ]</a>
+              <a href="subject.html#302">[ subject ]</a>
+              <a href="author.html#302">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

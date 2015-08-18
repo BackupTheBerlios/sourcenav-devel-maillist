@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] crash - tcl problem creating project
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20crash%20-%20tcl%20problem%20creating%20project&In-Reply-To=%3C4A11265A.3090500%40hoffmanndigital.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000243.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] crash - tcl problem creating project</H1>
+    <B>Maik Hoffmann</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20crash%20-%20tcl%20problem%20creating%20project&In-Reply-To=%3C4A11265A.3090500%40hoffmanndigital.de%3E"
+       TITLE="[SN-devel] crash - tcl problem creating project">sn-ng-list at hoffmanndigital.de
+       </A><BR>
+    <I>Mon May 18 11:11:54 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000243.html">[SN-devel] crash - tcl problem creating project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+I can't crate a project.
+I try with the Version SN-NG3, SN-NG4 and SN6.
+If I start creating a new project, the following errormessage will produced.
+&lt;errormessage&gt;
+syntax error in expression &quot;int([winfo screenheight .] *
+                ($sn_options(de&quot;
+    while compiling
+&quot;expr {int([winfo screenheight .] *
+                ($sn_options(def,window-size)*0.01))}&quot;
+    while compiling
+&quot;set height [expr {int([winfo screenheight .] *
+                ($sn_options(def,window-size)*0.01))}]&quot;
+    (&quot;if&quot; else script line 2)
+    while compiling
+&quot;if {${x} != &quot;&quot;} {
+            $this configure -geometry [expr {int(${width})}]x[expr
+{int(${height})}]+${x}+${y}
+        } else {
+            set heig...&quot;
+    (compiling body for &quot;::SymBr&amp;::constructor&quot;, line 13)
+    while constructing object &quot;::SymBr&amp;::.multisymbr-4&quot; in
+::<i>SymBr&amp;::constructor (body line 13)
+</I>    invoked from within
+
+&lt;errormessage&gt;
+
+For all version the error message is similiar. Always a syntaxerror
+after start of parsing.
+
+I use (better want to use) it under WinXP and try some folders with C++
+projects.
+The last versions I used (3 years ago) worked very well.
+
+Could you help me?
+
+Regards
+Maik
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000243.html">[SN-devel] crash - tcl problem creating project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] derived from inner class
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20derived%20from%20inner%20class&In-Reply-To=%3C8240f6260807240822qcc9d4dcxb155cd2ed6db7816%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000143.html">
+   <LINK REL="Next"  HREF="000145.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] derived from inner class</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20derived%20from%20inner%20class&In-Reply-To=%3C8240f6260807240822qcc9d4dcxb155cd2ed6db7816%40mail.gmail.com%3E"
+       TITLE="[SN-devel] derived from inner class">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Jul 24 17:22:10 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000143.html">[SN-devel] derived from inner class
+</A></li>
+        <LI>Next message: <A HREF="000145.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> If a class is derived from an inner class, the inheritance tree is
+</I>&gt;<i> incomplete (as if the base class is not found in the database), even if the
+</I>&gt;<i> definition of the base class is found.
+</I>
+Phew, never saw this, ever!
+
+&gt;<i> Can this be fixed? Can I get a hint where to look in the source tree so
+</I>&gt;<i> maybe I can fix it myself?
+</I>
+You can try, and we will be very very grateful if you post a patch :-)
+Look into
+
+SN_SOURCE/snavigator/parsers/cpp/ and
+SN_SOURCE/snavigator/parsers/cpp/cpplib/
+
+You might have to change the state machine of the parser to accept new
+class {} definitions within a class.
+
+Cheers,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000143.html">[SN-devel] derived from inner class
+</A></li>
+	<LI>Next message: <A HREF="000145.html">[SN-devel] Routine references are not cross referenced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

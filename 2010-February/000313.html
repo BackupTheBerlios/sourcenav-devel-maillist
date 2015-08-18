@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] source editor doesn't recognize file moified status
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20source%20editor%20doesn%27t%20recognize%20file%20moified%20status&In-Reply-To=%3C201002220842.01007.ray.minnerly%40flukenetworks.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000312.html">
+   <LINK REL="Next"  HREF="000314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] source editor doesn't recognize file moified status</H1>
+    <B>Ray Minnerly</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20source%20editor%20doesn%27t%20recognize%20file%20moified%20status&In-Reply-To=%3C201002220842.01007.ray.minnerly%40flukenetworks.com%3E"
+       TITLE="[SN-devel] source editor doesn't recognize file moified status">ray.minnerly at flukenetworks.com
+       </A><BR>
+    <I>Mon Feb 22 17:42:00 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000312.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+        <LI>Next message: <A HREF="000314.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I build it as recommended in INSTALL
+./configure --prefix=/opt/sourcenav
+
+Being a c, c++ embedded programmer I haven't learned the tcl syntax or made the time to 
+debug it myself. Is there a debug mode I can build to produce a lot of spewage?
+
+Thanks,
+Ray
+
+On Saturday 20 February 2010 6:55:57 am Maurice Havelday wrote:
+&gt;<i> Ray,
+</I>&gt;<i>
+</I>&gt;<i> I would recommend starting at the file snavigator/gui/editorpane.tcl
+</I>&gt;<i> and tracking down when and where the ITK variable 'File_Changed'
+</I>&gt;<i> reverts back to false or zero unexpectedly.
+</I>&gt;<i> This bug is new to me as I mostly use SN to browse sources to
+</I>&gt;<i> comprehend their structure.
+</I>&gt;<i>
+</I>&gt;<i> Happy hunting.
+</I>&gt;<i>
+</I>&gt;<i> --Maurice
+</I>&gt;<i>
+</I>&gt;<i> Freek wrote:
+</I>&gt;<i> &gt; Hi Ray,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&gt;&gt; After editing and saving files for a while the editor forgets that the
+</I>&gt;<i> &gt;&gt;&gt; file has been modified and refuses to save any of the open edited
+</I>&gt;<i> &gt;&gt;&gt; files. The project has to be shut down and reopened to continue and all
+</I>&gt;<i> &gt;&gt;&gt; edits are lost.
+</I>&gt;<i> &gt;&gt;&gt; I've used snavagator for about 10 years, 5 days a week on various linux
+</I>&gt;<i> &gt;&gt;&gt; kde distros and this bug has always existed but it seems to have gotten
+</I>&gt;<i> &gt;&gt;&gt; worse.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Yes, unfortunately this bug isn't unknown to me, too, so consider it
+</I>&gt;<i> &gt; officially acknowledged ;)
+</I>&gt;<i> &gt; However, I was under the impression that with the migration to db4 it
+</I>&gt;<i> &gt; has gotten better?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; So, 2 questions:
+</I>&gt;<i> &gt; 1) are you using the binary builds?
+</I>&gt;<i> &gt; 2) if not, how (compiler, configure options, ...) and with what CFLAGS
+</I>&gt;<i> &gt; do you compile your version?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; It's definately a thing I'd like to get fixed, but as Mark says,
+</I>&gt;<i> &gt; there's no clue and no immediate solution, because tracking it down
+</I>&gt;<i> &gt; wasn't successful in the past.
+</I>&gt;<i> &gt; Do you want and can you help us out on this one?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Cheers,
+</I>&gt;<i> &gt; F
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Sourcenav-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+
+Please be advised that this email may contain confidential information.
+ If you are not the intended recipient, please do not read, copy or
+re-transmit this email.  If you have received this email in error,
+please notify us by email by replying to the sender and by telephone
+(call us collect at +1 202-828-0850) and delete this message and any
+attachments.  Thank you in advance for your cooperation and assistance.
+
+In addition, Danaher and its subsidiaries disclaim that the content of
+this email constitutes an offer to enter into, or the acceptance of, 
+any
+contract or agreement or any amendment thereto; provided that the
+foregoing disclaimer does not invalidate the binding effect of any
+digital or other electronic reproduction of a manual signature that is
+included in any attachment to this email.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000312.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+	<LI>Next message: <A HREF="000314.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

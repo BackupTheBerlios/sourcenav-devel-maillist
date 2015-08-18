@@ -1,0 +1,85 @@
+From leith.bade at anu.edu.au  Thu Feb  6 06:11:44 2014
+From: leith.bade at anu.edu.au (Leith Bade)
+Date: Thu, 6 Feb 2014 16:11:44 +1100
+Subject: [SN-devel] Font problem on Ubuntu 12.04
+Message-ID: <52F31990.2070302@anu.edu.au>
+
+Hi,
+
+I am a first time Source Navigator user.
+
+I just compiled and installed Source Navigator, but when I run it I get 
+horrible/unreadable UI and editor fonts.
+
+It is the same problem as in the screenshot from the December 2012 email 
+" Application font issue" from Robert Phisher. Here is his screenshot:
+
+/http://img541.imageshack.us/img541/460/screenshotfrom201212091.png/
+
+He later emailed to say he fixed it, but unfortunately does not say how.
+
+Can someone point me in the right direction?
+
+-- 
+Thanks,
+Leith Bade
+leith.bade at anu.edu.au
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20140206/4b53535b/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4885 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20140206/4b53535b/attachment.bin>
+
+From Reid.Thompson at ateb.com  Thu Feb  6 17:07:06 2014
+From: Reid.Thompson at ateb.com (Reid Thompson)
+Date: Thu, 6 Feb 2014 16:07:06 +0000
+Subject: [SN-devel] Font problem on Ubuntu 12.04
+In-Reply-To: <52F31990.2070302@anu.edu.au>
+References: <52F31990.2070302@anu.edu.au>
+Message-ID: <1391702826.27611.6.camel@raker2.ateb.com>
+
+
+On Thu, 2014-02-06 at 16:11 +1100, Leith Bade wrote:
+
+> Hi,
+>
+> I am a first time Source Navigator user.
+>
+> I just compiled and installed Source Navigator, but when I run it I
+> get horrible/unreadable UI and editor fonts.
+>
+> It is the same problem as in the screenshot from the December 2012
+> email " Application font issue" from Robert Phisher. Here is his
+> screenshot:
+>
+> http://img541.imageshack.us/img541/460/screenshotfrom201212091.png
+>
+> He later emailed to say he fixed it, but unfortunately does not say
+> how.
+>
+> Can someone point me in the right direction?
+>
+>
+> --
+> Thanks,
+> Leith Bade
+> leith.bade at anu.edu.au
+>
+> _______________________________________________
+> Sourcenav-devel mailing list
+> Sourcenav-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/sourcenav-devel
+
+I would look in
+File --> Project Preferences --> Fonts && Colors
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20140206/133cdd7d/attachment.html>
+

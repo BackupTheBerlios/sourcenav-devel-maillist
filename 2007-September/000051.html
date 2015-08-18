@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C1.1.1.20070920200725.0129c8e8%40pop.gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000050.html">
+   <LINK REL="Next"  HREF="000052.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6</H1>
+    <B>Aurelian Melinte</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5Bsourcenav-devl%5D%20SN%20%26%20Berkeley%20DB%204.6&In-Reply-To=%3C1.1.1.20070920200725.0129c8e8%40pop.gmx.net%3E"
+       TITLE="[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6">ame01 at gmx.net
+       </A><BR>
+    <I>Thu Sep 20 22:07:38 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000050.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+        <LI>Next message: <A HREF="000052.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#51">[ date ]</a>
+              <a href="thread.html#51">[ thread ]</a>
+              <a href="subject.html#51">[ subject ]</a>
+              <a href="author.html#51">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>At 11:03 AM 9/20/2007 +0200, Freek wrote:
+ &gt; &gt; linking SN against DB 4.6 greatly improves the stability.
+ &gt;
+ &gt;I did a couple of tests and my results were devastating, at least on Linux.
+ &gt;Using the old compat-185-layer of db4 I would get constant segfaults
+ &gt;on the dbimp process. And I only tried to index SN's own source...
+ &gt;
+ &gt;segfault always occured in the dbimp.c code:
+ &gt;
+ &gt;fd = db_scopes-&gt;fd(db_scopes);
+ &gt;
+ &gt;which is a call into db185-code and in there something bad happens.
+
+
+Hi,
+
+Please take a look at <A HREF="http://www.freeshells.ch/~amelinte/sn.html.">http://www.freeshells.ch/~amelinte/sn.html.</A>
+
+Hopefully I have fixed the same crashes you were experiencing :) I also had a bunch of segs but now is solid. The fix I did was in the db4 code - basically SN was making calls to check whether the symbol was in the database but with no space to put the results in and db4 was not expecting this. The patch is below.
+
+I have uploaded there both the sources for NG2 + db4 (eventually check the patches subdirectory to see the modifs) and Windows binaries. Now it is only crashing in parsers. 
+
+No Linux binaries - the db4 config is misfiring. For now, for Linux you still have to compile the db by hand (but make sure you apply the patch below before). 
+
+Regards
+a.
+
+
+
+diff -uprN -X patches/dontdiff db-4.6.19/db185/db185.c db4/db185/db185.c
+--- db-4.6.19/db185/db185.c     Thu May 17 11:14:58 2007
++++ db4/db185/db185.c   Mon Sep 17 12:41:24 2007
+@@ -331,23 +331,30 @@ db185_get(db185p, key185, data185, flags
+          DB *dbp;
+          DBT key, data;
+          int ret;
+-
++       
+          dbp = db185p-&gt;dbp;
+   
+          memset(&amp;key, 0, sizeof(key));
+          key.data = key185-&gt;data;
+          key.size = key185-&gt;size;
+          memset(&amp;data, 0, sizeof(data));
+-       data.data = data185-&gt;data;
+-       data.size = data185-&gt;size;
++       /*Bug fix: sometimes data185 is NULL. 
++         (dbutils.c/db_key_in_table() makes calls with data185 == NULL). */
++       if (NULL != data185) {
++               data.data = data185-&gt;data;
++               data.size = data185-&gt;size;
++       }
+   
+          if (flags)
+                  goto einval;
+   
+          switch (ret = dbp-&gt;get(dbp, NULL, &amp;key, &amp;data, 0)) {
+          case 0:
+-               data185-&gt;data = data.data;
+-               data185-&gt;size = data.size;
++               /*Bug fix - see up note. */
++               if (NULL != data185) {
++                       data185-&gt;data = data.data;
++                       data185-&gt;size = data.size;
++               }
+                  return (0);
+          case DB_NOTFOUND:
+                  return (1);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000050.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+	<LI>Next message: <A HREF="000052.html">[SN-devel] [sourcenav-devl] SN &amp; Berkeley DB 4.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#51">[ date ]</a>
+              <a href="thread.html#51">[ thread ]</a>
+              <a href="subject.html#51">[ subject ]</a>
+              <a href="author.html#51">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

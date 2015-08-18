@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] file list for windows binary distribution
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20file%20list%20for%20windows%20binary%20distribution&In-Reply-To=%3CBANLkTim13485unV-ATKNJUK%2BXKjDWPVA%2Bw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000465.html">
+   <LINK REL="Next"  HREF="000467.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] file list for windows binary distribution</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20file%20list%20for%20windows%20binary%20distribution&In-Reply-To=%3CBANLkTim13485unV-ATKNJUK%2BXKjDWPVA%2Bw%40mail.gmail.com%3E"
+       TITLE="[SN-devel] file list for windows binary distribution">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Jun  2 10:38:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000465.html">[SN-devel] file list for windows binary distribution
+</A></li>
+        <LI>Next message: <A HREF="000467.html">[SN-devel] file list for windows binary distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Rogerz,
+
+&gt;<i> I've built SN-NG4.3 for windows using mingw successfully. But after typing
+</I>&gt;<i> &quot;make install&quot;, I got a much larger installed directory than SN-NG4.2
+</I>&gt;<i> release. It was about 19MB.
+</I>&gt;<i> So I did a directory compare and found out that some directories were not
+</I>&gt;<i> included in SN-NG4.2 package, such as include, share\snavigator\demos,
+</I>&gt;<i> share\sdk and some exe files (snpdbg.exe, snsdk.exe, tclsh83.exe,
+</I>&gt;<i> tix4183.exe and wish83.exe).
+</I>&gt;<i> I wonder if there's a file list for a windows binary distribution? or a
+</I>&gt;<i> dedicated &quot;make target&quot; to create one?
+</I>
+Currently, sadly, no. Contributions (a script or something) are of
+course most welcome.
+
+But you can safely delete all directories (and usually files, because
+we rarely add anything) that are not present in the distribution.
+Especially sdk/ and demos/ take up the most part.
+tclsh, tix and wish come from tcl/tk and tix, but are not needed to
+run sn (hyper includes those libraries directly).
+
+On *nix you could also remove lib/ , but you can't on win32.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000465.html">[SN-devel] file list for windows binary distribution
+</A></li>
+	<LI>Next message: <A HREF="000467.html">[SN-devel] file list for windows binary distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

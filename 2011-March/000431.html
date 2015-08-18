@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTi%3DetdtBujYeK%3DWJob-Rt8_dT588D%3D%3DK0uDeB%2BTa%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000430.html">
+   <LINK REL="Next"  HREF="000432.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20batch%20mode%20yields%20-%20no%20display%20name%20and%20no%20%24DISPLAY%0A%20environment%20variable&In-Reply-To=%3CAANLkTi%3DetdtBujYeK%3DWJob-Rt8_dT588D%3D%3DK0uDeB%2BTa%40mail.gmail.com%3E"
+       TITLE="[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable">montaseri at gmail.com
+       </A><BR>
+    <I>Thu Mar 10 22:52:39 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000430.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+        <LI>Next message: <A HREF="000432.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#431">[ date ]</a>
+              <a href="thread.html#431">[ thread ]</a>
+              <a href="subject.html#431">[ subject ]</a>
+              <a href="author.html#431">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yes, workaround accepted...
+
+As for the fix, what if either the shell script snavigator or sninit.c
+setenv() the var in presence of --batchmode to keep tcl happy.
+
+Thanks
+Medi
+
+On Thu, Mar 10, 2011 at 11:50 AM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> &gt;&gt; I'm trying to find another way to make SN behave correctly in batch
+</I>&gt;<i> &gt;&gt; without a display.
+</I>&gt;<i>
+</I>&gt;<i> Mhm, the error seems to come from /opt/SN/share/tcl8.3/init.tcl which
+</I>&gt;<i> again is original tcl stuff; maybe it's best if you simply put an
+</I>&gt;<i> &quot;export DISPLAY=:0.0&quot; in front of your script to work around that
+</I>&gt;<i> because it doesn't seem to be fixable in any sensible way.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110310/80af025d/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110310/80af025d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000430.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+	<LI>Next message: <A HREF="000432.html">[SN-devel] batch mode yields - no display name and no $DISPLAY environment variable
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#431">[ date ]</a>
+              <a href="thread.html#431">[ thread ]</a>
+              <a href="subject.html#431">[ subject ]</a>
+              <a href="author.html#431">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] ubuntu 9.04 tk.tcl error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%209.04%20tk.tcl%20error&In-Reply-To=%3C5d445ea0908020012m320e63fdh8189e524dca406c6%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000255.html">
+   <LINK REL="Next"  HREF="000257.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] ubuntu 9.04 tk.tcl error</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20ubuntu%209.04%20tk.tcl%20error&In-Reply-To=%3C5d445ea0908020012m320e63fdh8189e524dca406c6%40mail.gmail.com%3E"
+       TITLE="[SN-devel] ubuntu 9.04 tk.tcl error">mark.thornber at gmail.com
+       </A><BR>
+    <I>Sun Aug  2 09:12:21 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000255.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+        <LI>Next message: <A HREF="000257.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#256">[ date ]</a>
+              <a href="thread.html#256">[ thread ]</a>
+              <a href="subject.html#256">[ subject ]</a>
+              <a href="author.html#256">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2009/8/1 Reid Thompson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">reid.thompson at ateb.com</A>&gt;:
+&gt;<i> Building from svn head. &#160;Build and install appear to complete fine. &#160;But on startup get the following error.
+</I>&gt;<i> It looks like ubuntu 9.04 comes with tk8.[45] installed by default. &#160;I installed tk8.3. &#160;( my understanding is that SN provides it's own tk, so the ubuntu installed versions should make no difference. &#160;I just wanted to make sure )
+</I>Yes - SN has it's own distribution of Tcl/Tk and [Incr Tcl]
+
+On Mac OS X I found the system Tcl/Tk was being included rather than
+the SN version.  This was down to a change in behaviour of the
+Autotools from previous version used by SN (something in the area of
+default cache setting IIRC) so it might be worth looking at the
+configure output
+
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000255.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+	<LI>Next message: <A HREF="000257.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#256">[ date ]</a>
+              <a href="thread.html#256">[ thread ]</a>
+              <a href="subject.html#256">[ subject ]</a>
+              <a href="author.html#256">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

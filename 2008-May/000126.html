@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] current svn configure failing for me
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C1209990233.23224.10.camel%40raker%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000125.html">
+   <LINK REL="Next"  HREF="000127.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] current svn configure failing for me</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C1209990233.23224.10.camel%40raker%3E"
+       TITLE="[SN-devel] current svn configure failing for me">Reid.Thompson at ateb.com
+       </A><BR>
+    <I>Mon May  5 14:23:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000125.html">[SN-devel] Autotools
+</A></li>
+        <LI>Next message: <A HREF="000127.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>configure is failing on current Gentoo.
+previous svn HEAD's have built without issue.
+
+
+Revision: 598
+
+=== configuring in parsers/assembly/ppc601-eabi (/home/rthompso/src/svn/snavigator/trunk/snavigator/parsers/assembly/ppc601-eabi)
+configure: running /bin/sh ./configure '--prefix=/opt/snav'  'CFLAGS=-ggdb -O2 -march=prescott' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for gawk... (cached) gawk
+checking for ranlib... ranlib
+checking for Tcl configuration script... configure: WARNING: Can't find Tcl configuration definitions
+./configure: line 3928: .: filename argument required
+.: usage: . filename [arguments]
+configure: error: ./configure failed for parsers/assembly/ppc601-eabi
+configure: error: ./configure failed for snavigator
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">rthompso at raker</A> ~/src/svn/snavigator/trunk $ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000125.html">[SN-devel] Autotools
+</A></li>
+	<LI>Next message: <A HREF="000127.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

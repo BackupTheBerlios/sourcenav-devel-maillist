@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Quite off-topic
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Quite%20off-topic&In-Reply-To=%3CAANLkTikaeF1U7Jb3YXvk_vj6jABBrEXou_33qAl27fpX%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000369.html">
+   <LINK REL="Next"  HREF="000371.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Quite off-topic</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Quite%20off-topic&In-Reply-To=%3CAANLkTikaeF1U7Jb3YXvk_vj6jABBrEXou_33qAl27fpX%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Quite off-topic">mark.thornber at gmail.com
+       </A><BR>
+    <I>Mon May 24 17:58:14 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000369.html">[SN-devel] Quite off-topic
+</A></li>
+        <LI>Next message: <A HREF="000371.html">[SN-devel] Quite off-topic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 24 May 2010 16:25, fabio fossati &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">fabio.fossati83 at gmail.com</A>&gt; wrote:
+&gt;<i> I've modified SN to show (in the Include Browser) all the header file
+</I>&gt;<i> included within a source. Now I have to take a decision on what
+</I>&gt;<i> source/header select for compile a certain DIR. In this process GNU make
+</I>&gt;<i> seems to do very well! :D
+</I>&gt;<i> So I asked if there is an option a flag a trick that i can exploit to guess
+</I>&gt;<i> which file select for compiling. I know that for example some file are
+</I>&gt;<i> choosen basing on $ARCH. So, can I create a simple behaviour that acts like
+</I>&gt;<i> make?
+</I>&gt;<i> I hope this explanation will be moore celar (I know my english lack in
+</I>&gt;<i> clarity) Maybe this is not an example!
+</I>At the risk of teaching grandmothers to suck eggs ...
+
+make takes rules, dependencies, and timestamps to generate the actions
+to create a target.
+
+Your required output is a uml file (.uml ?)
+
+UML_FILES = $(patsubst %.c,%.uml,$(wildcard *.c))
+
+Your rule is (maybe)
+
+%.uml: %.c
+&lt;tab&gt;umlgen &lt; $&lt; &gt; $@
+
+Your targets are (again, maybe)
+
+default: $(UML_FILES)
+
+clean:
+&lt;tab&gt;rm -f $(UML_FILES)
+
+
+So running `make` will build all .uml files that either do not exist
+or do exist but are older that then corresponding .c file.
+
+Running `make fred.uml` will build just fred.uml from fred.c if required
+
+
+The GNUMake manual has examples of automatically creating Makefiles
+that can then be included in the controlling Makefile - search on
+'make depend'
+
+
+
+Now - does that go anywhere near answering your question ?
+
+HTH
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000369.html">[SN-devel] Quite off-topic
+</A></li>
+	<LI>Next message: <A HREF="000371.html">[SN-devel] Quite off-topic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

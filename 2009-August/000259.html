@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Multiple problems compiling on HP-UX 11i
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908031119m6dcc142ex2ffea8242f6d97e2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000260.html">
+   <LINK REL="Next"  HREF="000261.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Multiple problems compiling on HP-UX 11i</H1>
+    <B>Daniel Carmo Olops</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Multiple%20problems%20compiling%20on%20HP-UX%2011i&In-Reply-To=%3C2c46f67e0908031119m6dcc142ex2ffea8242f6d97e2%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Multiple problems compiling on HP-UX 11i">daniel at olops.eti.br
+       </A><BR>
+    <I>Mon Aug  3 20:19:00 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000260.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+        <LI>Next message: <A HREF="000261.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yes, according to configure log, it's looking for Tcl and Tk on the Source
+Navigator directory.
+
+I forgot to mention that the binary 'tclsh' is not in my path. When I
+configure it with 'CC=/usr/local/bin/gcc', but without including
+'/usr/local/bin' in my path, the 'configure' script goes OK, but 'make'
+stops telling that 'tclsh' was not found.
+
+Any other ideas to make it work on HP-UX?
+
+Regards,
+
+Daniel
+
+On Sat, Aug 1, 2009 at 7:01 AM, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>&gt;wrote:
+
+&gt;<i> Send Sourcenav-devel mailing list submissions to
+</I>&gt;<i>        <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i>        <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i>        <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i>        <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of Sourcenav-devel digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>   1. Re: Multiple problems compiling on HP-UX 11i (Mark Thornber)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Fri, 31 Jul 2009 16:30:58 +0100
+</I>&gt;<i> From: Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;
+</I>&gt;<i> Subject: Re: [SN-devel] Multiple problems compiling on HP-UX 11i
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> Message-ID:
+</I>&gt;<i>        &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">5d445ea0907310830o54b349f8r736fa7341ecc6f66 at mail.gmail.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=ISO-8859-1
+</I>&gt;<i>
+</I>&gt;<i> 2009/7/31 Daniel Carmo Olops &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">daniel at olops.eti.br</A>&gt;:
+</I>&gt;<i> &gt; Hello,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; We have an old server running HP-UX 11i, which has Source Navigator 5.x
+</I>&gt;<i> &gt; already installed. Now I was requested to update it to Source Navigator 6
+</I>&gt;<i> &gt; and/or Source Navigator NG4.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; When I try to do a './configure --prefix=/usr/local/snavNG4' with no
+</I>&gt;<i> &gt; compiler-related environment variables set, I got the following error:
+</I>&gt;<i> &gt; _______________________________
+</I>&gt;<i> &gt; configure: error: No unsigned 1-byte integral type
+</I>&gt;<i> &gt; configure: error: ./configure failed for db4/PORT
+</I>&gt;<i> &gt; _______________________________
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; If I set the CC variable to '/usr/local/bin/gcc', which is where it is
+</I>&gt;<i> &gt; installed, I pass through the configure step, but stumbles at 'make' with
+</I>&gt;<i> &gt; lots of errors:
+</I>&gt;<i> have a look at the configure output and check that it is only looking
+</I>&gt;<i> at NG4 source for the Tcl/TK stuff.  I had a problem on Mac OS X where
+</I>&gt;<i> the system Tcl/Tk includes were being used and they didn't match the
+</I>&gt;<i> NG4 sources.
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> End of Sourcenav-devel Digest, Vol 23, Issue 1
+</I>&gt;<i> **********************************************
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090803/09c583e5/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090803/09c583e5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000260.html">[SN-devel] ubuntu 9.04 tk.tcl error
+</A></li>
+	<LI>Next message: <A HREF="000261.html">[SN-devel] Multiple problems compiling on HP-UX 11i
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

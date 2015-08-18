@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] file list for windows binary distribution
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20file%20list%20for%20windows%20binary%20distribution&In-Reply-To=%3CBANLkTimOsi5TBb-kRvYY8-%3DktiTuaPTQeQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000466.html">
+   <LINK REL="Next"  HREF="000470.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] file list for windows binary distribution</H1>
+    <B>rogerz</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20file%20list%20for%20windows%20binary%20distribution&In-Reply-To=%3CBANLkTimOsi5TBb-kRvYY8-%3DktiTuaPTQeQ%40mail.gmail.com%3E"
+       TITLE="[SN-devel] file list for windows binary distribution">rogerz.zhang at gmail.com
+       </A><BR>
+    <I>Fri Jun  3 08:33:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000466.html">[SN-devel] file list for windows binary distribution
+</A></li>
+        <LI>Next message: <A HREF="000470.html">[SN-devel] Source Navigator NG4.4 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#467">[ date ]</a>
+              <a href="thread.html#467">[ thread ]</a>
+              <a href="subject.html#467">[ subject ]</a>
+              <a href="author.html#467">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Freek,
+
+It seems that there's more than the demo and sdk things. With the default
+option, all the object files will contain symbols for debug, which doubles
+their sizes.
+
+However, when I tried to make with CFLAGS=-O2 to get rid of the default -g
+option, some error occurs with the libtools. It is very tricky to make a
+package similar to SN-NG4.2. So I did it manually for now.
+
+I've shared the 32bit windows exe distribution of source navigator NG on
+<A HREF="http://fileape.com/dl/FHjm6guJRx4t6x1F">http://fileape.com/dl/FHjm6guJRx4t6x1F</A> . Maybe you could consider put it on
+the project download section if it is tested OK.
+
+--
+rogerz
+
+On Thu, Jun 2, 2011 at 4:38 PM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hello Rogerz,
+</I>&gt;<i>
+</I>&gt;<i> &gt; I've built SN-NG4.3 for windows using mingw successfully. But after
+</I>&gt;<i> typing
+</I>&gt;<i> &gt; &quot;make install&quot;, I got a much larger installed directory than SN-NG4.2
+</I>&gt;<i> &gt; release. It was about 19MB.
+</I>&gt;<i> &gt; So I did a directory compare and found out that some directories were not
+</I>&gt;<i> &gt; included in SN-NG4.2 package, such as include, share\snavigator\demos,
+</I>&gt;<i> &gt; share\sdk and some exe files (snpdbg.exe, snsdk.exe, tclsh83.exe,
+</I>&gt;<i> &gt; tix4183.exe and wish83.exe).
+</I>&gt;<i> &gt; I wonder if there's a file list for a windows binary distribution? or a
+</I>&gt;<i> &gt; dedicated &quot;make target&quot; to create one?
+</I>&gt;<i>
+</I>&gt;<i> Currently, sadly, no. Contributions (a script or something) are of
+</I>&gt;<i> course most welcome.
+</I>&gt;<i>
+</I>&gt;<i> But you can safely delete all directories (and usually files, because
+</I>&gt;<i> we rarely add anything) that are not present in the distribution.
+</I>&gt;<i> Especially sdk/ and demos/ take up the most part.
+</I>&gt;<i> tclsh, tix and wish come from tcl/tk and tix, but are not needed to
+</I>&gt;<i> run sn (hyper includes those libraries directly).
+</I>&gt;<i>
+</I>&gt;<i> On *nix you could also remove lib/ , but you can't on win32.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110603/87ca85c0/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110603/87ca85c0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000466.html">[SN-devel] file list for windows binary distribution
+</A></li>
+	<LI>Next message: <A HREF="000470.html">[SN-devel] Source Navigator NG4.4 has been released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#467">[ date ]</a>
+              <a href="thread.html#467">[ thread ]</a>
+              <a href="subject.html#467">[ subject ]</a>
+              <a href="author.html#467">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

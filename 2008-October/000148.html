@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] SNavigator process
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SNavigator%20process&In-Reply-To=%3C10747.192.100.116.143.1223966369.squirrel%40tols18.oulu.fi%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000149.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] SNavigator process</H1>
+    <B>Victor Arroyo Valle</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SNavigator%20process&In-Reply-To=%3C10747.192.100.116.143.1223966369.squirrel%40tols18.oulu.fi%3E"
+       TITLE="[SN-devel] SNavigator process">victor.arroyo at oulu.fi
+       </A><BR>
+    <I>Tue Oct 14 08:39:29 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000149.html">[SN-devel] SNavigator process
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+We are trying to use source navigator to analyze our sources and get some
+statistics but we are having trouble syncing the execution of the command
+with the rest of our application.
+
+SNavigator must create the database and once is ready, we should start
+mining the data. Our application is written in Java so we are using
+Runtime.getRuntime().exec(command) to launch SNavigator but we cant find
+out when the database is effectively created. Is there any way to turn a
+&quot;verbose mode&quot; in SNavigator so it notifies (i.e though STDOUT) that the
+database has been written to disk?
+
+When used in command line, windows returns the prompt control immediately
+after the SNavigator has been invoked but the application is running in
+the background analyzing the sources and writing the database. We have
+also studied the task list and there are many processes related with
+SNavigator that apparently call each other. Is there any process we can
+track?
+
+Cheers,
+
+
+-- 
+Victor Manuel Arroyo Valle
++358 (0) 404 162 562
+<A HREF="http://www.victorarroyo.com">http://www.victorarroyo.com</A>
+Research Scientist
+Office IT212 - University of Oulu
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000149.html">[SN-devel] SNavigator process
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] SN NG4 Hang on new projects.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SN%20NG4%20Hang%20on%20new%20projects.&In-Reply-To=%3C8240f6260909191001g196df6e3r9e1d6f91753a39da%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000273.html">
+   <LINK REL="Next"  HREF="000275.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] SN NG4 Hang on new projects.</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SN%20NG4%20Hang%20on%20new%20projects.&In-Reply-To=%3C8240f6260909191001g196df6e3r9e1d6f91753a39da%40mail.gmail.com%3E"
+       TITLE="[SN-devel] SN NG4 Hang on new projects.">freequaos at gmail.com
+       </A><BR>
+    <I>Sat Sep 19 19:01:03 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000273.html">[SN-devel] SN NG4 Hang on new projects.
+</A></li>
+        <LI>Next message: <A HREF="000275.html">[SN-devel] SN NG4 Hang on new projects.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#274">[ date ]</a>
+              <a href="thread.html#274">[ thread ]</a>
+              <a href="subject.html#274">[ subject ]</a>
+              <a href="author.html#274">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Chris,
+
+first - sorry I don't have any Vista to cross-check this.
+Second - yes, SN will scan the source directory and NOT show the gui
+on huge source trees. This has partly to do with the slowness of NTFS
+regarding meta-operations (getdents(), stat() etc) and partly with a
+funny tk bug where the GUI is not shown despite it's commanded to do
+so.
+If you're capable of tcl/tk you might look into the snavigator/gui
+directory, file projmng.tcl.
+You'll see funny sleeps around the place and some references to
+windows and buggy behaviour.
+
+You could work around this by selecting the source tree in the new
+project startup, but instead clicking on &quot;Project editor&quot;.
+It will ask you if it should pre-scan for all the files (say yes) and
+then in the next dialogue (the project editor) check that the source
+tree is imported and click OK to start the indexing and
+cross-referencing.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000273.html">[SN-devel] SN NG4 Hang on new projects.
+</A></li>
+	<LI>Next message: <A HREF="000275.html">[SN-devel] SN NG4 Hang on new projects.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#274">[ date ]</a>
+              <a href="thread.html#274">[ thread ]</a>
+              <a href="subject.html#274">[ subject ]</a>
+              <a href="author.html#274">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

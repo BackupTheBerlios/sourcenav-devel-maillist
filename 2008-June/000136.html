@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] OSX compile fixes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20OSX%20compile%20fixes&In-Reply-To=%3C486346CF.9020501%40cs.purdue.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000137.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] OSX compile fixes</H1>
+    <B>Jacques Thomas</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20OSX%20compile%20fixes&In-Reply-To=%3C486346CF.9020501%40cs.purdue.edu%3E"
+       TITLE="[SN-devel] OSX compile fixes">jthomas at cs.purdue.edu
+       </A><BR>
+    <I>Thu Jun 26 09:35:43 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000137.html">[SN-devel] OSX compile fixes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+So, very sorry for the looong delay in posting my modifications to get 
+sn to build on OSX.
+
+Here they are:
+
+1/ fixing library generation issues
+
+The super-obsolete libtool that is included with libdb should be 
+updated. The version included in db is 1.5.22; it does not know how to 
+compile the library properly. I installed a fresher copy of libtool 
+(2.2) and symlinked  db/PORT/libtool to it. Solved the library 
+compilation issue.
+
+2/ fixing linking issues:
+
+db/Makefile
+(-) dbimp_LDADD = -L. -ldbutils -L$(DB_LIBDIR) -ldb \
+(+) dbimp_LDADD = -L. -ldbutils $(DB_LIBDIR)/libdb.a \
+
+
+hyper/Makefile
+(-) -L$(DBUtilsLibDir) -ldbutils -L$(DB_LIBDIR) -ldb \
+(+) -L$(DBUtilsLibDir) -ldbutils $(DB_LIBDIR)/libdb.a \
+
+I have no experience with autotools and I do not have time to study them 
+at the moment. I hope one of you can transform my Makefile fixes into 
+fixes to the automake configuration files.
+
+Best,
+Jacques
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000137.html">[SN-devel] OSX compile fixes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

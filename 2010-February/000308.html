@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Java parser not Java 5 capable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Java%20parser%20not%20Java%205%20capable&In-Reply-To=%3C4B701807.3080301%40dfki.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000307.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Java parser not Java 5 capable</H1>
+    <B>Bernd Kiefer</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Java%20parser%20not%20Java%205%20capable&In-Reply-To=%3C4B701807.3080301%40dfki.de%3E"
+       TITLE="[SN-devel] Java parser not Java 5 capable">kiefer at dfki.de
+       </A><BR>
+    <I>Mon Feb  8 14:56:23 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000307.html">[SN-devel] Java parser not Java 5 capable
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yes, exactly.
+
+Since Java 5, there is a &quot;similar&quot; concept, called generics, also
+with a similar syntax, and this syntax breaks the current Java
+parser. I would first attempt to fix that, since it completely
+messes up XRef information, which is the thing i need most from
+source navigator, also as former C++ user.
+
+I already fetched the gcj bison and lex files, but they need a
+fair amount of reworking to be usable.
+
+Cheers,
+	Bernd
+
+Mark Thornber wrote:
+&gt;<i> On 8 February 2010 13:31, Bernd Kiefer &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">kiefer at dfki.de</A>&gt; wrote:
+</I>&gt;&gt;<i> Well, there seems to be no way to represent the parameterized
+</I>&gt;&gt;<i> classes, at least i do not see this in the C++ view, either,
+</I>&gt;&gt;<i> but if the parsing would be done correctly, the methods etc.
+</I>&gt;&gt;<i> would show up correctly, which is currently not the case.
+</I>&gt;<i> are we talking about templates (C++ term) here ?
+</I>&gt;<i> 
+</I>
+-- 
+----------------------------------------------------------------------
+Bernd Kiefer       DFKI GmbH, Stuhlsatzenhausweg, D-66123 Saarbruecken
+<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">kiefer at dfki.de</A>     +49-681/302-5301 (phone)     +49-681/3025338  (fax)
+----------------------------------------------------------------------
+Deutsches Forschungszentrum fuer Kuenstliche Intelligenz GmbH
+Trippstadter Strasse 122, D-67663 Kaiserslautern, Germany
+Geschaeftsfuehrung: Prof. Dr. Dr. h.c. mult. Wolfgang Wahlster (Vor-
+                     sitzender), Dr. Walter Olthoff
+Vorsitzender des Aufsichtsrats: Prof. Dr. h.c. Hans A. Aukes
+Amtsgericht Kaiserslautern, HRB 2313
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000307.html">[SN-devel] Java parser not Java 5 capable
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[SN-devel] source editor doesn't recognize file moified status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

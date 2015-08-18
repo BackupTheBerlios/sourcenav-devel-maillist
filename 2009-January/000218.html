@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Relationship between Source Navigator NG and Source	Navigator?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Relationship%20between%20Source%20Navigator%20NG%20and%20Source%0A%09Navigator%3F&In-Reply-To=%3C8240f6260901270141u13a28060r4a964709d530d5ed%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000217.html">
+   <LINK REL="Next"  HREF="000219.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Relationship between Source Navigator NG and Source	Navigator?</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Relationship%20between%20Source%20Navigator%20NG%20and%20Source%0A%09Navigator%3F&In-Reply-To=%3C8240f6260901270141u13a28060r4a964709d530d5ed%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Relationship between Source Navigator NG and Source	Navigator?">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Jan 27 10:41:55 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000217.html">[SN-devel] Relationship between Source Navigator NG and Source Navigator?
+</A></li>
+        <LI>Next message: <A HREF="000219.html">[SN-devel] Relationship between Source Navigator NG and Source	Navigator?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#218">[ date ]</a>
+              <a href="thread.html#218">[ thread ]</a>
+              <a href="subject.html#218">[ subject ]</a>
+              <a href="author.html#218">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ryan,
+
+Daniel explained it correctly already. The reason for the real fork
+and that we are on Berlios is that the &quot;old&quot; SN guys were a bit
+hesisant to hand over the project page so I could start the SVN tree
+and get things started.
+The reason behind SN 6.0 (which is EXACTLY SN NG3, only with a changed
+version string) is that we finally got  the SN SourceForge project
+from the original SN guys.
+We felt that still a lot of people were looking at and using the
+original SN and not using the enhanced NG version, so we made the 6.0
+to spread the word that we are still alive and all further development
+is done by the NG project.
+
+The original reason for restarting the development was that I go
+frustrated with SN's flakyness and non-friendly look (the pixmaps they
+used just carry that ancient Unix look that hurts your eyes).
+It also used the old db-1.85 which had memory corruption issues for
+really big projects. And the only reason why you'd use SN ARE big
+projects you have to explore quickly (I cannot consider cscope or
+similar stuff to be a solution to that particular problem - Source
+Insight is rather nice, though).
+So we took off to fix some long-standing bugs, rework the look, and
+eventually change over to a recent db4 database library (where we
+luckily had big contributions).
+Mark quickly joined in the very beginning (at first contributing
+enhanced ClearCase support) and after NG3 Maurice joined, too.
+
+Our focus remains to improve usability and performance. We are also
+trying to stay as cross-platform as we can, although we fail from time
+to time ;-) SN NG should run on major Unixes (w/ gcc at least), win32
+(Msys/minGW) and OS X (Mark is doing the tweaking there). Our primary
+platform stays Linux, though.
+
+Hope this helps, cheers and happy hacking,
+~F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000217.html">[SN-devel] Relationship between Source Navigator NG and Source Navigator?
+</A></li>
+	<LI>Next message: <A HREF="000219.html">[SN-devel] Relationship between Source Navigator NG and Source	Navigator?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#218">[ date ]</a>
+              <a href="thread.html#218">[ thread ]</a>
+              <a href="subject.html#218">[ subject ]</a>
+              <a href="author.html#218">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

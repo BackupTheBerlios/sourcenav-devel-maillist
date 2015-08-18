@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Feature request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C1179519377.16601.9.camel%40jhereg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000032.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Feature request</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Feature%20request&In-Reply-To=%3C1179519377.16601.9.camel%40jhereg%3E"
+       TITLE="[SN-devel] Feature request">Reid.Thompson at ateb.com
+       </A><BR>
+    <I>Fri May 18 22:16:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[SN-devel] Feature request
+</A></li>
+        <LI>Next message: <A HREF="000032.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2007-05-18 at 09:30 -0400, Reid Thompson wrote:
+&gt;<i> Guys,
+</I>&gt;<i> Before I get to the request - thanks for the updates to SN.  It's a
+</I>&gt;<i> great tool and deserves a bright future.  It has proven to be for me,
+</I>&gt;<i> the best/quickest way to understand application code flow.
+</I>&gt;<i> 
+</I>&gt;<i> This is a quietly voiced request... If anyone has the time and
+</I>&gt;<i> inclination to followup on it, great.  If not, that's fine too.  I'll
+</I>&gt;<i> probably continue to hack around with it on occasion and if I ever get
+</I>&gt;<i> it 'right', will offer it up for inclusion if others deem it worthwhile.
+</I>&gt;<i> 
+</I>&gt;<i> The request:
+</I>&gt;<i>   Per the application's name, I use SN extensively to navigate through
+</I>&gt;<i> code.  However, I perform all of my editing in [g]vim.  I would like to
+</I>&gt;<i> request that someone who has a good understanding of the SN code
+</I>&gt;<i> implement a right click menu option for editorpane.tcl that would open
+</I>&gt;<i> the current file in 'an editor of choice' and that would recognize when
+</I>&gt;<i> the file has been changed and update it in editorpane.tcl.
+</I>&gt;<i> 
+</I>&gt;<i> I note above 'someone who has a good understanding of the SN code'
+</I>&gt;<i> because I've managed to hack ( and it is a hack ) a right click menu
+</I>&gt;<i> addition that is hard coded to open the current file in gvim, but I'm
+</I>&gt;<i> unable to figure out yet how to get the refinements that would be nice
+</I>&gt;<i>    open in gvim to the current editorpane.tcl selected line
+</I>&gt;<i>      (once I find the right call to get the currently selected line I
+</I>&gt;<i>       know that I can pass it to gvim as '+${line_number}')\
+</I>Ok - figured this one out...
+implemented the call to gvim to have parameter +call cursor($line,$col)
+which instructs gvim to open the file at the same position that the
+cursor is at in editorpane.tcl
+....
+    set w $itk_component(editor)
+    set line [${w} index insert]
+....
+        lappend external_editor &quot;+call cursor($line,$col)&quot;
+....
+
+&gt;<i>    recognize and update editorpane.tcl when gvim closes
+</I>&gt;<i>      ( I'm pretty sure that SN has the capability of recognizing when a
+</I>&gt;<i>        file has been externally modified -- I've just not found it yet )
+</I>&gt;<i>    have a 'preferences' pane input box for 'right click external editor'
+</I>&gt;<i>    etc
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> reid
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[SN-devel] Feature request
+</A></li>
+	<LI>Next message: <A HREF="000032.html">[SN-devel] Feature request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

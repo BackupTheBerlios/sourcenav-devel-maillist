@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] [PATCH] new patch for xref in batch mode
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20new%20patch%20for%20xref%20in%20batch%20mode&In-Reply-To=%3C8240f6260704240236i67a6c1b1i1676b8a5712bf4ab%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000010.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] [PATCH] new patch for xref in batch mode</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20%5BPATCH%5D%20new%20patch%20for%20xref%20in%20batch%20mode&In-Reply-To=%3C8240f6260704240236i67a6c1b1i1676b8a5712bf4ab%40mail.gmail.com%3E"
+       TITLE="[SN-devel] [PATCH] new patch for xref in batch mode">freequaos at gmail.com
+       </A><BR>
+    <I>Tue Apr 24 11:36:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000010.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+        <LI>Next message: <A HREF="000012.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  I also noticed that batch mode would not create the tables correctly when
+</I>&gt;<i> the
+</I>&gt;<i>  time delay is applied at line 1931. As far as I can derive from the
+</I>&gt;<i> comments,
+</I>&gt;<i>  this would fix a long pause on Win95/98 systems. I can't confirm this, but
+</I>&gt;<i> I
+</I>&gt;<i>  argue that the benefit of fixing the batch mode is higher than the drawback
+</I>&gt;<i> of
+</I>&gt;<i>  a possible pause.
+</I>
+First, thanks for the patch. Contributions are very welcome!
+I have adjusted the comments a bit (I prefer bigger comments before a
+code block that describe what and why is going on next, instead of
+small inline comments) and tried the patch.
+
+I did find a strange behaviour (interactive mode) where the indexing
+of a completely NEW project (in the symbol browser) is labeled
+&quot;Deleting&quot; instead of &quot;Xref&quot;.
+
+Reverting your patch restored the old and correct behaviour. I will
+try to look into the problem.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000010.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+	<LI>Next message: <A HREF="000012.html">[SN-devel] [PATCH] new patch for xref in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

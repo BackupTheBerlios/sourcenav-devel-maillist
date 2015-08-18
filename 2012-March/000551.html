@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] use of the command line options in win32
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCA%2Bsc5mnteZMe2_Zenr3QFY1Egtue0OnZ%2BcCnJb0CqW30AvpTMg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000550.html">
+   <LINK REL="Next"  HREF="000549.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] use of the command line options in win32</H1>
+    <B>Earnie Boyd</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20use%20of%20the%20command%20line%20options%20in%20win32&In-Reply-To=%3CCA%2Bsc5mnteZMe2_Zenr3QFY1Egtue0OnZ%2BcCnJb0CqW30AvpTMg%40mail.gmail.com%3E"
+       TITLE="[SN-devel] use of the command line options in win32">earnie at users.sourceforge.net
+       </A><BR>
+    <I>Wed Mar 14 16:28:57 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000550.html">[SN-devel] use of the command line options in win32
+</A></li>
+        <LI>Next message: <A HREF="000549.html">[SN-devel] use of the command line options in win32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Mar 14, 2012 at 11:05 AM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+&gt;<i> Ah, yes. This doesn't work as the setting up of the dll search path
+</I>&gt;<i> and general SN environment (equivalent of $LD_LIBRARY_PATH and
+</I>&gt;<i> $snbasedir under *nix) does not work if snavigator.exe is invoked via
+</I>&gt;<i> %PATH% under windows. While in theory, DLLs should be searched also in
+</I>&gt;<i> %PATH% -- in SN's practice this does not really work.
+</I>&gt;<i> You can have a look into SRC/snavigator/snavigator/win/snavigator.c
+</I>&gt;<i> (IIRC), and also into the tcl startup files (name currently escapes
+</I>&gt;<i> me), if you're interested.
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://svn.berlios.de/viewvc/sourcenav/trunk/snavigator/snavigator/win/snavigator.c?annotate=725">http://svn.berlios.de/viewvc/sourcenav/trunk/snavigator/snavigator/win/snavigator.c?annotate=725</A>
+</I>&gt;<i>
+</I>&gt;<i> As for your endeavours: you could also directly invoke a parser
+</I>&gt;<i> (.../libexec/snavigator/cbrowser for example) , if you'd like to.
+</I>&gt;<i> You'd get funny output on stdout, detailed in SN's progref manual --
+</I>&gt;<i> global variables should be denoted by &quot;gv&quot; IIRC.
+</I>&gt;<i> But again, on win32, you will get startup problems due to missing
+</I>&gt;<i> environment to find according DLLs.
+</I>&gt;<i>
+</I>
+Dang DLL Hell.
+
+<A HREF="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682586(v=vs.85">http://msdn.microsoft.com/en-us/library/windows/desktop/ms682586(v=vs.85</A>).aspx
+<A HREF="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682600(v=vs.85">http://msdn.microsoft.com/en-us/library/windows/desktop/ms682600(v=vs.85</A>).aspx
+<A HREF="http://msdn.microsoft.com/en-us/library/windows/desktop/aa375365(v=vs.85">http://msdn.microsoft.com/en-us/library/windows/desktop/aa375365(v=vs.85</A>).aspx
+
+&gt;<i> How am I doing as a non-Windows-person? ;-)
+</I>
+Pretty good. ;p
+
+-- 
+Earnie
+-- <A HREF="https://sites.google.com/site/earnieboyd">https://sites.google.com/site/earnieboyd</A>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000550.html">[SN-devel] use of the command line options in win32
+</A></li>
+	<LI>Next message: <A HREF="000549.html">[SN-devel] use of the command line options in win32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

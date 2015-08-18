@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Build problems on fedora core 6.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C464A7803.7010501%40ateb.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Build problems on fedora core 6.</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Build%20problems%20on%20fedora%20core%206.&In-Reply-To=%3C464A7803.7010501%40ateb.com%3E"
+       TITLE="[SN-devel] Build problems on fedora core 6.">Reid.Thompson at ateb.com
+       </A><BR>
+    <I>Wed May 16 05:18:27 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+        <LI>Next message: <A HREF="000028.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Freek wrote:
+&gt;&gt;<i> Hello SN-NG!
+</I>&gt;&gt;<i> Great project!
+</I>&gt;<i> 
+</I>&gt;<i> Thanks! We try our best :)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I would like to use your new navigator, but i cannot build it on Fedora
+</I>&gt;&gt;<i> Core 6.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> checking if 64bit support is requested... no
+</I>&gt;&gt;<i> checking if 64bit Sparc VIS support is requested... no
+</I>&gt;&gt;<i> checking system version (for dynamic loading)... ./configure: line 6046:
+</I>&gt;&gt;<i> syntax error near unexpected token `)'
+</I>&gt;&gt;<i> ./configure: line 6046: `       OSF*)'
+</I>&gt;&gt;<i> configure: error: ./configure failed for unix
+</I>&gt;&gt;<i> configure: error: ./configure failed for tcl
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Is there anyway i can fix this ?
+</I>&gt;<i> 
+</I>&gt;<i> I think I have the according patches at hand, but I didn't apply them
+</I>&gt;<i> to the tree yet. Will take a couple of days until I get back to my
+</I>&gt;<i> devel env.
+</I>&gt;<i> 
+</I>&gt;<i> For now you can try to patch the failing configure script manually.
+</I>&gt;<i> 1) find the configure-script that fails (eg in db/, snavigator/, tcl/
+</I>&gt;<i> ... there is one each)
+</I>&gt;<i> 2) go to line 6046 and figure out what's wrong. most like some runaway
+</I>&gt;<i> apostrophes or somesuch (in your case I suspect a broken switch-case
+</I>&gt;<i> statement).
+</I>&gt;<i> 3) report back what's wrong.
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> 
+</I>&gt;<i> PS: Please subscribe to the list so you can freely post to this list -
+</I>&gt;<i> I've authorized your post once so it shows up.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+see if the extra tick marks noted in these diffs are the culprits...
+
+<A HREF="http://openfacts.berlios.de/index-en.phtml?title=Source+Navigator+NG">http://openfacts.berlios.de/index-en.phtml?title=Source+Navigator+NG</A>
+
+only two configure scripts have 6K+ lines
+
+for file in `find . -name configure`; do wc -l $file; done
+find . -name configure
+7076 ./tcl/unix/configure
+813 ./tcl/unix/dltest/configure
+3350 ./tcl/win/configure
+989 ./tcl/configure
+749 ./tcl/tools/configure
+1666 ./tcl/cygwin/configure
+2886 ./libgui/configure
+5143 ./tk/unix/configure
+2791 ./tk/win/configure
+994 ./tk/configure
+3595 ./db/configure
+2190 ./tix/unix/tk4.2/configure
+2525 ./tix/unix/tk8.3/configure
+2163 ./tix/unix/tk8.0/configure
+2499 ./tix/unix/tk8.1/configure
+1539 ./tix/unix/configure
+2164 ./tix/win/configure
+961 ./tix/configure
+9361 ./snavigator/configure
+1784 ./snavigator/demo/c++_demo/configure
+2082 ./snavigator/parsers/assembly/ppc601-eabi/configure
+1013 ./configure
+1129 ./itcl/iwidgets3.0.0/unix/configure
+1270 ./itcl/iwidgets3.0.0/configure
+1034 ./itcl/configure
+3018 ./itcl/itk/configure
+2720 ./itcl/itcl/configure
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+	<LI>Next message: <A HREF="000028.html">[SN-devel] Build problems on fedora core 6.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

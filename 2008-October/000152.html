@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] SNavigator process
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SNavigator%20process&In-Reply-To=%3C8F53F6FC-CAEE-42BB-8A97-CA0A0C0BCEEB%40ua.ac.be%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000155.html">
+   <LINK REL="Next"  HREF="000156.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] SNavigator process</H1>
+    <B>Bart Van Rompaey</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20SNavigator%20process&In-Reply-To=%3C8F53F6FC-CAEE-42BB-8A97-CA0A0C0BCEEB%40ua.ac.be%3E"
+       TITLE="[SN-devel] SNavigator process">bart.vanrompaey2 at ua.ac.be
+       </A><BR>
+    <I>Tue Oct 14 10:18:43 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000155.html">[SN-devel] SNavigator process
+</A></li>
+        <LI>Next message: <A HREF="000156.html">[SN-devel] how to uninstall source navigator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On 14 Oct 2008, at 09:54, Freek wrote:
+
+&gt;<i> Hi Victor,
+</I>&gt;<i>
+</I>&gt;&gt;<i> SNavigator must create the database and once is ready, we should  
+</I>&gt;&gt;<i> start
+</I>&gt;&gt;<i> mining the data. Our application is written in Java so we are using
+</I>&gt;&gt;<i> Runtime.getRuntime().exec(command) to launch SNavigator but we cant  
+</I>&gt;&gt;<i> find
+</I>&gt;&gt;<i> out when the database is effectively created. Is there any way to  
+</I>&gt;&gt;<i> turn a
+</I>&gt;&gt;<i> &quot;verbose mode&quot; in SNavigator so it notifies (i.e though STDOUT)  
+</I>&gt;&gt;<i> that the
+</I>&gt;&gt;<i> database has been written to disk?
+</I>&gt;<i>
+</I>&gt;<i> I can vaguely remember a patch in this matter ... anyhow, you should
+</I>&gt;<i> call SN in batch mode (-b) where it should wait until the xref has
+</I>&gt;<i> been finished and exit afterwards.
+</I>
+Hi,
+
+I created a patch to fix the batch mode some time ago. This has been  
+adopted in source navigator NG. As Freek indicates, SN should wait  
+until xref has finished. In practice however, it doesn't always. On  
+unix, it helped when we added a second of sleep. On windows it seems  
+to behave differently  however. There, we check whether hyper.exe has  
+finished running.
+
+cheers,
+Bart
+
+
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Report back if that helps!
+</I>&gt;<i>
+</I>&gt;&gt;<i> When used in command line, windows returns the prompt control  
+</I>&gt;&gt;<i> immediately
+</I>&gt;&gt;<i> after the SNavigator has been invoked but the application is  
+</I>&gt;&gt;<i> running in
+</I>&gt;&gt;<i> the background analyzing the sources and writing the database. We  
+</I>&gt;&gt;<i> have
+</I>&gt;&gt;<i> also studied the task list and there are many processes related with
+</I>&gt;&gt;<i> SNavigator that apparently call each other. Is there any process we  
+</I>&gt;&gt;<i> can
+</I>&gt;&gt;<i> track?
+</I>&gt;<i>
+</I>&gt;<i> Yes, there are the different parsers (abrowser, cbrowser, cbrowser2,
+</I>&gt;<i> ...) and dbimp.
+</I>&gt;<i> If you're talking about xref you should be safe when cbrowser2 and
+</I>&gt;<i> dbimp both have finished.
+</I>&gt;<i> But then again, this is the workaround version to your problem :-)  
+</I>&gt;<i> Try #1 first!
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Freek
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+-- 
+Bart Van Rompaey
+Lab On REengineering
+Dept. of Mathematics and Computer Science
+University of Antwerp
+URL: <A HREF="http://www.win.ua.ac.be/~bvromp">http://www.win.ua.ac.be/~bvromp</A>
+
+
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000155.html">[SN-devel] SNavigator process
+</A></li>
+	<LI>Next message: <A HREF="000156.html">[SN-devel] how to uninstall source navigator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

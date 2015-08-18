@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] How to set size of new windows
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTimXP%2BXEpXDdn1kTWm3QcMr-%3DZo9Cg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000474.html">
+   <LINK REL="Next"  HREF="000476.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] How to set size of new windows</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20How%20to%20set%20size%20of%20new%20windows&In-Reply-To=%3CBANLkTimXP%2BXEpXDdn1kTWm3QcMr-%3DZo9Cg%40mail.gmail.com%3E"
+       TITLE="[SN-devel] How to set size of new windows">montaseri at gmail.com
+       </A><BR>
+    <I>Mon Jun 20 20:25:33 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000474.html">[SN-devel] How to set size of new windows
+</A></li>
+        <LI>Next message: <A HREF="000476.html">[SN-devel] Source Navigator NG4.4 has been released - win32	problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#475">[ date ]</a>
+              <a href="thread.html#475">[ thread ]</a>
+              <a href="subject.html#475">[ subject ]</a>
+              <a href="author.html#475">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Mark,
+
+It worked like a charm.......I used the 16x9 ratio...but your long term
+solution would be nice
+
+set width [expr {(${height} * 16) / 9}]
+
+Cheers
+Medi
+
+On Sat, Jun 18, 2011 at 5:10 AM, Mark Thornber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">mark.thornber at gmail.com</A>&gt;wrote:
+
+&gt;<i> Medi,
+</I>&gt;<i>
+</I>&gt;<i> On 16 June 2011 20:57, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I was wondering if there is any front door or back door way of setting
+</I>&gt;<i> new
+</I>&gt;<i> &gt; window size?
+</I>&gt;<i> [snip]
+</I>&gt;<i> &gt;         set width 780
+</I>&gt;<i> &gt;         set height 580
+</I>&gt;<i> Those define the size of the Preferences window.
+</I>&gt;<i>
+</I>&gt;<i> In .../snagivator/gui/multiview.tcl at lines 63 and 66 the initial
+</I>&gt;<i> size of a new window is calculated.
+</I>&gt;<i>
+</I>&gt;<i> try
+</I>&gt;<i>
+</I>&gt;<i> set width [ expr { ( height * 5 ) / 4 } ]
+</I>&gt;<i>
+</I>&gt;<i> at line 66 (E&amp;OE)
+</I>&gt;<i>
+</I>&gt;<i> I'm minded to add another preference to define the initial aspect
+</I>&gt;<i> ratio of a new window (5x4, 16x9, ...)
+</I>&gt;<i>
+</I>&gt;<i> HTH
+</I>&gt;<i> --
+</I>&gt;<i> Mark Thornber
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110620/5225f8ee/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110620/5225f8ee/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000474.html">[SN-devel] How to set size of new windows
+</A></li>
+	<LI>Next message: <A HREF="000476.html">[SN-devel] Source Navigator NG4.4 has been released - win32	problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#475">[ date ]</a>
+              <a href="thread.html#475">[ thread ]</a>
+              <a href="subject.html#475">[ subject ]</a>
+              <a href="author.html#475">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

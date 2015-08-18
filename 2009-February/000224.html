@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Link errors SourceNavigator 6.0 on Unix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Link%20errors%20SourceNavigator%206.0%20on%20Unix&In-Reply-To=%3C3CAC7D20DCEB7540A617EDFEF15745E80446056F%40corvette.eu.tieto.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000225.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Link errors SourceNavigator 6.0 on Unix</H1>
+    <B>Sten-Rune.Olsson at tieto.com</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Link%20errors%20SourceNavigator%206.0%20on%20Unix&In-Reply-To=%3C3CAC7D20DCEB7540A617EDFEF15745E80446056F%40corvette.eu.tieto.com%3E"
+       TITLE="[SN-devel] Link errors SourceNavigator 6.0 on Unix">Sten-Rune.Olsson at tieto.com
+       </A><BR>
+    <I>Tue Feb  3 09:59:49 CET 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000225.html">[SN-devel] Link errors SourceNavigator 6.0 on Unix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#224">[ date ]</a>
+              <a href="thread.html#224">[ thread ]</a>
+              <a href="subject.html#224">[ subject ]</a>
+              <a href="author.html#224">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+have tried to build SN 6.0 on my server (SunOS 5.9 Generic_122300-03
+sun4u sparc SUNW,Sun-Fire-V240)
+but failes with 'make db4/PORT' a library is missing. 
+Tried with gmake and make and to set different env variables but can't
+solve this problem. 
+Can't find this lib in my environment.
+Has someone a clou?
+BR
+/Sten-Rune Olsson
+ 
+---------------------
+/bin/sh ./libtool --mode=link gcc -avoid-version -rpath
+/tmp/olssoste/snavigator/6.0/lib  -o libdb-4.6.la db185.lo mut_tas.lo
+mut_pthread.lo  bt_compare.lo bt_conv.lo bt_curadj.lo bt_cursor.lo
+bt_delete.lo  bt_method.lo bt_open.lo bt_put.lo bt_rec.lo bt_reclaim.lo
+bt_recno.lo bt_rsearch.lo bt_search.lo bt_split.lo bt_stat.lo
+bt_compact.lo bt_upgrade.lo btree_auto.lo hash.lo hash_auto.lo
+hash_conv.lo hash_dup.lo hash_meta.lo  hash_method.lo hash_open.lo
+hash_page.lo hash_rec.lo  hash_reclaim.lo hash_stat.lo hash_upgrade.lo
+hash_verify.lo qam.lo qam_auto.lo qam_conv.lo qam_files.lo qam_method.lo
+qam_open.lo qam_rec.lo qam_stat.lo qam_upgrade.lo qam_verify.lo
+rep_stub.lo repmgr_stub.lo db_ovfl_vrfy.lo db_vrfy.lo db_vrfyutil.lo
+bt_verify.lo lock.lo lock_deadlock.lo lock_failchk.lo lock_id.lo
+lock_list.lo  lock_method.lo lock_region.lo lock_stat.lo lock_timer.lo
+lock_util.lo mut_alloc.lo mut_failchk.lo mut_method.lo mut_region.lo
+mut_stat.lo  strsep.lo crypto_stub.lo   crdel_auto.lo crdel_rec.lo
+ctime.lo db.lo db_am.lo db_auto.lo  db_byteorder.lo db_cam.lo db_cds.lo
+db_conv.lo db_dispatch.lo  db_dup.lo db_err.lo db_getlong.lo
+db_idspace.lo db_iface.lo  db_join.lo db_log2.lo db_meta.lo db_method.lo
+db_open.lo  db_overflow.lo db_pr.lo db_rec.lo db_reclaim.lo db_remove.lo
+db_rename.lo db_ret.lo db_setid.lo db_setlsn.lo db_shash.lo  db_stati.lo
+db_truncate.lo db_upg.lo db_upg_opd.lo dbm.lo  dbreg.lo dbreg_auto.lo
+dbreg_rec.lo dbreg_stat.lo dbreg_util.lo  env_alloc.lo env_config.lo
+env_failchk.lo env_file.lo  env_globals.lo env_method.lo env_name.lo
+env_open.lo  env_recover.lo env_region.lo env_register.lo env_stat.lo
+fileops_auto.lo fop_basic.lo fop_rec.lo fop_util.lo hash_func.lo
+hmac.lo hsearch.lo log.lo log_archive.lo log_compare.lo  log_debug.lo
+log_get.lo log_method.lo log_put.lo log_stat.lo  mkpath.lo mp_alloc.lo
+mp_bh.lo mp_fget.lo mp_fmethod.lo  mp_fopen.lo mp_fput.lo mp_fset.lo
+mp_method.lo mp_mvcc.lo  mp_region.lo mp_register.lo mp_resize.lo
+mp_stat.lo mp_sync.lo  mp_trickle.lo os_abort.lo os_abs.lo os_alloc.lo
+os_clock.lo  os_config.lo os_dir.lo os_errno.lo os_fid.lo os_flock.lo
+os_fsync.lo os_fzero.lo os_getenv.lo os_handle.lo os_map.lo
+os_method.lo os_mkdir.lo os_oflags.lo os_open.lo os_pid.lo  os_region.lo
+os_rename.lo os_root.lo os_rpath.lo os_rw.lo  os_seek.lo os_sleep.lo
+os_spin.lo os_stat.lo os_tmpdir.lo  os_truncate.lo os_uid.lo
+os_unlink.lo os_yield.lo seq_stat.lo  sequence.lo sha1.lo snprintf.lo
+txn.lo txn_auto.lo txn_chkpt.lo  txn_failchk.lo txn_method.lo txn_rec.lo
+txn_recover.lo  txn_region.lo txn_stat.lo txn_util.lo xa.lo xa_db.lo
+xa_map.lo -lresolv -lsocket -lrt  -lpthread
+cc -shared  .libs/db185.o .libs/mut_tas.o .libs/mut_pthread.o
+.libs/bt_compare.o .libs/bt_conv.o .libs/bt_curadj.o .libs/bt_cursor.o
+.libs/bt_delete.o .libs/bt_method.o .libs/bt_open.o .libs/bt_put.o
+.libs/bt_rec.o .libs/bt_reclaim.o .libs/bt_recno.o .libs/bt_rsearch.o
+.libs/bt_search.o .libs/bt_split.o .libs/bt_stat.o .libs/bt_compact.o
+.libs/bt_upgrade.o .libs/btree_auto.o .libs/hash.o .libs/hash_auto.o
+.libs/hash_conv.o .libs/hash_dup.o .libs/hash_meta.o .libs/hash_method.o
+.libs/hash_open.o .libs/hash_page.o .libs/hash_rec.o
+.libs/hash_reclaim.o .libs/hash_stat.o .libs/hash_upgrade.o
+.libs/hash_verify.o .libs/qam.o .libs/qam_auto.o .libs/qam_conv.o
+.libs/qam_files.o .libs/qam_method.o .libs/qam_open.o .libs/qam_rec.o
+.libs/qam_stat.o .libs/qam_upgrade.o .libs/qam_verify.o .libs/rep_stub.o
+.libs/repmgr_stub.o .libs/db_ovfl_vrfy.o .libs/db_vrfy.o
+.libs/db_vrfyutil.o .libs/bt_verify.o .libs/lock.o .libs/lock_deadlock.o
+.libs/lock_failchk.o .libs/lock_id.o .libs/lock_list.o
+.libs/lock_method.o .libs/lock_region.o .libs/lock_stat.o
+.libs/lock_timer.o .libs/lock_util.o .libs/mut_alloc.o
+.libs/mut_failchk.o .libs/mut_method.o .libs/mut_region.o
+.libs/mut_stat.o .libs/strsep.o .libs/crypto_stub.o .libs/crdel_auto.o
+.libs/crdel_rec.o .libs/ctime.o .libs/db.o .libs/db_am.o .libs/db_auto.o
+.libs/db_byteorder.o .libs/db_cam.o .libs/db_cds.o .libs/db_conv.o
+.libs/db_dispatch.o .libs/db_dup.o .libs/db_err.o .libs/db_getlong.o
+.libs/db_idspace.o .libs/db_iface.o .libs/db_join.o .libs/db_log2.o
+.libs/db_meta.o .libs/db_method.o .libs/db_open.o .libs/db_overflow.o
+.libs/db_pr.o .libs/db_rec.o .libs/db_reclaim.o .libs/db_remove.o
+.libs/db_rename.o .libs/db_ret.o .libs/db_setid.o .libs/db_setlsn.o
+.libs/db_shash.o .libs/db_stati.o .libs/db_truncate.o .libs/db_upg.o
+.libs/db_upg_opd.o .libs/dbm.o .libs/dbreg.o .libs/dbreg_auto.o
+.libs/dbreg_rec.o .libs/dbreg_stat.o .libs/dbreg_util.o
+.libs/env_alloc.o .libs/env_config.o .libs/env_failchk.o
+.libs/env_file.o .libs/env_globals.o .libs/env_method.o .libs/env_name.o
+.libs/env_open.o .libs/env_recover.o .libs/env_region.o
+.libs/env_register.o .libs/env_stat.o .libs/fileops_auto.o
+.libs/fop_basic.o .libs/fop_rec.o .libs/fop_util.o .libs/hash_func.o
+.libs/hmac.o .libs/hsearch.o .libs/log.o .libs/log_archive.o
+.libs/log_compare.o .libs/log_debug.o .libs/log_get.o .libs/log_method.o
+.libs/log_put.o .libs/log_stat.o .libs/mkpath.o .libs/mp_alloc.o
+.libs/mp_bh.o .libs/mp_fget.o .libs/mp_fmethod.o .libs/mp_fopen.o
+.libs/mp_fput.o .libs/mp_fset.o .libs/mp_method.o .libs/mp_mvcc.o
+.libs/mp_region.o .libs/mp_register.o .libs/mp_resize.o .libs/mp_stat.o
+.libs/mp_sync.o .libs/mp_trickle.o .libs/os_abort.o .libs/os_abs.o
+.libs/os_alloc.o .libs/os_clock.o .libs/os_config.o .libs/os_dir.o
+.libs/os_errno.o .libs/os_fid.o .libs/os_flock.o .libs/os_fsync.o
+.libs/os_fzero.o .libs/os_getenv.o .libs/os_handle.o .libs/os_map.o
+.libs/os_method.o .libs/os_mkdir.o .libs/os_oflags.o .libs/os_open.o
+.libs/os_pid.o .libs/os_region.o .libs/os_rename.o .libs/os_root.o
+.libs/os_rpath.o .libs/os_rw.o .libs/os_seek.o .libs/os_sleep.o
+.libs/os_spin.o .libs/os_stat.o .libs/os_tmpdir.o .libs/os_truncate.o
+.libs/os_uid.o .libs/os_unlink.o .libs/os_yield.o .libs/seq_stat.o
+.libs/sequence.o .libs/sha1.o .libs/snprintf.o .libs/txn.o
+.libs/txn_auto.o .libs/txn_chkpt.o .libs/txn_failchk.o
+.libs/txn_method.o .libs/txn_rec.o .libs/txn_recover.o
+.libs/txn_region.o .libs/txn_stat.o .libs/txn_util.o .libs/xa.o
+.libs/xa_db.o .libs/xa_map.o  -lresolv -lsocket -lrt -lpthread
+-Wl,-soname -Wl,libdb-4.6.so -o .libs/libdb-4.6.so
+ld: fatal: file libdb-4.6.so: open failed: No such file or directory
+*** Error code 1
+make: Fatal error: Command failed for target `libdb-4.6.la'
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090203/8d68cff4/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20090203/8d68cff4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000225.html">[SN-devel] Link errors SourceNavigator 6.0 on Unix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#224">[ date ]</a>
+              <a href="thread.html#224">[ thread ]</a>
+              <a href="subject.html#224">[ subject ]</a>
+              <a href="author.html#224">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

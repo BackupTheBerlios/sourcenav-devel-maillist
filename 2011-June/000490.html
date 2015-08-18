@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] NG4.4 MinGW users mailing list
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTikNpNSDddk6WhQZBh72dafqGMzG3w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000489.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] NG4.4 MinGW users mailing list</H1>
+    <B>rogerz</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20NG4.4%20MinGW%20users%20mailing%20list&In-Reply-To=%3CBANLkTikNpNSDddk6WhQZBh72dafqGMzG3w%40mail.gmail.com%3E"
+       TITLE="[SN-devel] NG4.4 MinGW users mailing list">rogerz.zhang at gmail.com
+       </A><BR>
+    <I>Fri Jun 24 05:51:08 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000489.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#490">[ date ]</a>
+              <a href="thread.html#490">[ thread ]</a>
+              <a href="subject.html#490">[ subject ]</a>
+              <a href="author.html#490">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Below is my workaround for the building issue with gcc 4.5.2
+
+On Thu, Jun 23, 2011 at 10:31 PM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> Now I finallyfound the errors I've put in some text file:
+</I>&gt;<i>
+</I>&gt;<i> tclWinDde.c:1146:4: warning: conversion to 'DWORD' from 'int' may change
+</I>&gt;<i> the sig
+</I>&gt;<i> n of the result
+</I>&gt;<i> tclWinDde.c:1158:6: error: lvalue required as left operand of assignment
+</I>&gt;<i> tclWinDde.c:1237:4: warning: pointer targets in passing argument 2 of
+</I>&gt;<i> 'DdeCreate
+</I>&gt;<i> DataHandle' differ in signedness
+</I>&gt;<i> c:\mingw\bin\../lib/gcc/mingw32/4.5.2/../../../../include/ddeml.h:261:17:
+</I>&gt;<i> note:
+</I>&gt;<i> expected 'PBYTE' but argument is of type 'char *'
+</I>&gt;<i>
+</I>&gt;<i> Then something similar for tclWinReg.c and finally:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>Try this patch:
+
+Index: tclWinDde.c
+===================================================================
+--- tclWinDde.c (revision 835)
++++ tclWinDde.c (working copy)
+@@ -1155,7 +1155,7 @@
+  }
+  case DDE_EVAL: {
+     objc -= (async + 3);
+-    ((Tcl_Obj **) objv) += (async + 3);
++    objv = ((Tcl_Obj **) objv) + (async + 3);
+
+             /*
+      * See if the target interpreter is local.  If so, execute
+Index: tclWinReg.c
+===================================================================
+--- tclWinReg.c (revision 835)
++++ tclWinReg.c (working copy)
+@@ -738,7 +738,7 @@
+     Tcl_NewStringObj(Tcl_DStringValue(&amp;buf),
+     Tcl_DStringLength(&amp;buf)));
+     if (regWinProcs-&gt;useWide) {
+- while (*((Tcl_UniChar *)p)++ != 0) {}
++ while (*p != 0) { p = ((Tcl_UniChar *)p) + 1;}
+     } else {
+  while (*p++ != '\0') {}
+     }
+
+
+
+&gt;<i> libtool: compile:  gcc -c -I. -I./.. -O2 -ffast-math -fomit-frame-pointer
+</I>&gt;<i> -march
+</I>&gt;<i> =i686 -std=gnu89 ../mutex/mut_failchk.c  -DDLL_EXPORT -DPIC -o
+</I>&gt;<i> .libs/mut_failchk
+</I>&gt;<i> .o
+</I>&gt;<i> ../mutex/mut_failchk.c: In function '__mut_failchk':
+</I>&gt;<i> ../mutex/mut_failchk.c:53:7: error: incompatible type for argument 3 of
+</I>&gt;<i> 'dbenv-&gt;
+</I>&gt;<i> is_alive'
+</I>&gt;<i> ../mutex/mut_failchk.c:53:7: note: expected 'db_threadid_t' but argument is
+</I>&gt;<i> of t
+</I>&gt;<i> ype 'int'
+</I>&gt;<i> ../mutex/mut_failchk.c:57:7: error: incompatible type for argument 3 of
+</I>&gt;<i> 'dbenv-&gt;
+</I>&gt;<i> thread_id_string'
+</I>&gt;<i> ../mutex/mut_failchk.c:57:7: note: expected 'db_threadid_t' but argument is
+</I>&gt;<i> of t
+</I>&gt;<i> ype 'int'
+</I>&gt;<i> make[1]: *** [mut_failchk.lo] Error 1
+</I>&gt;<i> make[1]: Leaving directory `/c/temp/sourcenavigator-NG4.4/db4/PORT'
+</I>&gt;<i> make: *** [all] Error 1
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Modify db4/PORT/db.h manually. Change the line 113 from
+</I>typedef pthread_t db_threadid_t;
+to
+typedef u_int32_t db_threadid_t;
+
+--
+rogerz
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110624/a35d2819/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110624/a35d2819/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000489.html">[SN-devel] NG4.4 MinGW users mailing list
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#490">[ date ]</a>
+              <a href="thread.html#490">[ thread ]</a>
+              <a href="subject.html#490">[ subject ]</a>
+              <a href="author.html#490">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] parser output
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3C20100424130950.181710%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000351.html">
+   <LINK REL="Next"  HREF="000352.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] parser output</H1>
+    <B>&quot;Wolfgang St&#246;cher&quot;</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20parser%20output&In-Reply-To=%3C20100424130950.181710%40gmx.net%3E"
+       TITLE="[SN-devel] parser output">stoecher at gmx.at
+       </A><BR>
+    <I>Sat Apr 24 15:09:50 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000351.html">[SN-devel] How debug
+</A></li>
+        <LI>Next message: <A HREF="000352.html">[SN-devel] parser output
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#348">[ date ]</a>
+              <a href="thread.html#348">[ thread ]</a>
+              <a href="subject.html#348">[ subject ]</a>
+              <a href="author.html#348">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Freek,
+
+I guess cbrowser is the C/C++ parser. (btw: what is cbrowser2 for?)
+
+I am trying to better understand the information flow now. When looking at the output of 
+  cbrowser PropTest2.h
+(see attachments) I wonder how the relations &quot;refers to&quot; and &quot;referred by&quot; can be created from it (e.g. the functions GetProp and SetProp both refer to m_prop).
+And what do the numbers at the beginning of each line mean? Where are these type constants defined?
+
+Thank you for any hints,
+
+Wolfgang
+
+-------- Original-Nachricht --------
+&gt;<i> Datum: Sun, 11 Apr 2010 12:30:40 +0200
+</I>&gt;<i> Von: Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt;
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: [SN-devel] querying source database
+</I>
+&gt;<i> Hi Wolfgang,
+</I>&gt;<i> 
+</I>&gt;<i> yes, you can query the db. No, it's not really that easy :)
+</I>&gt;<i> At first I suggest you'd get the SN source code because the win32 and
+</I>&gt;<i> linux builds don't contain any of the development files (headers,
+</I>&gt;<i> libraries, whatnot).
+</I>&gt;<i> 
+</I>&gt;<i> And then you can start here:
+</I>&gt;<i> <A HREF="http://sourcenav.sourceforge.net/online-docs/progref/dbaseAPI.html#pgfId-996751">http://sourcenav.sourceforge.net/online-docs/progref/dbaseAPI.html#pgfId-996751</A>
+</I>&gt;<i> This describes the DB API (mostly via tcl).
+</I>&gt;<i> 
+</I>&gt;<i> You should also have a look at $SNSOURCE/snavigator/sdk/database and
+</I>&gt;<i> the tcl files in there; they will show you how to query and especially
+</I>&gt;<i> combine db information, esp. call-freq.tcl, unused.tcl and maybe
+</I>&gt;<i> diamonds.tcl (they need to be started with hyper, so you will have to
+</I>&gt;<i> fiddle around with a startup script similar to snavigator).
+</I>&gt;<i> Other than that the &quot;sdk&quot; isn't really in a great shape.
+</I>&gt;<i> 
+</I>&gt;<i> If you want to go lowlevel you should look at dbutils.c and dbimp.c
+</I>&gt;<i> and also should manually run a parser to see what the parsers really
+</I>&gt;<i> spew out for you to use.
+</I>&gt;<i> It's like: parser(file.c) --pipe--&gt; dbimp --&gt; SNDB4/&lt;files&gt;
+</I>&gt;<i> 
+</I>&gt;<i> What you absolutely don't want to do is reimport the db stuff, trust
+</I>&gt;<i> me - SN has quite a nasty db schema.
+</I>&gt;<i> We'll also love to hear what you've achieved and how - just report
+</I>&gt;<i> back if you feel like it. Or if you can contribute something along the
+</I>&gt;<i> way :)
+</I>&gt;<i> 
+</I>&gt;<i> Cheers
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>
+-- 
+Sicherer, schneller und einfacher. Die aktuellen Internet-Browser -
+jetzt kostenlos herunterladen! <A HREF="http://portal.gmx.net/de/go/atbrowser">http://portal.gmx.net/de/go/atbrowser</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PropTest2.h
+Type: application/octet-stream
+Size: 257 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100424/1e4773e7/attachment.obj">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20100424/1e4773e7/attachment.obj</A>&gt;
+-------------- next part --------------
+Status: Parsing: PropTest2.h
+0;PropTest2.h;c++|
+7;_PropTest_h_included_|000002.008|PropTest2.h;2.29|0x0|{}|{}|{}|{}
+14;PropTest2.h|000002.008|#|_PropTest_h_included_|ma;2.29|2.8|2.29|{}
+4;PropTest|m_prop|000007.008|PropTest2.h;7.14|0x1|{int}|{}|{}|{}
+14;PropTest2.h|000007.008|PropTest|m_prop|iv;7.14|7.8|7.14|{}
+3;PropTest|SetProp|000009.009|PropTest2.h;9.16|0x2004|{void}|{int}|{prop}|{}
+14;PropTest2.h|000009.009|PropTest|SetProp|mi;10.20|9.9|9.16|{int}
+17;PropTest|SetProp|000009.009|PropTest2.h;9.16|0x2004|{void}|{int}|{prop}|{}
+14;PropTest2.h|000009.009|PropTest|SetProp|md;10.20|9.9|9.16|{int}
+3;PropTest|GetProp|000011.009|PropTest2.h;11.16|0x2004|{int}|{}|{}|{}
+14;PropTest2.h|000011.009|PropTest|GetProp|mi;12.21|11.9|11.16|{}
+17;PropTest|GetProp|000011.009|PropTest2.h;11.16|0x2004|{int}|{}|{}|{}
+14;PropTest2.h|000011.009|PropTest|GetProp|md;12.21|11.9|11.16|{}
+2;PropTest|000004.006|PropTest2.h;4.14|0x0|{}|{}|{}|{}
+14;PropTest2.h|000004.006|#|PropTest|cl;13.1|4.6|4.14|{}
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000351.html">[SN-devel] How debug
+</A></li>
+	<LI>Next message: <A HREF="000352.html">[SN-devel] parser output
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#348">[ date ]</a>
+              <a href="thread.html#348">[ thread ]</a>
+              <a href="subject.html#348">[ subject ]</a>
+              <a href="author.html#348">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

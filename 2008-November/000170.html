@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Configure failure under windows Msys - NG3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C491DB35A.2030302%40virgin.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000169.html">
+   <LINK REL="Next"  HREF="000171.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Configure failure under windows Msys - NG3</H1>
+    <B>matthew</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Configure%20failure%20under%20windows%20Msys%20-%20NG3&In-Reply-To=%3C491DB35A.2030302%40virgin.net%3E"
+       TITLE="[SN-devel] Configure failure under windows Msys - NG3">dr.mclem at virgin.net
+       </A><BR>
+    <I>Fri Nov 14 18:20:26 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000169.html">[SN-devel] Who's using snscenario and snpdbg ?
+</A></li>
+        <LI>Next message: <A HREF="000171.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there
+
+I have been a long time fan of sourve nav and have used it extensively 
+over the years
+and I'm glad to see it being resurrected - hope I can help out in the 
+future.
+
+I have been working on integrating Git into the rcs system on the old 
+version on and off for a while
+and thought I would try and port my changes into the new version. For 
+several reasons I
+want to build the whole thing anew (mainly for debugging access) and I 
+am amd struggling to
+get it configured. I'm using the latest mingw/msys combo
+
+It's failing on the db4 configuration is failing on the socket support and
+it appears to be missing some of the includes (which ismentioned in the 
+INSTALL file) -
+
+I'm a bit hesitant to mix and match header files as I use this system 
+for other software as well
+so any hints on fixing this would be apprecieted.
+
+Regards
+
+Matthew
+
+Sub set of messages
+
+ $ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys 
+--cache-file=../.././config.cache --srcdir=.
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = Jafar
+uname -m = i686
+uname -r = 1.0.10(0.46/3/2)
+uname -s = MINGW32_NT-5.1
+uname -v = 2004-03-15 07:17
+
+....
+
+checking for library containing opendir... none required
+checking sys/select.h usability... no
+checking sys/select.h presence... no
+checking for sys/select.h... no
+checking sys/socket.h usability... no
+checking sys/socket.h presence... no
+checking for sys/socket.h... no
+checking for sys/time.h... (cached) yes
+
+....
+
+checking for socklen_t... no
+checking for socklen_t equivalent...
+
+$ ./configure --prefix=/d/Develop/sourcenavigator-NG3 --enable-msys &gt; 
+out.txt
+configure: error: Cannot find a type to use in place of socklen_t
+configure: error: ./configure failed for db4/PORT
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000169.html">[SN-devel] Who's using snscenario and snpdbg ?
+</A></li>
+	<LI>Next message: <A HREF="000171.html">[SN-devel] Configure failure under windows Msys - NG3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] how to customize input list from CLI
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20how%20to%20customize%20input%20list%20from%20CLI&In-Reply-To=%3CAANLkTimY96n3xNz_0XH5EtQpow7vtXBgpf2uYkp%2BEOhU%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000427.html">
+   <LINK REL="Next"  HREF="000429.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] how to customize input list from CLI</H1>
+    <B>Mark Thornber</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20how%20to%20customize%20input%20list%20from%20CLI&In-Reply-To=%3CAANLkTimY96n3xNz_0XH5EtQpow7vtXBgpf2uYkp%2BEOhU%40mail.gmail.com%3E"
+       TITLE="[SN-devel] how to customize input list from CLI">mark.thornber at gmail.com
+       </A><BR>
+    <I>Thu Mar 10 12:10:15 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000427.html">[SN-devel] how to customize input list from CLI
+</A></li>
+        <LI>Next message: <A HREF="000429.html">[SN-devel] how to customize input list from CLI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#428">[ date ]</a>
+              <a href="thread.html#428">[ thread ]</a>
+              <a href="subject.html#428">[ subject ]</a>
+              <a href="author.html#428">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 10 March 2011 03:24, Montaseri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">montaseri at gmail.com</A>&gt; wrote:
+&gt;<i> I have found some more info on this....
+</I>&gt;<i>
+</I>&gt;<i> Looks like snavigator/hyper/recudir.c: sn_glob() is where the src tree
+</I>&gt;<i> traversal take palce. This function creates a Glob_Type rec_params and fills
+</I>&gt;<i> it up and calls recursive_glob(&amp;rec_params).
+</I>&gt;<i>
+</I>&gt;<i> rec_params seem to have a member called
+</I>&gt;<i> rec_params.ignored_dirs_argc
+</I>&gt;<i> rec_params.ignored_dirs_argv
+</I>&gt;<i>
+</I>&gt;<i> which are related to some -ignore switch from command line or somewhere
+</I>I think this is to do with the directories mentioned in the &quot;Ignored
+directories&quot; pane of the &quot;Version control&quot; tab of Preferences window
+
+I can't see an --ignore switch anywhere for hyper (which isn't to say
+it isn't needed)
+
+-- 
+Mark Thornber
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000427.html">[SN-devel] how to customize input list from CLI
+</A></li>
+	<LI>Next message: <A HREF="000429.html">[SN-devel] how to customize input list from CLI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#428">[ date ]</a>
+              <a href="thread.html#428">[ thread ]</a>
+              <a href="subject.html#428">[ subject ]</a>
+              <a href="author.html#428">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

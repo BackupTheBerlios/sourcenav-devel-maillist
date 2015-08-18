@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Xref pane, Remove Subnode, Refers To only
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20pane%2C%20Remove%20Subnode%2C%20Refers%20To%20only&In-Reply-To=%3CBANLkTikXn8fNHb1MOWPy0ZfhQLcLp5Wj-g%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000454.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Xref pane, Remove Subnode, Refers To only</H1>
+    <B>Montaseri</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Xref%20pane%2C%20Remove%20Subnode%2C%20Refers%20To%20only&In-Reply-To=%3CBANLkTikXn8fNHb1MOWPy0ZfhQLcLp5Wj-g%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Xref pane, Remove Subnode, Refers To only">montaseri at gmail.com
+       </A><BR>
+    <I>Mon Apr 11 22:18:53 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000454.html">[SN-devel] Xref pane, Remove Subnode, Refers To only
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#455">[ date ]</a>
+              <a href="thread.html#455">[ thread ]</a>
+              <a href="subject.html#455">[ subject ]</a>
+              <a href="author.html#455">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Let me see if I can do this via ascii graph
+
+function_f1 ----&gt; func_f2 ----+----&gt; func_f3-----&gt; func_f4 -----&gt; func_f5
+                    |         +----&gt; func_f6 ----&gt; func_f7
+                    |         +----&gt; func_f8 ----&gt; func_f9
+                    |&lt;------------ func_f10 &lt;-------- func_f11
+                    |&lt;------------ func_f12 &lt;--------- func_f13
+
+As we see, func_f2() calls func_f3(), func_f6() and func_f8(). Also, we see
+that func_f2() is being called by func_f10() and func_f12().
+
+Now lets say I select func_f2() and ask to &quot;Remove Subnodes&quot;. What I will
+get is
+
+function_f1() ----------&gt; func_f2()
+
+That is the entire subnode (to f2) has been removed. What I wanted to only
+remove called functions. That is to get something like
+
+function_f1() -------&gt; func_f2()
+                         |&lt;------- func_f10 &lt;------- func_f11
+                         |&lt;------- func_f12 &lt;------- func_f1
+
+or what if I wanted to only remove callers to get the following
+
+ function_f1 ------&gt; func_f2 ----+-----&gt; func_f3----&gt; func_f4 -----&gt; func_f5
+                                 +-----&gt; func_f6 ---&gt; func_f7
+                                 +-----&gt; func_f8 ---&gt; func_f9
+
+That is selective removal of subnodes based on &quot;Refers To&quot; or &quot;Referred by&quot;
+
+If this ascii graph does not convey my message, I'll capture some graphs
+
+Thanks
+medi
+
+On Mon, Apr 11, 2011 at 12:34 PM, Freek &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">freequaos at gmail.com</A>&gt; wrote:
+
+&gt;<i> HI Medi,
+</I>&gt;<i>
+</I>&gt;<i> &gt; I was wondering if it is possible to &quot;ONLY&quot; remove &quot;Refers To&quot; subnode in
+</I>&gt;<i> &gt; the Xref pane?
+</I>&gt;<i>
+</I>&gt;<i> Could you please create a screenshot to explain more clearly what you
+</I>&gt;<i> want to do?
+</I>&gt;<i> I'm a bit lost here...
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> F
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Sourcenav-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">Sourcenav-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">https://lists.berlios.de/mailman/listinfo/sourcenav-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110411/6c46b25e/attachment.html">https://lists.berlios.de/pipermail/sourcenav-devel/attachments/20110411/6c46b25e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000454.html">[SN-devel] Xref pane, Remove Subnode, Refers To only
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#455">[ date ]</a>
+              <a href="thread.html#455">[ thread ]</a>
+              <a href="subject.html#455">[ subject ]</a>
+              <a href="author.html#455">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

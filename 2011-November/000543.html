@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] Tcl/Tk dependency?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%20dependency%3F&In-Reply-To=%3CCALSkELas1fMjJtdau01cUKhtHo2yfyMaJ2AS2E5i86eh0O%2BjPQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000544.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] Tcl/Tk dependency?</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20Tcl/Tk%20dependency%3F&In-Reply-To=%3CCALSkELas1fMjJtdau01cUKhtHo2yfyMaJ2AS2E5i86eh0O%2BjPQ%40mail.gmail.com%3E"
+       TITLE="[SN-devel] Tcl/Tk dependency?">freequaos at gmail.com
+       </A><BR>
+    <I>Thu Nov 24 10:42:53 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000544.html">[SN-devel] Tcl/Tk dependency?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#543">[ date ]</a>
+              <a href="thread.html#543">[ thread ]</a>
+              <a href="subject.html#543">[ subject ]</a>
+              <a href="author.html#543">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> JFYI the current Cocoa build of Tk in Lion is 8.5. My workaround is to
+</I>&gt;<i> run older tools in a VM for now.
+</I>&gt;<i> I'll try to find time to look for any obvious ABI bombs 8.4-&gt;8.5, and
+</I>&gt;<i> test any new builds as they arise.
+</I>
+Well, you'll have no problems running SN, because we usually link
+statically against tcl/tk (Unix, win32 is a .dll in lib/ and uses the
+name rhtcltk or something like that) and only install libs intro
+$PREFIX.
+No need for VMs or funny stuff. Don't know if we have solved the bad
+malloc(), though.
+As long as you don't try to link agaist system libs everythings gonna be fine.
+
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000544.html">[SN-devel] Tcl/Tk dependency?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#543">[ date ]</a>
+              <a href="thread.html#543">[ thread ]</a>
+              <a href="subject.html#543">[ subject ]</a>
+              <a href="author.html#543">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

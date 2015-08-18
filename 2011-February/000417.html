@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] skip list vs include list
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2011-February/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20skip%20list%20vs%20include%20list&In-Reply-To=%3CAANLkTim8FhjH2YjYFN8KUK0d7Y_BxTvgvdihNygkNd_a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000416.html">
+   <LINK REL="Next"  HREF="000418.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] skip list vs include list</H1>
+    <B>Freek</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20skip%20list%20vs%20include%20list&In-Reply-To=%3CAANLkTim8FhjH2YjYFN8KUK0d7Y_BxTvgvdihNygkNd_a%40mail.gmail.com%3E"
+       TITLE="[SN-devel] skip list vs include list">freequaos at gmail.com
+       </A><BR>
+    <I>Wed Feb 16 10:21:58 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000416.html">[SN-devel] skip list vs include list
+</A></li>
+        <LI>Next message: <A HREF="000418.html">[SN-devel] skip list vs include list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+&gt;<i> I have a src tree with a few obsolete huge sub-dirs (sub trees) that I would
+</I>&gt;<i> like to skip during tagging (aka symbol database construction) to expedite
+</I>&gt;<i> the project parsing.
+</I>
+well, I currently see no better way than to have a directory list,
+where you grep -v your unwanted directories out. We currently have no
+man-power for this feature, but we'd gladly accept any patches.
+BTW, you only need to list the top-level directories as SN will add
+all files recusively.
+You also could use the GUI and take out your unwanted directories
+(ctrl-click, shift-click works when selecting entries in the list).
+
+And please, let's call it &quot;crossreferencing&quot;, not &quot;tagging&quot; (which is
+a completeley different concept) :)
+Cheers,
+F
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000416.html">[SN-devel] skip list vs include list
+</A></li>
+	<LI>Next message: <A HREF="000418.html">[SN-devel] skip list vs include list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>

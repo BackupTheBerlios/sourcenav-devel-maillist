@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [SN-devel] current svn configure failing for me
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sourcenav-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C1209994169.23224.43.camel%40raker%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000127.html">
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[SN-devel] current svn configure failing for me</H1>
+    <B>Reid Thompson</B> 
+    <A HREF="mailto:sourcenav-devel%40lists.berlios.de?Subject=Re%3A%20%5BSN-devel%5D%20current%20svn%20configure%20failing%20for%20me&In-Reply-To=%3C1209994169.23224.43.camel%40raker%3E"
+       TITLE="[SN-devel] current svn configure failing for me">Reid.Thompson at ateb.com
+       </A><BR>
+    <I>Mon May  5 15:29:26 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000127.html">[SN-devel] current svn configure failing for me
+</A></li>
+        <LI>Next message: <A HREF="000129.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 2008-05-05 at 14:35 +0200, Freek wrote:
+&gt;<i> &gt; configure is failing on current Gentoo.
+</I>&gt;<i> &gt;  previous svn HEAD's have built without issue.
+</I>&gt;<i> [...]
+</I>&gt;<i> &gt;  checking for Tcl configuration script... configure: WARNING: Can't find Tcl configuration definitions
+</I>&gt;<i> &gt;  ./configure: line 3928: .: filename argument required
+</I>&gt;<i> &gt;  .: usage: . filename [arguments]
+</I>&gt;<i> &gt;  configure: error: ./configure failed for parsers/assembly/ppc601-eabi
+</I>&gt;<i> &gt;  configure: error: ./configure failed for snavigator
+</I>&gt;<i> 
+</I>&gt;<i> Yes; quick workaround is to simply also specify
+</I>&gt;<i> --cache-file=config.cache to the configure run.
+</I>&gt;<i> Mark and me are currently discussing solutions, but it will take a
+</I>&gt;<i> couple of days to get the final solution, for sure.
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> ~F
+</I>Thanks --
+current head appears to compile OK on gentoo.
+
+I did...
+
+mkdir build
+cd build
+../configure --prefix=/opt/snav  --cache-file=config.cache
+make
+...
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000127.html">[SN-devel] current svn configure failing for me
+</A></li>
+	<LI>Next message: <A HREF="000129.html">[SN-devel] current svn configure failing for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sourcenav-devel">More information about the Sourcenav-devel
+mailing list</a><br>
+</body></html>
